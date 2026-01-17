@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dgfmrlor71dtb"]
+
+[ext_resource type="Texture2D" uid="uid://beium1fiy4os7" path="res://Materials/download.jpeg" id="1_rp6lf"]
+
+[resource]
+diffuse_mode = 1
+albedo_color = Color(0.3690983, 0.31311822, 0.2927682, 1)
+albedo_texture = ExtResource("1_rp6lf")
+uv1_scale = Vector3(6, 6, 6)

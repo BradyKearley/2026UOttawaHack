@@ -1,0 +1,233 @@
+[gd_scene load_steps=3 format=3 uid="uid://bitwnyfpl3m1y"]
+
+[ext_resource type="Material" uid="uid://b0p18gxn3nfln" path="res://Materials/Wall.tres" id="1_f03hm"]
+[ext_resource type="Material" uid="uid://cre6jy455chi" path="res://Materials/leg.tres" id="2_brbim"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(0.9999538, 0.0092504695, -0.0026106585, -0.009244904, 0.999955, 0.002135287, 0.0026302973, -0.002111048, 0.9999943, 0.00019196532, 0.02075102, -4.380837e-05)
+use_collision = true
+size = Vector3(2, 2.041504, 2)
+material = ExtResource("1_f03hm")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.023516, -0.9873068, -0.049866676)
+size = Vector3(0.16333008, 0.17273535, 2.173645)
+material = ExtResource("2_brbim")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0078182, 1.9466736, -0.06469631)
+size = Vector3(0.20373535, 0.17273535, 2.0130615)
+material = ExtResource("2_brbim")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGBox3D7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.019781, -0.0048446655, -0.06469631)
+size = Vector3(0.22766113, 0.17273535, 2.0130615)
+material = ExtResource("2_brbim")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGBox3D7"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.93171024, 0, -0.99703264)
+size = Vector3(0.16333008, 0.17273535, 2.0130615)
+material = ExtResource("2_brbim")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGBox3D7"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.0869555, 0, 1.0082529)
+size = Vector3(0.16333008, 0.17273535, 2.0270386)
+material = ExtResource("2_brbim")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0535612, 0.9881211, -0.03427124)
+size = Vector3(0.16333008, 0.17273535, 2.173645)
+material = ExtResource("2_brbim")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGBox3D6"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.93171024, 0, -0.99703264)
+size = Vector3(0.16333008, 0.17273535, 2.0130615)
+material = ExtResource("2_brbim")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGBox3D6"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.0869555, 0, 1.0082529)
+size = Vector3(0.16333008, 0.17273535, 2.0270386)
+material = ExtResource("2_brbim")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="."]
+transform = Transform3D(1.9106855e-15, 1, 4.371139e-08, 4.371139e-08, -4.371139e-08, 1, 1, 0, -4.371139e-08, 1.0433164, -0.021846354, 0.95341337)
+size = Vector3(0.16333008, 0.17273535, 2.1053162)
+material = ExtResource("2_brbim")
+
+[node name="InnerCracks" type="CSGBox3D" parent="."]
+transform = Transform3D(1.9106855e-15, 1, 4.371139e-08, 4.371139e-08, -4.371139e-08, 1, 1, 0, -4.371139e-08, 0.35716745, -0.02184635, 0.94193876)
+size = Vector3(0.14038086, 0.024355955, 2.1053162)
+material = ExtResource("2_brbim")
+
+[node name="InnerCracks2" type="CSGBox3D" parent="InnerCracks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.17549822, -7.450581e-09)
+size = Vector3(0.14038086, 0.024355955, 2.1053162)
+material = ExtResource("2_brbim")
+
+[node name="InnerCracks5" type="CSGBox3D" parent="InnerCracks"]
+transform = Transform3D(1, 2.6053104e-09, -7.771206e-11, -2.6053104e-09, 0.9982222, -0.059602555, -7.771206e-11, 0.059602555, 0.9982222, 0, -1.0075144, -4.0978193e-08)
+size = Vector3(0.14038086, 0.024355955, 2.1053162)
+material = ExtResource("2_brbim")
+
+[node name="InnerCracks6" type="CSGBox3D" parent="InnerCracks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6791329, -2.7939677e-08)
+size = Vector3(0.14038086, 0.024355955, 2.1053162)
+material = ExtResource("2_brbim")
+
+[node name="InnerCracks7" type="CSGBox3D" parent="InnerCracks"]
+transform = Transform3D(1, -3.3839205e-09, -1.311804e-10, 3.3839205e-09, 0.99699897, 0.07741508, -1.311804e-10, -0.07741508, 0.99699897, 0, -0.40883362, -1.3038516e-08)
+size = Vector3(0.14038086, 0.024355955, 2.1053162)
+material = ExtResource("2_brbim")
+
+[node name="InnerCracks3" type="CSGBox3D" parent="InnerCracks"]
+transform = Transform3D(1, 1.6734103e-09, -3.2045477e-11, -1.6734103e-09, 0.9992669, -0.038283166, -3.2045477e-11, 0.038283166, 0.9992669, 0, 0.27389744, 1.6763806e-08)
+size = Vector3(0.14038086, 0.024355955, 2.1053162)
+material = ExtResource("2_brbim")
+
+[node name="InnerCracks4" type="CSGBox3D" parent="InnerCracks"]
+transform = Transform3D(1, 4.707049e-10, -2.5366376e-12, -4.70705e-10, 0.999942, -0.010768474, -2.5366376e-12, 0.010768474, 0.999942, 0, 0.510206, 2.4214387e-08)
+size = Vector3(0.14038086, 0.024355955, 2.1053162)
+material = ExtResource("2_brbim")
+
+[node name="InnerCracks2" type="CSGBox3D" parent="."]
+transform = Transform3D(1.9106855e-15, 1, 4.371139e-08, 4.371139e-08, -4.371139e-08, 1, 1, 0, -4.371139e-08, 0.35716745, -0.02184635, -0.94713163)
+size = Vector3(0.14038086, 0.024355955, 2.1053162)
+material = ExtResource("2_brbim")
+
+[node name="InnerCracks2" type="CSGBox3D" parent="InnerCracks2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.17549822, -7.450581e-09)
+size = Vector3(0.14038086, 0.024355955, 2.1053162)
+material = ExtResource("2_brbim")
+
+[node name="InnerCracks5" type="CSGBox3D" parent="InnerCracks2"]
+transform = Transform3D(1, 2.6053104e-09, -7.771206e-11, -2.6053104e-09, 0.9982222, -0.059602555, -7.771206e-11, 0.059602555, 0.9982222, 0, -1.0075144, -4.0978193e-08)
+size = Vector3(0.14038086, 0.024355955, 2.1053162)
+material = ExtResource("2_brbim")
+
+[node name="InnerCracks6" type="CSGBox3D" parent="InnerCracks2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6791329, -2.7939677e-08)
+size = Vector3(0.14038086, 0.024355955, 2.1053162)
+material = ExtResource("2_brbim")
+
+[node name="InnerCracks7" type="CSGBox3D" parent="InnerCracks2"]
+transform = Transform3D(1, -3.3839205e-09, -1.311804e-10, 3.3839205e-09, 0.99699897, 0.07741508, -1.311804e-10, -0.07741508, 0.99699897, 0, -0.40883362, -1.3038516e-08)
+size = Vector3(0.14038086, 0.024355955, 2.1053162)
+material = ExtResource("2_brbim")
+
+[node name="InnerCracks3" type="CSGBox3D" parent="InnerCracks2"]
+transform = Transform3D(1, 1.6734103e-09, -3.2045477e-11, -1.6734103e-09, 0.9992669, -0.038283166, -3.2045477e-11, 0.038283166, 0.9992669, 0, 0.27389744, 1.6763806e-08)
+size = Vector3(0.14038086, 0.024355955, 2.1053162)
+material = ExtResource("2_brbim")
+
+[node name="InnerCracks4" type="CSGBox3D" parent="InnerCracks2"]
+transform = Transform3D(1, 4.707049e-10, -2.5366376e-12, -4.70705e-10, 0.999942, -0.010768474, -2.5366376e-12, 0.010768474, 0.999942, 0, 0.510206, 2.4214387e-08)
+size = Vector3(0.14038086, 0.024355955, 2.1053162)
+material = ExtResource("2_brbim")
+
+[node name="InnerCracks3" type="CSGBox3D" parent="."]
+transform = Transform3D(-1, -4.371139e-08, 4.3711385e-08, 4.371139e-08, -4.371139e-08, 1, -4.3711385e-08, 1, 4.3711392e-08, -0.94806814, -0.02184635, 0.16489494)
+size = Vector3(0.14038086, 0.024355955, 2.1053162)
+material = ExtResource("2_brbim")
+
+[node name="InnerCracks2" type="CSGBox3D" parent="InnerCracks3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.17549822, -7.450581e-09)
+size = Vector3(0.14038086, 0.024355955, 2.1053162)
+material = ExtResource("2_brbim")
+
+[node name="InnerCracks5" type="CSGBox3D" parent="InnerCracks3"]
+transform = Transform3D(1, 2.6053104e-09, -7.771206e-11, -2.6053104e-09, 0.9982222, -0.059602555, -7.771206e-11, 0.059602555, 0.9982222, 0, -1.0075144, -4.0978193e-08)
+size = Vector3(0.14038086, 0.024355955, 2.1053162)
+material = ExtResource("2_brbim")
+
+[node name="InnerCracks6" type="CSGBox3D" parent="InnerCracks3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6791329, -2.7939677e-08)
+size = Vector3(0.14038086, 0.024355955, 2.1053162)
+material = ExtResource("2_brbim")
+
+[node name="InnerCracks7" type="CSGBox3D" parent="InnerCracks3"]
+transform = Transform3D(1, -3.3839205e-09, -1.311804e-10, 3.3839205e-09, 0.99699897, 0.07741508, -1.311804e-10, -0.07741508, 0.99699897, 0, -0.40883362, -1.3038516e-08)
+size = Vector3(0.14038086, 0.024355955, 2.1053162)
+material = ExtResource("2_brbim")
+
+[node name="InnerCracks3" type="CSGBox3D" parent="InnerCracks3"]
+transform = Transform3D(1, 1.6734103e-09, -3.2045477e-11, -1.6734103e-09, 0.9992669, -0.038283166, -3.2045477e-11, 0.038283166, 0.9992669, 0, 0.27389744, 1.6763806e-08)
+size = Vector3(0.14038086, 0.024355955, 2.1053162)
+material = ExtResource("2_brbim")
+
+[node name="InnerCracks4" type="CSGBox3D" parent="InnerCracks3"]
+transform = Transform3D(1, 4.707049e-10, -2.5366376e-12, -4.70705e-10, 0.999942, -0.010768474, -2.5366376e-12, 0.010768474, 0.999942, 0, 0.510206, 2.4214387e-08)
+size = Vector3(0.14038086, 0.024355955, 2.1053162)
+material = ExtResource("2_brbim")
+
+[node name="InnerCracks4" type="CSGBox3D" parent="."]
+transform = Transform3D(-1, -4.371139e-08, 4.3711385e-08, 4.371139e-08, -4.371139e-08, 1, -4.3711385e-08, 1, 4.3711392e-08, 0.97193575, -0.02184635, 0.16489494)
+size = Vector3(0.14038086, 0.024355955, 2.1053162)
+material = ExtResource("2_brbim")
+
+[node name="InnerCracks2" type="CSGBox3D" parent="InnerCracks4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.17549822, -7.450581e-09)
+size = Vector3(0.14038086, 0.024355955, 2.1053162)
+material = ExtResource("2_brbim")
+
+[node name="InnerCracks5" type="CSGBox3D" parent="InnerCracks4"]
+transform = Transform3D(1, 2.6053104e-09, -7.771206e-11, -2.6053104e-09, 0.9982222, -0.059602555, -7.771206e-11, 0.059602555, 0.9982222, 0, -1.0075144, -4.0978193e-08)
+size = Vector3(0.14038086, 0.024355955, 2.1053162)
+material = ExtResource("2_brbim")
+
+[node name="InnerCracks6" type="CSGBox3D" parent="InnerCracks4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6791329, -2.7939677e-08)
+size = Vector3(0.14038086, 0.024355955, 2.1053162)
+material = ExtResource("2_brbim")
+
+[node name="InnerCracks7" type="CSGBox3D" parent="InnerCracks4"]
+transform = Transform3D(1, -3.3839205e-09, -1.311804e-10, 3.3839205e-09, 0.99699897, 0.07741508, -1.311804e-10, -0.07741508, 0.99699897, 0, -0.40883362, -1.3038516e-08)
+size = Vector3(0.14038086, 0.024355955, 2.1053162)
+material = ExtResource("2_brbim")
+
+[node name="InnerCracks3" type="CSGBox3D" parent="InnerCracks4"]
+transform = Transform3D(1, 1.6734103e-09, -3.2045477e-11, -1.6734103e-09, 0.9992669, -0.038283166, -3.2045477e-11, 0.038283166, 0.9992669, 0, 0.27389744, 1.6763806e-08)
+size = Vector3(0.14038086, 0.024355955, 2.1053162)
+material = ExtResource("2_brbim")
+
+[node name="InnerCracks4" type="CSGBox3D" parent="InnerCracks4"]
+transform = Transform3D(1, 4.707049e-10, -2.5366376e-12, -4.70705e-10, 0.999942, -0.010768474, -2.5366376e-12, 0.010768474, 0.999942, 0, 0.510206, 2.4214387e-08)
+size = Vector3(0.14038086, 0.024355955, 2.1053162)
+material = ExtResource("2_brbim")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="."]
+transform = Transform3D(1.9106855e-15, 1, 4.371139e-08, 4.371139e-08, -4.371139e-08, 1, 1, 0, -4.371139e-08, 1.0433164, -0.021846354, -1.0541253)
+size = Vector3(0.16333008, 0.17273535, 2.1053162)
+material = ExtResource("2_brbim")
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="."]
+transform = Transform3D(1.9106855e-15, 1, 4.371139e-08, 4.371139e-08, -4.371139e-08, 1, 1, 0, -4.371139e-08, -1.0313761, -0.021846354, -1.0541253)
+size = Vector3(0.16333008, 0.17273535, 2.1053162)
+material = ExtResource("2_brbim")
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="."]
+transform = Transform3D(1.9106855e-15, 1, 4.371139e-08, 4.371139e-08, -4.371139e-08, 1, 1, 0, -4.371139e-08, -1.0313761, -0.013019145, 0.9695162)
+size = Vector3(0.16333008, 0.17273535, 2.1229706)
+material = ExtResource("2_brbim")
+
+[node name="Plank" type="CSGBox3D" parent="."]
+transform = Transform3D(3.2379038e-08, 0.67178524, 0.7407461, 2.9364665e-08, -0.7407461, 0.67178524, 1, -1.4303672e-15, -4.371139e-08, 0.04406709, -0.039426334, 0.9622168)
+size = Vector3(0.19018555, 0.29486376, 2.6194358)
+material = ExtResource("2_brbim")
+
+[node name="Plank4" type="CSGBox3D" parent="."]
+transform = Transform3D(-0.9999999, -1.4901161e-08, 5.9604645e-08, 2.9364664e-08, -0.7407461, 0.67178524, 2.9802322e-08, 0.67178524, 0.7407461, -0.9802784, -0.039426334, -0.03608477)
+use_collision = true
+size = Vector3(0.19018555, 0.29486376, 2.6194358)
+material = ExtResource("2_brbim")
+
+[node name="Plank2" type="CSGBox3D" parent="."]
+transform = Transform3D(3.2379038e-08, 0.67178524, 0.7407461, 2.9364665e-08, -0.7407461, 0.67178524, 1, -1.4303672e-15, -4.371139e-08, 0.04406709, -0.039426334, -0.99234635)
+size = Vector3(0.19018555, 0.29486376, 2.6194358)
+material = ExtResource("2_brbim")
+
+[node name="Plank3" type="CSGBox3D" parent="."]
+transform = Transform3D(0.9999999, 2.9802322e-08, -2.9802322e-08, 2.9364664e-08, -0.7407461, 0.67178524, 0, -0.67178535, -0.74074614, 1.0200676, -0.039426215, -0.072443545)
+size = Vector3(0.19018555, 0.29486376, 2.6194358)
+material = ExtResource("2_brbim")

@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://3qm4dqnxn6gr"]
+
+[ext_resource type="Material" uid="uid://b0p18gxn3nfln" path="res://Materials/Wall.tres" id="1_el5v3"]
+[ext_resource type="Material" uid="uid://0sfm8voa3ion" path="res://Materials/redBook.tres" id="2_retch"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.20166016, 0)
+size = Vector3(2.7053223, 3.1191406, 0.67993164)
+material = ExtResource("1_el5v3")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.24734497, 0.35087276)
+size = Vector3(2.9846191, 3.3914185, 0.21234131)
+material = ExtResource("2_retch")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.23904419, -0.3886304)
+size = Vector3(2.9846191, 3.374817, 0.21234131)
+material = ExtResource("2_retch")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4329834, -0.23504639, -0.03353548)
+size = Vector3(0.2133789, 3.3668213, 1.03125)
+material = ExtResource("2_retch")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5754395, -0.23504639, -0.03353548)
+size = Vector3(0.11254883, 3.3668213, 0.828125)
+material = ExtResource("2_retch")

@@ -17,10 +17,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0032277107, 0.0123227835, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0032277107, 6.2983084, 10.060199)
 
 [node name="Node3D5" parent="." instance=ExtResource("1_qpusw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0032277107, 6.1859546, -0.0059080124)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0032277107, 6.1859546, 0.07191038)
 
 [node name="Node3D6" parent="." instance=ExtResource("1_qpusw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0032277107, 0.0123227835, -0.0059080124)
 
 [node name="Node3D7" parent="." instance=ExtResource("1_qpusw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0032277107, 0.0123227835, 10.100309)
+
+[node name="Node3D8" parent="." instance=ExtResource("1_qpusw")]

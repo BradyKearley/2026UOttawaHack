@@ -5,3 +5,4 @@
 [node name="Node3D" type="Node3D"]
 
 [node name="CSGBox3D" parent="." instance=ExtResource("1_8js67")]
+use_collision = true

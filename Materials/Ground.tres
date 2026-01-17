@@ -1,5 +1,8 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://ddgqk5ag3vvda"]
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://ddgqk5ag3vvda"]
+
+[ext_resource type="Material" uid="uid://cwljo58x5xacl" path="res://Materials/floor.tres" id="1_i3xm6"]
 
 [resource]
+next_pass = ExtResource("1_i3xm6")
 shading_mode = 0
 albedo_color = Color(0.7001141, 0.36981636, 9.62615e-08, 1)
