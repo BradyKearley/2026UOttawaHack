@@ -1,0 +1,42 @@
+[gd_scene load_steps=0 format=3 uid="uid://c2qmeky5arjyb"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+size = Vector3(3, 0.3, 10)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9290416, 0)
+size = Vector3(3, 0.2, 10)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00077819824, 2.9650095, 5.058453)
+size = Vector3(3.004, 6.2100196, 0.2)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00077819824, 2.9783762, -5.035893)
+size = Vector3(3.004, 6.236753, 0.2)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.0537283, 0)
+size = Vector3(0.4, 2, 10)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8798828, 0)
+size = Vector3(0.4, 2, 10)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0959756, 0)
+size = Vector3(3, 0.2, 10)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="CSGBox3D/CSGBox3D6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.0592537, 0.006134033)
+size = Vector3(3, 0.2, 10.284119)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.059902, 0)
+size = Vector3(3, 0.2, 10)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.099327, 0)
+size = Vector3(0.4, 2, 10)
