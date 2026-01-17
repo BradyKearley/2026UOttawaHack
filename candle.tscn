@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5u5vyx0i024q"]
+
+[ext_resource type="PackedScene" uid="uid://cmft8vy3qn5jr" path="res://Tscn's/CandleFire.tscn" id="1_bobrv"]
+[ext_resource type="Material" uid="uid://b0p18gxn3nfln" path="res://Materials/Wall.tres" id="2_ev3ty"]
+[ext_resource type="PackedScene" uid="uid://cskgv0mn4loo6" path="res://Tscn's/CandleLight.tscn" id="3_0ehbd"]
+
+[node name="Candle" type="Node3D"]
+
+[node name="CandleFire" parent="." instance=ExtResource("1_bobrv")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 0.37367076, 0, -1, 0, -4.371139e-08, 0.3423161, 0.73336804, 0.663294)
+
+[node name="Wall3" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.33673787, 0.57014054, 0.6599916)
+use_collision = true
+size = Vector3(0.14056432, 0.29873812, 0.1264801)
+material = ExtResource("2_ev3ty")
+
+[node name="CandleLight" parent="." instance=ExtResource("3_0ehbd")]
+transform = Transform3D(-0.0053057857, -0.99998593, 0, 0.9999859, -0.005305786, 0, 0, 0, 0.9029612, 0.3517245, 0.90131885, 0.7387326)
+script = null

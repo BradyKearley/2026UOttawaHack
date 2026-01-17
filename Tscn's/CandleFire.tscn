@@ -3,8 +3,8 @@
 [ext_resource type="Material" uid="uid://c8nh4kp2vwx5m" path="res://Materials/FireParticleMaterial.tres" id="1_material"]
 
 [sub_resource type="Gradient" id="Gradient_color"]
-offsets = PackedFloat32Array(0, 0.3, 0.65, 1)
-colors = PackedColorArray(1, 0.9, 0.4, 1, 1, 0.6, 0.2, 1, 0.9, 0.3, 0.1, 0.7, 0.6, 0.2, 0, 0)
+offsets = PackedFloat32Array(0, 0.094339624, 0.3, 0.65, 1)
+colors = PackedColorArray(1, 0.9, 0.4, 1, 1, 0.80566037, 0.3371069, 1, 1, 0.6, 0.2, 1, 0.9, 0.3, 0.1, 0.7, 0.6, 0.2, 0, 0)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture_color"]
 gradient = SubResource("Gradient_color")
@@ -29,7 +29,7 @@ gravity = Vector3(0, 0.3, 0)
 scale_min = 0.04
 scale_max = 0.12
 scale_curve = SubResource("CurveTexture_scale")
-color = Color(1, 0.7, 0.3, 1)
+color = Color(0.9265633, 0.6487275, 1, 1)
 color_ramp = SubResource("GradientTexture_color")
 
 [sub_resource type="QuadMesh" id="QuadMesh_fire"]
