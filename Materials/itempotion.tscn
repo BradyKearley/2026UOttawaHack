@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://c81b3m3vg6m45"]
+
+[ext_resource type="Script" path="res://Tscn's/item.gd" id="1_b138v"]
+[ext_resource type="Material" path="res://Materials/CrystalBall.tres" id="2_248fi"]
+[ext_resource type="Material" path="res://Materials/GreenBook.tres" id="3_862jn"]
+[ext_resource type="Material" path="res://Materials/blac.tres" id="4_c2p1h"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_vwywe"]
+height = 0.17677736
+radius = 0.11621094
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ejnr"]
+albedo_color = Color(0.28627452, 0.3764706, 0.40784314, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fpu7i"]
+
+[node name="itempotion" type="StaticBody3D" groups=["item"]]
+script = ExtResource("1_b138v")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1186786, 0.13508391, -0.022220522)
+shape = SubResource("CylinderShape3D_vwywe")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1166701, 0.08538401, 0)
+material_override = SubResource("StandardMaterial3D_1ejnr")
+radius = 0.061523438
+height = 0.031067848
+material = SubResource("StandardMaterial3D_fpu7i")
+
+[node name="CrystalSphere" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1187465, 0.16181281, 0)
+radius = 0.09125849
+material = ExtResource("2_248fi")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1211655, 0.16557404, 0.0009545982)
+radius = 0.07145097
+material = ExtResource("3_862jn")
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1208186, 0.2724228, 0.0028891265)
+radius = 0.033896804
+material = ExtResource("4_c2p1h")

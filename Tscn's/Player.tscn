@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bxj8y6qvnhm4w"]
+[gd_scene load_steps=11 format=3 uid="uid://bxj8y6qvnhm4w"]
 
 [ext_resource type="Script" uid="uid://gbtbdhb7e83w" path="res://Tscn's/Player.gd" id="1_v5k2m"]
 [ext_resource type="PackedScene" uid="uid://bgiytxfnbyhxc" path="res://soundEffects/heartBeatSound.tscn" id="2_qnqe6"]
@@ -10,6 +10,30 @@ radius = 0.4
 height = 1.8
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_detection"]
+
+[sub_resource type="Shader" id="Shader_vignette"]
+code = "shader_type canvas_item;
+
+uniform float intensity : hint_range(0.0, 1.0) = 0.0;
+uniform vec3 vignette_color : source_color = vec3(1.0, 0.0, 0.0);
+uniform float vignette_radius : hint_range(0.0, 2.0) = 0.7;
+uniform float vignette_softness : hint_range(0.0, 2.0) = 0.5;
+
+void fragment() {
+	vec2 uv = UV - 0.5;
+	float dist = length(uv);
+	float vignette = smoothstep(vignette_radius, vignette_radius - vignette_softness, dist);
+	vignette = 1.0 - vignette;
+	COLOR = vec4(vignette_color, vignette * intensity);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vignette"]
+shader = SubResource("Shader_vignette")
+shader_parameter/intensity = 0.0
+shader_parameter/vignette_color = Vector3(1, 0, 0)
+shader_parameter/vignette_radius = 0.7
+shader_parameter/vignette_softness = 0.5
 
 [sub_resource type="LabelSettings" id="LabelSettings_bpm"]
 font_size = 24
@@ -50,6 +74,16 @@ current = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="RedFlashOverlay" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_vignette")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 1)
+
 [node name="BPMLabel" type="Label" parent="CanvasLayer"]
 offset_left = 10.0
 offset_top = 10.0
@@ -73,6 +107,25 @@ offset_right = 200.0
 offset_bottom = 130.0
 text = "Items: 0"
 label_settings = SubResource("LabelSettings_stamina")
+
+[node name="HeartUI" type="Label" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -120.0
+offset_top = -120.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 0
+grow_vertical = 0
+pivot_offset = Vector2(50, 50)
+theme_override_colors/font_color = Color(0.8, 0.1, 0.1, 1)
+theme_override_font_sizes/font_size = 72
+text = "♥"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="woodenFloor" parent="." instance=ExtResource("3_f0db6")]
 

@@ -17,6 +17,8 @@ var bob_time = 0.0
 var camera_base_y = 1.6
 @onready var bpm_label = $CanvasLayer/BPMLabel
 @onready var stamina_label = $CanvasLayer/StaminaLabel
+@onready var heart_ui = $CanvasLayer/HeartUI
+@onready var red_flash_overlay = $CanvasLayer/RedFlashOverlay
 
 # Item interaction
 var raycast: RayCast3D
@@ -39,6 +41,9 @@ const SPRINT_BPM = 160.0 # Heart rate while sprinting (increased cap)
 const MAX_BPM = 200.0 # Maximum possible BPM
 const BPM_INCREASE_SPEED = 15.0 # Slower increase (was 30.0)
 const BPM_DECREASE_SPEED = 25.0 # Faster recovery
+const HIGH_BPM_THRESHOLD = 150.0 # BPM threshold for death timer
+const HIGH_BPM_DEATH_TIME = 10.0 # Seconds above threshold before death
+var high_bpm_timer: float = 0.0 # Tracks time spent above threshold
 @onready var heartbeat_sound = $Camera3D/SFXManager/Heart
 @onready var breathing_sound = $Camera3D/SFXManager/Breathing
 @onready var footstep_sound = $Camera3D/woodenFloor/AudioStreamPlayer
@@ -48,6 +53,13 @@ var heartbeat_timer: float = 0.0
 var footstep_timer: float = 0.0
 const WALK_FOOTSTEP_INTERVAL = 1  # Time between footsteps when walking
 const SPRINT_FOOTSTEP_INTERVAL = 0.5  # Faster footsteps when sprinting
+
+# Heart UI animation
+var heart_pulse_time: float = 0.0
+const MIN_HEART_SCALE = 0.8
+const MAX_HEART_SCALE = 1.2
+var red_flash_time: float = 0.0
+const RED_FLASH_THRESHOLD = 120.0
 
 # Monster proximity effects
 var monster_bpm_modifier: float = 0.0 # Additional BPM from being near monster
@@ -301,6 +313,9 @@ func _physics_process(delta):
 	# Update heartbeat sound
 	_update_heartbeat(delta)
 	
+	# Update heart UI animation
+	_update_heart_ui(delta)
+	
 	move_and_slide()
 
 func _update_heart_rate(delta, is_sprinting: bool, speed: float):
@@ -331,6 +346,23 @@ func _update_heart_rate(delta, is_sprinting: bool, speed: float):
 	# Track when BPM reaches critical levels
 	if sentry and previous_bpm < 180 and heart_bpm >= 180:
 		sentry.track_event("Critical BPM reached", "BPM: %.0f, Monster modifier: %.0f" % [heart_bpm, monster_bpm_modifier])
+	
+	# Death timer: track time spent above HIGH_BPM_THRESHOLD
+	if heart_bpm >= HIGH_BPM_THRESHOLD:
+		high_bpm_timer += delta
+		if high_bpm_timer >= HIGH_BPM_DEATH_TIME:
+			_trigger_death()
+	else:
+		high_bpm_timer = 0.0 # Reset timer when BPM drops below threshold
+
+func _trigger_death():
+	# Load and display death screen
+	if sentry:
+		sentry.track_event("Player died", "cause: heart rate above %.0f BPM for %.0f seconds" % [HIGH_BPM_THRESHOLD, HIGH_BPM_DEATH_TIME])
+	
+	var death_screen = load("res://Tscn's/DeathScreen.tscn").instantiate()
+	get_tree().root.add_child(death_screen)
+
 
 func _apply_heart_rate_effects(delta):
 	# Calculate vignette intensity based on heart rate
@@ -375,7 +407,54 @@ func _update_heartbeat(delta):
 		# Start playing if not already
 		if not heartbeat_sound.playing:
 			heartbeat_sound.play()
-
+func _update_heart_ui(delta):
+	if not heart_ui:
+		return
+	
+	# Calculate pulse speed based on BPM (beats per minute to beats per second)
+	var beats_per_second = heart_bpm / 60.0
+	var pulse_speed = beats_per_second * TAU  # Convert to radians per second for sine wave
+	heart_pulse_time += delta * pulse_speed
+	
+	# Create pulsing effect with sine wave (sharper pulse for more dramatic effect)
+	var pulse = sin(heart_pulse_time)
+	# Use power function to make the pulse more pronounced (sharper beat)
+	var pulse_normalized = pulse * 0.5 + 0.5  # Convert from -1..1 to 0..1
+	pulse_normalized = pow(pulse_normalized, 2.0)  # Square it for sharper pulse
+	
+	var scale_range = MAX_HEART_SCALE - MIN_HEART_SCALE
+	var heart_scale = MIN_HEART_SCALE + pulse_normalized * scale_range
+	
+	# Apply scale
+	heart_ui.scale = Vector2(heart_scale, heart_scale)
+	
+	# Change color intensity based on BPM (redder at higher BPM)
+	var stress_level = clamp((heart_bpm - NORMAL_BPM) / (MAX_BPM - NORMAL_BPM), 0.0, 1.0)
+	heart_ui.modulate = Color(1.0, 1.0 - stress_level * 0.5, 1.0 - stress_level * 0.5, 1.0)
+	
+	# Red vignette effect when BPM exceeds threshold
+	if red_flash_overlay and heart_bpm > RED_FLASH_THRESHOLD:
+		# Calculate flash speed and intensity based on how far above threshold
+		var excess_bpm = heart_bpm - RED_FLASH_THRESHOLD
+		var flash_intensity = clamp(excess_bpm / (MAX_BPM - RED_FLASH_THRESHOLD), 0.0, 1.0)
+		
+		# Flash synced with heartbeat
+		var flash_pulse = sin(heart_pulse_time)
+		var flash_normalized = flash_pulse * 0.5 + 0.5  # 0 to 1
+		flash_normalized = pow(flash_normalized, 3.0)  # Sharp flash
+		
+		# Apply vignette with increasing maximum intensity
+		var max_vignette_intensity = 0.3 + (flash_intensity * 0.7)  # 0.3 to 1.0 max intensity
+		var vignette_intensity = flash_normalized * max_vignette_intensity
+		
+		# Update shader parameter
+		if red_flash_overlay.material:
+			red_flash_overlay.material.set_shader_parameter("intensity", vignette_intensity)
+	else:
+		# Fade out vignette when below threshold
+		if red_flash_overlay and red_flash_overlay.material:
+			var current_intensity = red_flash_overlay.material.get_shader_parameter("intensity")
+			red_flash_overlay.material.set_shader_parameter("intensity", lerp(current_intensity, 0.0, delta * 5.0))
 # Public method to trigger fear response (call this from other scripts)
 func trigger_fear(intensity: float = 1.0):
 	# Instantly spike heart rate based on intensity (0.0 to 1.0)
