@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bji6sp431be62"]
+
+[ext_resource type="PackedScene" uid="uid://b5l1qdll3t2y8" path="res://Furneture/DoNOTDELETE.tscn" id="1_8js67"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CSGBox3D" parent="." instance=ExtResource("1_8js67")]

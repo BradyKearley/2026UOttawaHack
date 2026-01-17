@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cywilqb21k76b"]
+[gd_scene load_steps=13 format=3 uid="uid://cywilqb21k76b"]
 
 [ext_resource type="PackedScene" uid="uid://bxj8y6qvnhm4w" path="res://Tscn's/Player.tscn" id="1_pu4ar"]
 [ext_resource type="Material" uid="uid://ddgqk5ag3vvda" path="res://Materials/Ground.tres" id="2_myyj8"]
@@ -6,6 +6,9 @@
 [ext_resource type="Material" uid="uid://b0p18gxn3nfln" path="res://Materials/Wall.tres" id="3_myyj8"]
 [ext_resource type="PackedScene" uid="uid://cwf7v5nfsyjok" path="res://Furneture/LargeBookSelf.tscn" id="5_sty18"]
 [ext_resource type="PackedScene" uid="uid://ivamciba4wte" path="res://Furneture/Bear.tscn" id="6_yuus1"]
+[ext_resource type="PackedScene" uid="uid://dr0fqqquud4du" path="res://Furneture/Table.tscn" id="7_hxbci"]
+[ext_resource type="PackedScene" uid="uid://hx4y2vug4jv3" path="res://Furneture/chair.tscn" id="8_rdvwe"]
+[ext_resource type="PackedScene" uid="uid://bji6sp431be62" path="res://Furneture/throneActual.tscn" id="9_4kv3g"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lyjjt"]
 sky_top_color = Color(0.297738, 0.000589698, 0.7863699, 1)
@@ -197,7 +200,7 @@ operation = 2
 size = Vector3(1, 2.426085, 1.5374908)
 
 [node name="Floors(2ndFloor)" type="CSGCombiner3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.40884662, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.9005795, 0)
 use_collision = true
 
 [node name="2ndFloorL" type="CSGBox3D" parent="Floors(2ndFloor)"]
@@ -207,7 +210,7 @@ size = Vector3(18.39209, 0.2, 25.687927)
 material = ExtResource("2_myyj8")
 
 [node name="2ndFloorR" type="CSGBox3D" parent="Floors(2ndFloor)"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.598572, 3.2446141, 1.4109192)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.598572, 3.2547054, 1.4109192)
 use_collision = true
 size = Vector3(18.39209, 0.2, 25.76239)
 material = ExtResource("2_myyj8")
@@ -262,3 +265,59 @@ transform = Transform3D(0.18, 0, 0, 0, 0.18, 0, 0, 0, 0.18, -10.922175, -0.28724
 
 [node name="Bear" parent="Library Furneture" instance=ExtResource("6_yuus1")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -13.717539, -0.26465517, 7.185955)
+
+[node name="Dining Rm" type="CSGCombiner3D" parent="."]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -1.9205914, 0, 0)
+
+[node name="Table" parent="Dining Rm" instance=ExtResource("7_hxbci")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.779384, -0.29465687, 2.2839034)
+
+[node name="Table4" parent="Dining Rm" instance=ExtResource("7_hxbci")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.764415, -0.2866603, 6.290966)
+
+[node name="Table2" parent="Dining Rm" instance=ExtResource("7_hxbci")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.496555, -0.29465687, 2.2913313)
+
+[node name="Table5" parent="Dining Rm" instance=ExtResource("7_hxbci")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.50705, -0.29465687, 6.316878)
+
+[node name="Table3" parent="Dining Rm" instance=ExtResource("7_hxbci")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 14.712368, -0.29465687, 1.0416064)
+
+[node name="Node3D" parent="Dining Rm" instance=ExtResource("8_rdvwe")]
+transform = Transform3D(0.120882645, 0, 0.5876966, 0, 0.59999996, 0, -0.5876966, 0, 0.120882645, 11.485921, -0.37099916, 3.7694254)
+
+[node name="Node3D2" parent="Dining Rm" instance=ExtResource("8_rdvwe")]
+transform = Transform3D(-0.19938558, 0, 0.56590223, 0, 0.59999996, 0, -0.56590223, 0, -0.19938558, 11.448127, -0.37099928, 5.795652)
+
+[node name="Node3D3" parent="Dining Rm" instance=ExtResource("8_rdvwe")]
+transform = Transform3D(0.029121581, 0, 0.5992928, 0, 0.5999999, 0, -0.5992928, 0, 0.029121581, 11.3521185, -0.37099928, 7.3766603)
+
+[node name="Node3D4" parent="Dining Rm" instance=ExtResource("8_rdvwe")]
+transform = Transform3D(0.029121581, 0, 0.5992928, 0, 0.5999999, 0, -0.5992928, 0, 0.029121581, 11.429004, -0.37099928, 2.0559785)
+
+[node name="Node3D5" parent="Dining Rm" instance=ExtResource("8_rdvwe")]
+transform = Transform3D(0.002724789, -0.34046474, 0.4940408, -0.5999909, -2.622682e-08, 0.003309119, -0.0018777096, -0.4940482, -0.34045967, 12.618362, 0.32233348, -0.46599153)
+
+[node name="Node3D6" parent="Dining Rm" instance=ExtResource("8_rdvwe")]
+transform = Transform3D(0.14292684, 0, -0.582728, 0, 0.5999999, 0, 0.582728, 0, 0.14292684, 17.047382, -0.37099928, -0.36442772)
+
+[node name="Node3D7" parent="Dining Rm" instance=ExtResource("8_rdvwe")]
+transform = Transform3D(0.5995435, 0, -0.02339892, 0, 0.5999999, 0, 0.02339892, 0, 0.5995435, 18.413343, -0.37099928, 2.7970939)
+
+[node name="Node3D8" parent="Dining Rm" instance=ExtResource("8_rdvwe")]
+transform = Transform3D(0.023597777, 0, -0.59953576, 0, 0.5999999, 0, 0.59953576, 0, 0.023597777, 19.68226, -0.37099928, 3.7680712)
+
+[node name="Node3D9" parent="Dining Rm" instance=ExtResource("8_rdvwe")]
+transform = Transform3D(0.029121581, 0, 0.5992928, 0, 0.5999999, 0, -0.5992928, 0, 0.029121581, 17.075315, -0.37099928, 7.282223)
+
+[node name="Node3D10" parent="Dining Rm" instance=ExtResource("8_rdvwe")]
+transform = Transform3D(-0.21988122, 0, -0.5582583, 0, 0.5999999, 0, 0.5582583, 0, -0.21988122, 18.048239, -0.37099928, 6.7175045)
+
+[node name="Node3D11" parent="Dining Rm" instance=ExtResource("9_4kv3g")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 14.736711, -0.40360704, 0)
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+
+[node name="Node3D" parent="CSGCombiner3D" instance=ExtResource("6_yuus1")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 16.020824, 4.7683716e-07, -12.739916)
