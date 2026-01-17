@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://4irkirx8txps"]
+
+[ext_resource type="Script" uid="uid://dqt2geqrsdya5" path="res://monster.gd" id="1_baiyt"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_vaa0s"]
+height = 0.78793335
+radius = 2.7797852
+
+[node name="Monster" type="Node3D"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+script = ExtResource("1_baiyt")
+
+[node name="SmallArea" type="Area3D" parent="."]
+
+[node name="SmallArea" type="CollisionShape3D" parent="SmallArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4123993, 0)
+shape = SubResource("CylinderShape3D_vaa0s")
+
+[node name="SmallArea2" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4123993, 0)
+
+[node name="SmallArea2" type="CollisionShape3D" parent="SmallArea2"]
+shape = SubResource("CylinderShape3D_vaa0s")
+
+[node name="BigArea" type="Area3D" parent="."]
+
+[node name="BigArea" type="CollisionShape3D" parent="BigArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4123993, 0)
+shape = SubResource("CylinderShape3D_vaa0s")
+
+[node name="BigArea2" type="Area3D" parent="."]
+
+[node name="BigArea2" type="CollisionShape3D" parent="BigArea2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4123993, 0)
+shape = SubResource("CylinderShape3D_vaa0s")
+
+[connection signal="area_entered" from="SmallArea" to="." method="_on_small_area_area_entered"]
+[connection signal="area_exited" from="SmallArea" to="." method="_on_small_area_area_exited"]
+[connection signal="area_entered" from="SmallArea2" to="." method="_on_small_area_2_area_entered"]
+[connection signal="area_exited" from="SmallArea2" to="." method="_on_small_area_2_area_exited"]
+[connection signal="area_entered" from="BigArea" to="." method="_on_big_area_area_entered"]
+[connection signal="area_exited" from="BigArea" to="." method="_on_big_area_area_exited"]
+[connection signal="area_entered" from="BigArea2" to="." method="_on_big_area_2_area_entered"]
+[connection signal="area_exited" from="BigArea2" to="." method="_on_big_area_2_area_exited"]
