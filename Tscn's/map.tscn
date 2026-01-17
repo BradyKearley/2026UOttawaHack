@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bd27ntmnbikpa"]
+[gd_scene load_steps=9 format=3 uid="uid://bd27ntmnbikpa"]
 
 [ext_resource type="Material" uid="uid://ddgqk5ag3vvda" path="res://Materials/Ground.tres" id="1_k5u8p"]
 [ext_resource type="Material" uid="uid://b0p18gxn3nfln" path="res://Materials/Wall.tres" id="2_x8ts6"]
 [ext_resource type="PackedScene" uid="uid://bxj8y6qvnhm4w" path="res://Tscn's/Player.tscn" id="3_player"]
 [ext_resource type="PackedScene" uid="uid://4irkirx8txps" path="res://Tscn's/monster.tscn" id="4_d3e62"]
+[ext_resource type="Script" uid="uid://cs63jk64g76ge" path="res://Tscn's/sentry.gd" id="5_ncn5i"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_owsnt"]
 sky_top_color = Color(0.297738, 0.000589698, 0.7863699, 1)
@@ -83,3 +84,6 @@ sky_mode = 1
 
 [node name="Monster" parent="." instance=ExtResource("4_d3e62")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 1.8434372, 8.569124)
+
+[node name="Sentry" type="Node" parent="." groups=["sentry"]]
+script = ExtResource("5_ncn5i")

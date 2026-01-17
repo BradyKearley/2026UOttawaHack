@@ -57,10 +57,20 @@ const MAX_VIGNETTE = 0.3
 # Gravity from project settings
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
+# Sentry tracking
+var sentry: Node = null
+
 func _ready():
 	# Capture mouse for FPS controls
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	camera_base_y = camera.position.y
+	
+	# Get Sentry node for tracking
+	sentry = get_tree().get_first_node_in_group("sentry")
+	if sentry:
+		sentry.track_event("Player initialized")
+	else:
+		print("Warning: Sentry node not found")
 
 func _input(event):
 	# Mouse look
@@ -122,6 +132,8 @@ func _physics_process(delta):
 				# winded_sound.play()
 				winded_sound_played = true
 				print("Player is winded!")
+				if sentry:
+					sentry.track_event("Player winded", "stamina depleted")
 	elif not wants_to_sprint:
 		# Only recover stamina when not trying to sprint
 		stamina = min(MAX_STAMINA, stamina + STAMINA_RECOVERY_RATE * delta)
@@ -186,6 +198,7 @@ func _physics_process(delta):
 func _update_heart_rate(delta, is_sprinting: bool, speed: float):
 	# Determine target BPM based on player state
 	var target_bpm = NORMAL_BPM
+	var previous_bpm = heart_bpm
 	
 	if is_sprinting:
 		# Sprinting increases heart rate significantly
@@ -206,6 +219,10 @@ func _update_heart_rate(delta, is_sprinting: bool, speed: float):
 		heart_bpm = min(heart_bpm + BPM_INCREASE_SPEED * delta, target_bpm)
 	elif heart_bpm > target_bpm:
 		heart_bpm = max(heart_bpm - BPM_DECREASE_SPEED * delta, target_bpm)
+	
+	# Track when BPM reaches critical levels
+	if sentry and previous_bpm < 180 and heart_bpm >= 180:
+		sentry.track_event("Critical BPM reached", "BPM: %.0f, Monster modifier: %.0f" % [heart_bpm, monster_bpm_modifier])
 
 func _apply_heart_rate_effects(delta):
 	# Calculate vignette intensity based on heart rate
@@ -256,6 +273,10 @@ func trigger_fear(intensity: float = 1.0):
 	# Instantly spike heart rate based on intensity (0.0 to 1.0)
 	var bpm_increase = intensity * 60.0 # Up to 60 BPM increase
 	heart_bpm = min(heart_bpm + bpm_increase, MAX_BPM)
+	
+	# Track fear events in Sentry
+	if sentry and intensity > 0.5:
+		sentry.track_event("Player fear triggered", "intensity: %.2f, BPM: %.0f" % [intensity, heart_bpm])
 
 # Public method to set sustained BPM increase from monster proximity
 func set_monster_bpm_modifier(bpm_increase: float):

@@ -15,6 +15,14 @@ run/main_scene="uid://bd27ntmnbikpa"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[debug]
+
+settings/gdscript/always_track_call_stacks=true
+
+[display]
+
+window/vsync/vsync_mode=0
+
 [input]
 
 move_forward={
@@ -47,3 +55,7 @@ sprint={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+
+[sentry]
+
+options/dsn="https://e6eff38c6c5909548266f2642c3182c3@o4510724531814400.ingest.us.sentry.io/4510724532862976"

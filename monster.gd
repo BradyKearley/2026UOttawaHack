@@ -9,6 +9,15 @@ var is_investigating: bool = false
 const MOVE_SPEED = 2.0  # Base movement speed
 var move_strength: float = 0.0
 
+# Sentry tracking
+var sentry: Node = null
+
+func _ready():
+	# Get Sentry node for error tracking
+	sentry = get_tree().get_first_node_in_group("sentry")
+	if sentry:
+		sentry.track_event("Monster initialized")
+
 func _on_small_area_area_entered(area: Area3D) -> void:
 	# Check if the area belongs to the player
 	if area.get_parent().is_in_group("player"):
@@ -76,6 +85,10 @@ func hear_sound(sound_position: Vector3, strength: float, distance: float):
 	target_position = sound_position
 	is_investigating = true
 	move_strength = strength
+	
+	# Track when monster hears sound
+	if sentry:
+		sentry.track_event("Monster heard sound", "strength: %.2f, distance: %.1f" % [strength, distance])
 	
 	# Strength affects how aggressively the monster moves
 	# Distance affects the urgency (closer sounds = more urgent)
