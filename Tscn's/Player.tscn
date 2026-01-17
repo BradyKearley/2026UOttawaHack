@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bxj8y6qvnhm4w"]
+[gd_scene load_steps=8 format=3 uid="uid://bxj8y6qvnhm4w"]
 
 [ext_resource type="Script" uid="uid://gbtbdhb7e83w" path="res://Tscn's/Player.gd" id="1_v5k2m"]
 [ext_resource type="PackedScene" uid="uid://bgiytxfnbyhxc" path="res://soundEffects/heartBeatSound.tscn" id="2_qnqe6"]
+[ext_resource type="PackedScene" uid="uid://c4gtbfrdvtpnp" path="res://soundEffects/wooden_floor.tscn" id="3_f0db6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7yc8k"]
 radius = 0.4
@@ -40,6 +41,8 @@ fov = 85.0
 
 [node name="SFXManager" parent="Camera3D" instance=ExtResource("2_qnqe6")]
 
+[node name="woodenFloor" parent="Camera3D" instance=ExtResource("3_f0db6")]
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="BPMLabel" type="Label" parent="CanvasLayer"]
@@ -57,3 +60,5 @@ offset_right = 200.0
 offset_bottom = 90.0
 text = "Stamina: 100"
 label_settings = SubResource("LabelSettings_stamina")
+
+[node name="woodenFloor" parent="." instance=ExtResource("3_f0db6")]

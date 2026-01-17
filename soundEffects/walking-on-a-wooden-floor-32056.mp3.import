@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/walking-on-a-wooden-floor-32056.mp3-34024e58c
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0.0
 bpm=0.0
 beat_count=0

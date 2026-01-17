@@ -36,7 +36,13 @@ const BPM_INCREASE_SPEED = 15.0 # Slower increase (was 30.0)
 const BPM_DECREASE_SPEED = 25.0 # Faster recovery
 @onready var heartbeat_sound = $Camera3D/SFXManager/Heart
 @onready var breathing_sound = $Camera3D/SFXManager/Breathing
+@onready var footstep_sound = $Camera3D/woodenFloor/AudioStreamPlayer
 var heartbeat_timer: float = 0.0
+
+# Footstep sound system
+var footstep_timer: float = 0.0
+const WALK_FOOTSTEP_INTERVAL = 1  # Time between footsteps when walking
+const SPRINT_FOOTSTEP_INTERVAL = 0.5  # Faster footsteps when sprinting
 
 # Monster proximity effects
 var monster_bpm_modifier: float = 0.0 # Additional BPM from being near monster
@@ -168,6 +174,21 @@ func _physics_process(delta):
 	# View bobbing effect
 	if is_on_floor() and horizontal_velocity > 0.1:
 		bob_time += delta * horizontal_velocity * BOB_FREQ
+		
+		# Footstep sound system
+		footstep_timer -= delta
+		if footstep_timer <= 0.0:
+			if footstep_sound:
+				if is_sprinting:
+					footstep_sound.volume_db = -5.0
+					footstep_timer = SPRINT_FOOTSTEP_INTERVAL
+				else:
+					footstep_sound.volume_db = -10.0
+					footstep_timer = WALK_FOOTSTEP_INTERVAL
+				footstep_sound.pitch_scale = randf_range(0.8,1.2)
+				footstep_sound.play()
+				print("Playing footstep - Sprint: ", is_sprinting, " Volume: ", footstep_sound.volume_db)
+		
 		var bob_amount = BOB_AMP_SPRINT if is_sprinting else BOB_AMP
 		
 		# Vertical bob (up and down)
@@ -186,6 +207,11 @@ func _physics_process(delta):
 		camera.position.y = lerp(camera.position.y, camera_base_y, delta * 10.0)
 		camera.position.x = lerp(camera.position.x, 0.0, delta * 10.0)
 		camera.rotation.z = lerp(camera.rotation.z, 0.0, delta * 5.0)
+		
+		# Stop footstep sound when not moving
+		if footstep_sound and footstep_sound.playing:
+			footstep_sound.stop()
+		footstep_timer = 0.0
 	
 	# Apply visual effects based on heart rate
 	_apply_heart_rate_effects(delta)
