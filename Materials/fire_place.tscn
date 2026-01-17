@@ -1,0 +1,74 @@
+[gd_scene load_steps=5 format=3 uid="uid://bijkr65u6g56s"]
+
+[ext_resource type="Material" uid="uid://comqlssjfo67t" path="res://Materials/brick.tres" id="1_rvbd5"]
+[ext_resource type="PackedScene" uid="uid://cmft8vy3qn5jr" path="res://Tscn's/CandleFire.tscn" id="2_7ovyp"]
+[ext_resource type="Material" uid="uid://ddgqk5ag3vvda" path="res://Materials/Ground.tres" id="3_voe2j"]
+[ext_resource type="Material" uid="uid://fa07068w0p2y" path="res://Materials/Fence.tres" id="4_7ovyp"]
+
+[node name="firePlace" type="Node3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 3.6944714, 0)
+
+[node name="Ground3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.812245, 3.7860708, 6.1964397)
+use_collision = true
+size = Vector3(9.775347, 6.9805665, 12.350626)
+material = ExtResource("1_rvbd5")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Ground3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.8000336, -2.1652222, -0.20283508)
+operation = 2
+size = Vector3(19.759552, 7.856079, 8.004303)
+
+[node name="Ground2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.963028, 18.482468, 6.250986)
+use_collision = true
+size = Vector3(5.5124207, 23.628517, 4.202221)
+material = ExtResource("1_rvbd5")
+
+[node name="CandleFire" parent="." instance=ExtResource("2_7ovyp")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -15.1154995, -0.10832834, 3.1455336)
+
+[node name="CandleFire2" parent="." instance=ExtResource("2_7ovyp")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -18.28048, -0.10832834, 6.026147)
+
+[node name="CandleFire3" parent="." instance=ExtResource("2_7ovyp")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -15.1154995, -0.10832834, 9.103845)
+
+[node name="CandleFire4" parent="." instance=ExtResource("2_7ovyp")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -18.16658, -0.10832834, 8.997432)
+
+[node name="CandleFire5" parent="." instance=ExtResource("2_7ovyp")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -15.1154995, -0.10832834, 6.026147)
+
+[node name="CandleFire6" parent="." instance=ExtResource("2_7ovyp")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -18.530132, -0.10832834, 3.1455336)
+
+[node name="Wall5" type="CSGBox3D" parent="."]
+transform = Transform3D(-9.311181, -3.5739312, 0.72725135, -2.3349693, 4.3096395, -8.716362, 2.8017473, -8.285774, -4.8472857, -13.970496, 0.82507724, 7.6559634)
+use_collision = true
+size = Vector3(0.10832977, 0.26673037, 0.09273386)
+material = ExtResource("3_voe2j")
+
+[node name="Wall6" type="CSGBox3D" parent="."]
+transform = Transform3D(8.282506, 4.6392493, -3.1428456, 5.4679956, -7.9175467, 2.7227776, -1.2251973, -3.9736476, -9.094452, -14.240227, 1.5780778, 6.7358494)
+use_collision = true
+size = Vector3(0.10832977, 0.11578706, 0.09273386)
+material = ExtResource("3_voe2j")
+
+[node name="Wall7" type="CSGBox3D" parent="."]
+transform = Transform3D(-9.311181, -3.5739312, 0.72725135, -2.3349693, 4.3096395, -8.716362, 2.8017473, -8.285774, -4.8472857, -16.039562, 0.7220251, 4.4284863)
+use_collision = true
+size = Vector3(0.10832977, 0.26673037, 0.09273386)
+material = ExtResource("3_voe2j")
+
+[node name="Wall8" type="CSGBox3D" parent="."]
+transform = Transform3D(9.141611, -2.9924524, 2.73426, 3.819247, 4.09874, -8.283342, 1.3580465, 8.616589, 4.889799, -14.262293, 0.82507724, 5.013759)
+use_collision = true
+size = Vector3(0.10832977, 0.26673037, 0.09273386)
+material = ExtResource("3_voe2j")
+
+[node name="Ground" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.832808, -0.37079668, 6.211964)
+use_collision = true
+size = Vector3(9.785156, 1.2883635, 12.401383)
+material = ExtResource("4_7ovyp")
