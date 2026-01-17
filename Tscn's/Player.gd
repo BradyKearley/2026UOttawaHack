@@ -16,6 +16,7 @@ var bob_time = 0.0
 @onready var camera = $Camera3D
 var camera_base_y = 1.6
 @onready var bpm_label = $CanvasLayer/BPMLabel
+@onready var stamina_label = $CanvasLayer/StaminaLabel
 
 # Movement smoothing
 const ACCELERATION = 8.0
@@ -38,6 +39,15 @@ var heartbeat_timer: float = 0.0
 
 # Monster proximity effects
 var monster_bpm_modifier: float = 0.0  # Additional BPM from being near monster
+
+# Stamina system
+var stamina: float = 100.0  # Current stamina
+const MAX_STAMINA = 100.0
+const STAMINA_DRAIN_RATE = 20.0  # Stamina per second while sprinting
+const STAMINA_RECOVERY_RATE = 15.0  # Stamina per second while not sprinting
+const MIN_STAMINA_TO_SPRINT = 0.0  # Minimum stamina needed to start sprinting
+var is_winded: bool = false
+var winded_sound_played: bool = false
 
 # Visual effects for high heart rate
 var vignette_intensity: float = 0.0
@@ -73,12 +83,37 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	
-	# Check if sprinting
-	var is_sprinting = Input.is_action_pressed("sprint") and is_on_floor()
+	# Update stamina
+	var wants_to_sprint = Input.is_action_pressed("sprint") and is_on_floor()
+	var can_sprint = stamina >= MIN_STAMINA_TO_SPRINT and not is_winded
+	
+	# Check if sprinting (requires stamina)
+	var is_sprinting = wants_to_sprint and can_sprint
+	
+	# Get input direction to check if moving
+	var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_back")
+	var is_moving = input_dir.length() > 0.1
+	
+	# Drain stamina while sprinting and moving
+	if is_sprinting and is_moving:
+		stamina = max(0.0, stamina - STAMINA_DRAIN_RATE * delta)
+		if stamina <= 0.0:
+			is_winded = true
+			if not winded_sound_played:
+				# TODO: Play winded audio sound here
+				# winded_sound.play()
+				winded_sound_played = true
+				print("Player is winded!")
+	elif not wants_to_sprint:
+		# Only recover stamina when not trying to sprint
+		stamina = min(MAX_STAMINA, stamina + STAMINA_RECOVERY_RATE * delta)
+		if stamina >= MAX_STAMINA * 0.3:  # Reset winded state at 30% stamina
+			is_winded = false
+			winded_sound_played = false
+	
 	var current_speed = SPRINT_SPEED if is_sprinting else WALK_SPEED
 	
-	# Get input direction
-	var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_back")
+	# Get direction for movement
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
 	# Apply movement with smooth acceleration/deceleration
@@ -172,6 +207,17 @@ func _update_heartbeat(delta):
 	if bpm_label:
 		bpm_label.text = "BPM: " + str(int(heart_bpm))
 	
+	# Update stamina display
+	if stamina_label:
+		stamina_label.text = "Stamina: " + str(int(stamina))
+		# Change color based on stamina level
+		if stamina < 30.0:
+			stamina_label.label_settings.font_color = Color(1, 0.2, 0.2, 1)  # Red when low
+		elif stamina < 60.0:
+			stamina_label.label_settings.font_color = Color(1, 1, 0.2, 1)  # Yellow when medium
+		else:
+			stamina_label.label_settings.font_color = Color(0.2, 1, 0.2, 1)  # Green when high
+	
 	# Adjust playback speed based on BPM - moderate scaling
 	# pitch_scale also controls playback speed in Godot
 	if heartbeat_sound:
@@ -181,7 +227,7 @@ func _update_heartbeat(delta):
 		
 		# Much louder at high BPM: starts at 0 dB, goes up to +40 dB at max
 		var volume_boost = remap(heart_bpm, NORMAL_BPM, MAX_BPM, 0.0, 40.0)
-		heartbeat_sound.volume_db = 0 + volume_boost
+		heartbeat_sound.volume_db = -135 + volume_boost
 		
 		# Start playing if not already
 		if not heartbeat_sound.playing:

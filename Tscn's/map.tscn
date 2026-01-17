@@ -82,4 +82,4 @@ light_energy = 0.01
 sky_mode = 1
 
 [node name="Monster" parent="." instance=ExtResource("4_d3e62")]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 1.8434372, 37.753178)
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 1.8434372, 8.569124)
