@@ -1,18 +1,18 @@
 extends Node
 
 # Performance monitoring
-var fps_samples: Array = []  # Short-term rolling window
-const FPS_SAMPLE_SIZE = 60  # Track last 60 frames
-var fps_minute_samples: Array = []  # Store FPS for the last minute
-const LOW_FPS_THRESHOLD = 30  # Report if FPS drops below this
+var fps_samples: Array = [] # Short-term rolling window
+const FPS_SAMPLE_SIZE = 60 # Track last 60 frames
+var fps_minute_samples: Array = [] # Store FPS for the last minute
+const LOW_FPS_THRESHOLD = 30 # Report if FPS drops below this
 var last_low_fps_report_time: float = 0.0
-const LOW_FPS_COOLDOWN = 5.0  # Seconds between lag reports
+const LOW_FPS_COOLDOWN = 5.0 # Seconds between lag reports
 var last_periodic_fps_report_time: float = 0.0
-const PERIODIC_FPS_REPORT_INTERVAL = 30.0  # Report FPS every 30 seconds
+const PERIODIC_FPS_REPORT_INTERVAL = 30.0 # Report FPS every 30 seconds
 
 # Error tracking
 var error_cooldown_dict: Dictionary = {}
-const ERROR_COOLDOWN = 10.0  # Seconds between same error reports
+const ERROR_COOLDOWN = 10.0 # Seconds between same error reports
 
 func _ready():
 	# Initialize Sentry with startup breadcrumb
@@ -192,7 +192,7 @@ func report_error(error_message: String, context: Dictionary = {}):
 	# Check cooldown to avoid spam
 	if error_key in error_cooldown_dict:
 		if current_time - error_cooldown_dict[error_key] < ERROR_COOLDOWN:
-			return  # Skip reporting
+			return # Skip reporting
 	
 	error_cooldown_dict[error_key] = current_time
 	
@@ -211,7 +211,7 @@ func track_event(event_name: String, details: String = ""):
 
 func _on_node_added_to_tree(node: Node):
 	# Connect to any node's script errors if possible
-	pass  # Godot handles most errors automatically
+	pass # Godot handles most errors automatically
 
 func _notification(what):
 	if what == NOTIFICATION_CRASH:

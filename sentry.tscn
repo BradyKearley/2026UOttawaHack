@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://diby0dogrcshp"]
+
+[ext_resource type="Script" uid="uid://cs63jk64g76ge" path="res://Tscn's/sentry.gd" id="1_lf4fg"]
+
+[node name="Sentry" type="Node" groups=["sentry"]]
+script = ExtResource("1_lf4fg")

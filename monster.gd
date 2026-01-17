@@ -6,7 +6,7 @@ var player = null
 # Movement toward sound source
 var target_position: Vector3 = Vector3.ZERO
 var is_investigating: bool = false
-const MOVE_SPEED = 2.0  # Base movement speed
+const MOVE_SPEED = 2.0 # Base movement speed
 var move_strength: float = 0.0
 
 # Sentry tracking
@@ -92,7 +92,7 @@ func hear_sound(sound_position: Vector3, strength: float, distance: float):
 	
 	# Strength affects how aggressively the monster moves
 	# Distance affects the urgency (closer sounds = more urgent)
-	var urgency = strength * (1.0 - (distance / 100.0))  # Normalize distance
+	var urgency = strength * (1.0 - (distance / 100.0)) # Normalize distance
 	move_strength = clamp(urgency, 0.1, 1.0)
 
 func _process(delta):
