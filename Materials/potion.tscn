@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://nmcw4gpvpkpy"]
+
+[ext_resource type="Script" path="res://Tscn's/item.gd" id="1_jgfrn"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_1"]
+height = 1.7428131
+radius = 0.1928711
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1"]
+albedo_color = Color(0.8, 0.6, 0.2, 1)
+metallic = 0.5
+roughness = 0.3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hfypc"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j6dnx"]
+albedo_color = Color(1, 0.44313726, 1, 1)
+
+[node name="Potion" type="StaticBody3D" groups=["item"]]
+script = ExtResource("1_jgfrn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5526962, 0)
+shape = SubResource("CylinderShape3D_1")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.62924206, 0.17531168, 0.2112447)
+material_override = SubResource("StandardMaterial3D_1")
+radius = 0.15527344
+height = 0.3784256
+material = SubResource("StandardMaterial3D_hfypc")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3305869, 0)
+radius = 0.1437083
+material = SubResource("StandardMaterial3D_j6dnx")

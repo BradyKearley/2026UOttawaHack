@@ -1,0 +1,123 @@
+[gd_scene load_steps=6 format=3 uid="uid://bdshc1dc07b1q"]
+
+[ext_resource type="Script" path="res://Tscn's/item.gd" id="1_mwqyd"]
+[ext_resource type="Material" uid="uid://b2ej6b5dvwgqe" path="res://Materials/Yellow.tres" id="2_suyud"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_1"]
+height = 1.0511036
+radius = 0.4477539
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_twqk3"]
+albedo_color = Color(1, 0.8352941, 0.09803922, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ea68q"]
+albedo_color = Color(1, 0.78431374, 0.13333334, 1)
+
+[node name="Harp" type="StaticBody3D" groups=["item"]]
+script = ExtResource("1_mwqyd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24877408, 0.6444671, 1.100754)
+shape = SubResource("CylinderShape3D_1")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(0.9951814, 0.09805189, 0, -0.09805189, 0.9951814, 0, 0, 0, 1, -0.16034107, 0.5918562, 1.0849742)
+material_override = ExtResource("2_suyud")
+radius = 0.041992188
+height = 0.28192902
+material = SubResource("StandardMaterial3D_twqk3")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="."]
+transform = Transform3D(0.9217211, 0.3878534, 0, -0.3878534, 0.9217211, 0, 0, 0, 1, -0.10782617, 0.7844154, 1.0849742)
+material_override = ExtResource("2_suyud")
+radius = 0.041992188
+height = 0.28192902
+smooth_faces = false
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="."]
+transform = Transform3D(0.70032394, 0.7138251, 0, -0.7138251, 0.70032394, 0, 0, 0, 1, 0.019642591, 0.98622984, 1.0849742)
+material_override = ExtResource("2_suyud")
+radius = 0.041992188
+height = 0.28192902
+smooth_faces = false
+material = SubResource("StandardMaterial3D_ea68q")
+
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="."]
+transform = Transform3D(0.2769457, 0.9608856, 0, -0.9608856, 0.2769457, 0, 0, 0, 1, 0.18303707, 1.0868356, 1.0849742)
+material_override = ExtResource("2_suyud")
+radius = 0.041992188
+height = 0.28192902
+smooth_faces = false
+
+[node name="CSGCylinder3D10" type="CSGCylinder3D" parent="."]
+transform = Transform3D(0.0038746032, 0.99999243, 0, -0.99999243, 0.0038746032, 0, 0, 0, 1, 0.43995774, 1.11963, 1.0906183)
+material_override = ExtResource("2_suyud")
+radius = 0.041992188
+height = 0.35336685
+smooth_faces = false
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="."]
+transform = Transform3D(0.096957594, -0.99528855, 0, 0.99528855, 0.096957594, 0, 0, 0, 1, 0.14459708, 0.06600399, 1.0849742)
+material_override = ExtResource("2_suyud")
+radius = 0.041992188
+height = 0.31999397
+
+[node name="CSGCylinder3D8" type="CSGCylinder3D" parent="."]
+transform = Transform3D(0.03257878, -0.9983068, -0.048188567, 0.80196685, -0.0026634708, 0.5973625, -0.59647954, -0.058106985, 0.80052215, 0.4440992, 0.05281233, 1.0902277)
+material_override = ExtResource("2_suyud")
+radius = 0.041992188
+height = 0.5008173
+
+[node name="CSGCylinder3D9" type="CSGCylinder3D" parent="."]
+transform = Transform3D(4.399048e-08, 0.0064053535, 0.9999794, -4.3430507e-08, -0.9999795, 0.0064053526, 1, -4.371139e-08, -4.3711385e-08, 0.6403554, 0.60991013, 1.0902277)
+material_override = ExtResource("2_suyud")
+radius = 0.041992188
+height = 1.1141782
+
+[node name="CSGCylinder3D7" type="CSGCylinder3D" parent="."]
+transform = Transform3D(0.8893366, -0.45725316, 0, 0.45725316, 0.8893366, 0, 0, 0, 1, -0.043817878, 0.19436014, 1.0849742)
+material_override = ExtResource("2_suyud")
+radius = 0.041992188
+height = 0.28192902
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="."]
+transform = Transform3D(0.9438298, -0.33043203, 0, 0.33043203, 0.9438298, 0, 0, 0, 1, -0.11766189, 0.3487637, 1.0849742)
+material_override = ExtResource("2_suyud")
+radius = 0.041992188
+height = 0.28305435
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.32474732, 0.5802142, 1.0809212)
+size = Vector3(0.043273926, 1.083313, 0.042114258)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4957224, 0.5645892, 1.0809212)
+size = Vector3(0.043273926, 1.052063, 0.042114258)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5747467, 0.5645892, 1.0809212)
+size = Vector3(0.043273926, 1.052063, 0.042114258)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4118055, 0.57557553, 1.0809212)
+size = Vector3(0.043273926, 1.0740356, 0.042114258)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2390415, 0.5539996, 1.0809212)
+size = Vector3(0.043273926, 1.0308838, 0.042114258)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.069775015, 0.5539996, 1.0809212)
+size = Vector3(0.043273926, 1.0308838, 0.042114258)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028135508, 0.54464597, 1.0809212)
+size = Vector3(0.043273926, 0.82437134, 0.042114258)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1570583, 0.5539996, 1.0809212)
+size = Vector3(0.043273926, 1.0308838, 0.042114258)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.34441674, -0.0016329587, 1.1033088)
+size = Vector3(0.69018555, 0.041015625, 0.2208252)
