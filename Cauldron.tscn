@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://dcc8hskcvfi36"]
+
+[ext_resource type="Material" uid="uid://d1ld8uwkmwiys" path="res://Materials/BlueBook.tres" id="1_a46rn"]
+[ext_resource type="Material" uid="uid://clmbtacv10wx2" path="res://Materials/armor.tres" id="1_mpwjd"]
+[ext_resource type="Material" uid="uid://3u6t3pi16bch" path="res://Materials/bearskin.tres" id="3_xxamw"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+radius = 1.0
+material = ExtResource("1_mpwjd")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGSphere3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.63671875, 0)
+radius = 0.77441406
+height = 0.7265625
+material = ExtResource("1_mpwjd")
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="CSGSphere3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.97094727, 0)
+radius = 0.8520508
+height = 0.05810547
+material = ExtResource("1_mpwjd")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGSphere3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.63671875, 0)
+operation = 2
+radius = 0.66845703
+height = 0.7265625
+material = ExtResource("1_mpwjd")
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="CSGSphere3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.58325195, 0)
+radius = 0.66845703
+height = 0.6196289
+material = ExtResource("1_a46rn")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGSphere3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6234545, 0)
+size = Vector3(1.8867188, 0.25048828, 2.024414)
+material = ExtResource("3_xxamw")
