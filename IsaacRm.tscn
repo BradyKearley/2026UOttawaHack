@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://cywilqb21k76b"]
+
+[ext_resource type="PackedScene" uid="uid://bxj8y6qvnhm4w" path="res://Tscn's/Player.tscn" id="1_pu4ar"]
+[ext_resource type="Material" uid="uid://ddgqk5ag3vvda" path="res://Materials/Ground.tres" id="2_myyj8"]
+[ext_resource type="Material" uid="uid://b0p18gxn3nfln" path="res://Materials/Wall.tres" id="3_myyj8"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lyjjt"]
+sky_top_color = Color(0.297738, 0.000589698, 0.7863699, 1)
+sky_horizon_color = Color(0, 0, 0, 1)
+sky_curve = 0.044595443
+
+[sub_resource type="Sky" id="Sky_3vd4b"]
+sky_material = SubResource("ProceduralSkyMaterial_lyjjt")
+
+[sub_resource type="Environment" id="Environment_sty18"]
+background_mode = 2
+background_energy_multiplier = 6.0
+sky = SubResource("Sky_3vd4b")
+ambient_light_energy = 0.65
+tonemap_mode = 4
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_sty18")
+
+[node name="Player" parent="." instance=ExtResource("1_pu4ar")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6835778, 5.1642523)
+
+[node name="Ground" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.44262695, -1.6460985)
+use_collision = true
+size = Vector3(49, 0.2, 20)
+material = ExtResource("2_myyj8")
+
+[node name="Ground" type="CSGBox3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 0.81763756, -0.57573324, 0, 0.57573324, 0.81763756, 0.058732986, 0.8231659, -0.14609861)
+use_collision = true
+size = Vector3(5.140625, 0.2, 5.5664063)
+material = ExtResource("2_myyj8")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.99827486, 0.058713995, 0, -0.058713995, 0.99827486, -1.2845109, 12.500308, -0.16902351)
+light_energy = 2.0
+shadow_enabled = true
+omni_range = 6.0
+
+[node name="Wall" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.1401377, 2.2438781, -1.3857422)
+use_collision = true
+size = Vector3(0.057140626, 5.5730104, 20)
+material = ExtResource("3_myyj8")
+
+[node name="Doorwayd" type="CSGBox3D" parent="Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.022563934, -1.3683, 6.3535666)
+operation = 2
+size = Vector3(1, 2.40868, 1.5374908)
