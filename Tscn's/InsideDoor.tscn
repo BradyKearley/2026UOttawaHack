@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://dppwf02bla51n"]
+[gd_scene load_steps=5 format=3 uid="uid://tax6dbchbquy"]
 
-[ext_resource type="Script" uid="uid://c2w8ewglqs1jb" path="res://Tscn's/inside_door.gd" id="1_jo70s"]
+[ext_resource type="Script" path="res://Tscn's/inside_door.gd" id="1_jo70s"]
 [ext_resource type="AudioStream" uid="uid://ca8vjrc5gbtli" path="res://soundEffects/ElevenLabs_2026-01-17T20_48_46_Tessa - Wise leader_pvc_sp99_s40_sb54_se53_b_m2.mp3" id="1_ohptt"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xdsbt"]
@@ -25,4 +25,5 @@ transform = Transform3D(0.18304949, 0, 0, 0, 0.15970154, 0, 0, 0, 0.13503908, -0
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("1_ohptt")
+volume_db = 17.377
 max_distance = 15.0
