@@ -148,7 +148,7 @@ func _process(delta: float) -> void:
 				breathing_sound.play()
 			# Make louder as stamina gets lower - using very quiet volumes
 			# Loudest at stamina 0 (-20 dB), quietest at stamina 50 (-40 dB)
-			var new_volume = remap(stamina, 0.0, 50.0, -30.0, -50.0)
+			var new_volume = remap(stamina, 0.0, 50.0, -0.0, -20.0)
 			breathing_sound.volume_db = new_volume
 			# Make breathing faster as stamina decreases
 			var breathing_speed = remap(stamina, 0.0, 70.0, 1.4, 1.0)
