@@ -1,10 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://yi20a7mmhdap"]
+[gd_scene load_steps=12 format=3 uid="uid://b5mei3axn7y4n"]
 
 [ext_resource type="PackedScene" uid="uid://bxj8y6qvnhm4w" path="res://Tscn's/Player.tscn" id="1_svc71"]
 [ext_resource type="Material" uid="uid://fa07068w0p2y" path="res://Materials/Fence.tres" id="2_hdeur"]
 [ext_resource type="Material" uid="uid://b0p18gxn3nfln" path="res://Materials/Wall.tres" id="3_qckp1"]
 [ext_resource type="Material" uid="uid://ddgqk5ag3vvda" path="res://Materials/Ground.tres" id="4_y0u00"]
-[ext_resource type="PackedScene" uid="uid://c5u5vyx0i024q" path="res://candle.tscn" id="6_bb4o6"]
+[ext_resource type="PackedScene" uid="uid://c5u5vyx0i024q" path="res://Furneture/candle.tscn" id="6_bb4o6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ud1r"]
 albedo_color = Color(0.48962224, 0.48962224, 0.48962218, 1)
@@ -23,11 +23,15 @@ sky_material = SubResource("ProceduralSkyMaterial_2ud1r")
 [sub_resource type="Environment" id="Environment_svc71"]
 background_mode = 2
 background_color = Color(0.9340804, 0.9340805, 0.93408036, 1)
+background_energy_multiplier = 0.1
 sky = SubResource("Sky_svc71")
-ambient_light_energy = 0.1
+ambient_light_energy = 0.05
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_svc71"]
 albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2ud1r"]
+size = Vector3(1.9433594, 2.668457, 0.58251953)
 
 [node name="jacobPorch" type="Node3D"]
 
@@ -299,7 +303,16 @@ use_collision = true
 size = Vector3(0.24236298, 3.4626124, 0.16230774)
 material = ExtResource("4_y0u00")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
+[node name="StaticBody3D" type="StaticBody3D" parent="." groups=["door"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.555224, 2.2920587, -3.5151525)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="StaticBody3D" groups=["door"]]
 size = Vector3(1.9558105, 2.770584, 0.115234375)
 material = SubResource("StandardMaterial3D_svc71")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" groups=["door"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.009765625, 0.018310547, 0.20874023)
+shape = SubResource("BoxShape3D_2ud1r")
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="."]
+transform = Transform3D(0.18304949, 0, 0, 0, 0.15970154, 0, 0, 0, 0.13503908, -6.2695265, 2.1873145, -3.6369112)

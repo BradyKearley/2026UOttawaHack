@@ -95,9 +95,13 @@ func _ready():
 	if item_counter_label:
 		item_counter_label.text = "Items: 0"
 
+
 # Item pickup counter
 var items_picked_up: int = 0
 @onready var item_counter_label = $CanvasLayer/ItemCounterLabel
+
+# Door interaction
+var door_in_view: Node3D = null
 
 func _input(event):
 	# Mouse look
@@ -108,16 +112,22 @@ func _input(event):
 		camera.rotate_x(-event.relative.y * MOUSE_SENSITIVITY)
 		# Clamp vertical rotation to prevent over-rotation
 		camera.rotation.x = clamp(camera.rotation.x, -PI / 2, PI / 2)
-	
-	# Item interaction with E key
-	if event.is_action_pressed("ui_accept") or (event is InputEventKey and event.pressed and event.keycode == KEY_E):
+
+	# Door interaction with E key
+	if (event.is_action_pressed("ui_accept") or (event is InputEventKey and event.pressed and event.keycode == KEY_E)):
+		if door_in_view:
+			print("Door detected! Attempting to change scene...")
+			get_tree().change_scene_to_file("res://IsaacRm.tscn")
+			return
+		# Item interaction
 		if current_item and current_item.has_method("pick_up"):
+			print("Picking up item: ", current_item)
 			current_item.pick_up()
 			items_picked_up += 1
 			if item_counter_label:
 				item_counter_label.text = "Items: " + str(items_picked_up)
 			current_item = null
-	
+
 	# Release mouse with ESC (for testing)
 	if event.is_action_pressed("ui_cancel"):
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
@@ -146,17 +156,22 @@ func _process(delta: float) -> void:
 	_check_for_items()
 
 func _check_for_items():
+	door_in_view = null
 	if raycast.is_colliding():
 		var collider = raycast.get_collider()
-		
+		# Door detection
+		if collider and collider.is_in_group("door"):
+			print("Looking at a door: ", collider)
+			door_in_view = collider
+			return
 		# Check if we're looking at an item
 		if collider and collider.is_in_group("item"):
 			# New item detected
 			if current_item != collider:
+				print("Looking at item: ", collider)
 				# Clear previous item
 				if current_item and current_item.has_method("look_away"):
 					current_item.look_away()
-				
 				current_item = collider
 				if current_item.has_method("look_at_item"):
 					current_item.look_at_item()
