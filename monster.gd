@@ -39,7 +39,7 @@ func _on_small_area_area_entered(area: Area3D) -> void:
 		player = area.get_parent()
 		# High sustained BPM increase for small (close) area
 		player.set_monster_bpm_modifier(100.0)
-		closest_sound.volume_db = 1.5
+		closest_sound.volume_db = -10
 		closest_sound.play()
 
 

@@ -365,11 +365,11 @@ func _update_heartbeat(delta):
 	# pitch_scale also controls playback speed in Godot
 	if heartbeat_sound:
 		# Less aggressive: 1.0x at 60 BPM to 2.0x at 200 BPM
-		var speed_scale = remap(heart_bpm, NORMAL_BPM, MAX_BPM, 1.0, 2.0)
+		var speed_scale = remap(heart_bpm, NORMAL_BPM, MAX_BPM, 1.0, 3.0)
 		heartbeat_sound.pitch_scale = clamp(speed_scale, 0.8, 2.2)
 		
 		# Much louder at high BPM: starts at 0 dB, goes up to +40 dB at max
-		var volume_boost = remap(heart_bpm, NORMAL_BPM, MAX_BPM, 0.0, 40.0)
+		var volume_boost = remap(heart_bpm, NORMAL_BPM, MAX_BPM, 80, 90.0)
 		heartbeat_sound.volume_db = -135 + volume_boost
 		
 		# Start playing if not already

@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://4irkirx8txps"]
 
-[ext_resource type="Script" path="res://monster.gd" id="1_baiyt"]
+[ext_resource type="Script" uid="uid://dqt2geqrsdya5" path="res://monster.gd" id="1_baiyt"]
 [ext_resource type="Material" uid="uid://b0p18gxn3nfln" path="res://Materials/Wall.tres" id="2_vaa0s"]
 [ext_resource type="AudioStream" uid="uid://boa5cpq43c3ho" path="res://soundEffects/near.mp3" id="3_d0pib"]
 [ext_resource type="AudioStream" uid="uid://bt4cd4urd5iew" path="res://soundEffects/closest_final.mp3" id="4_r23xl"]
@@ -57,14 +57,17 @@ material = ExtResource("2_vaa0s")
 stream = ExtResource("3_d0pib")
 volume_db = 60.0
 max_db = 6.0
+max_distance = 30.0
 
 [node name="closest" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("4_r23xl")
-volume_db = 1.5
+volume_db = -10.0
+max_distance = 30.0
 
 [node name="middle_near" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("5_a7gd6")
 volume_db = 8.0
+max_distance = 30.0
 
 [connection signal="area_entered" from="SmallArea" to="." method="_on_small_area_area_entered"]
 [connection signal="area_exited" from="SmallArea" to="." method="_on_small_area_area_exited"]
