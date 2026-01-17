@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Tscn's/CandleLight.gd" id="1_k3m7p"]
 
 [node name="CandleLight" type="OmniLight3D"]
-transform = Transform3D(-0.0053057857, -0.99998593, 0, 0.99998593, -0.0053057857, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(-0.0053057857, -0.99998593, 0, 0.99998593, -0.0053057857, 0, 0, 0, 1, -1, 1, 0)
 light_color = Color(1, 0.55, 0.2, 1)
 light_energy = 1.5
 light_indirect_energy = 0.8
