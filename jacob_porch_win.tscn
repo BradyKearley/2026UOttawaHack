@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://csdb4l4o4ty0m"]
+[gd_scene load_steps=13 format=3 uid="uid://csdb4l4o4ty0m"]
 
 [ext_resource type="PackedScene" uid="uid://bxj8y6qvnhm4w" path="res://Tscn's/Player.tscn" id="1_4rbgn"]
 [ext_resource type="Material" uid="uid://fa07068w0p2y" path="res://Materials/Fence.tres" id="2_gywsx"]
 [ext_resource type="Material" uid="uid://ddgqk5ag3vvda" path="res://Materials/Ground.tres" id="3_s3gg8"]
 [ext_resource type="Material" uid="uid://b0p18gxn3nfln" path="res://Materials/Wall.tres" id="4_adde3"]
 [ext_resource type="PackedScene" uid="uid://c5u5vyx0i024q" path="res://Furneture/candle.tscn" id="5_nssk5"]
+[ext_resource type="PackedScene" uid="uid://dey2ceb0wy4p2" path="res://crystal_ball_win.tscn" id="6_gywsx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ud1r"]
 albedo_color = Color(0.48962224, 0.48962224, 0.48962218, 1)
@@ -316,3 +317,6 @@ shape = SubResource("BoxShape3D_2ud1r")
 
 [node name="CSGSphere3D2" type="CSGSphere3D" parent="."]
 transform = Transform3D(0.18304949, 0, 0, 0, 0.15970154, 0, 0, 0, 0.13503908, -6.2695265, 2.1873145, -3.6369112)
+
+[node name="CrystalBallWin" parent="." instance=ExtResource("6_gywsx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5783911, 2.2325912, -6.587683)

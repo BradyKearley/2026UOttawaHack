@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dey2ceb0wy4p2"]
+
+[ext_resource type="Material" path="res://Materials/CrystalBall.tres" id="1_chdqn"]
+[ext_resource type="Texture2D" uid="uid://b4dy5cnnm7he8" path="res://Materials/Sorcerer (1).png" id="2_0tu4c"]
+[ext_resource type="AudioStream" uid="uid://cbvijnyc5up2a" path="res://Victory.mp3" id="3_8xew8"]
+
+[node name="CrystalBallWin" type="Node3D"]
+
+[node name="CrystalSphere" type="CSGSphere3D" parent="."]
+radius = 0.4542351
+material = ExtResource("1_chdqn")
+
+[node name="MooseSprite" type="Sprite3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+billboard = 1
+texture_filter = 1
+texture = ExtResource("2_0tu4c")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.028324783, 0.05601287)
+stream = ExtResource("3_8xew8")
+volume_db = -29.913
+max_db = -1.0
+autoplay = true
