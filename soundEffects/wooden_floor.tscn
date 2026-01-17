@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4gtbfrdvtpnp"]
+
+[ext_resource type="AudioStream" uid="uid://b3ay13hfrebxb" path="res://soundEffects/walking-on-a-wooden-floor-32056.mp3" id="1_l1sww"]
+
+[node name="woodenFloor" type="Node3D"]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4241244, 0.3930123, 0.5333493)
+stream = ExtResource("1_l1sww")
+volume_db = 12.427
+autoplay = true
