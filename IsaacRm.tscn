@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cywilqb21k76b"]
+[gd_scene load_steps=8 format=3 uid="uid://cywilqb21k76b"]
 
 [ext_resource type="PackedScene" uid="uid://bxj8y6qvnhm4w" path="res://Tscn's/Player.tscn" id="1_pu4ar"]
 [ext_resource type="Material" uid="uid://ddgqk5ag3vvda" path="res://Materials/Ground.tres" id="2_myyj8"]
+[ext_resource type="Material" uid="uid://csqmq8hobdbnp" path="res://Materials/GroundGrey.tres" id="3_lyjjt"]
 [ext_resource type="Material" uid="uid://b0p18gxn3nfln" path="res://Materials/Wall.tres" id="3_myyj8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lyjjt"]
@@ -27,16 +28,42 @@ environment = SubResource("Environment_sty18")
 [node name="Player" parent="." instance=ExtResource("1_pu4ar")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6835778, 5.1642523)
 
-[node name="Ground" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.44262695, -1.6460985)
+[node name="FirstFloors" type="CSGCombiner3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.854223, -0.44262695, 1.5639887)
+
+[node name="LibraryFloor" type="CSGBox3D" parent="FirstFloors"]
 use_collision = true
-size = Vector3(49, 0.2, 20)
+size = Vector3(12.007423, 0.2, 19.474983)
 material = ExtResource("2_myyj8")
 
-[node name="Ground" type="CSGBox3D" parent="Ground"]
-transform = Transform3D(1, 0, 0, 0, 0.81763756, -0.57573324, 0, 0.57573324, 0.81763756, 0.058732986, 0.8231659, -0.14609861)
+[node name="DiningRmFloor" type="CSGBox3D" parent="FirstFloors"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.228424, 0, 2.485445)
 use_collision = true
-size = Vector3(5.140625, 0.2, 5.5664063)
+size = Vector3(12.472462, 0.2, 14.504093)
+material = ExtResource("2_myyj8")
+
+[node name="LivingRmFloor" type="CSGBox3D" parent="FirstFloors"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.228424, 0, -11.989258)
+use_collision = true
+size = Vector3(12.472462, 0.2, 14.504093)
+material = ExtResource("3_lyjjt")
+
+[node name="KitchenFloor" type="CSGBox3D" parent="FirstFloors"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.9527, 0, -13.021096)
+use_collision = true
+size = Vector3(15.948926, 0.2, 12.440415)
+material = ExtResource("3_lyjjt")
+
+[node name="Storage" type="CSGBox3D" parent="FirstFloors"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08633423, 0, -14.4727955)
+use_collision = true
+size = Vector3(12.165942, 0.2, 9.537016)
+material = ExtResource("3_lyjjt")
+
+[node name="EntranceFloor" type="CSGBox3D" parent="FirstFloors"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.006222, 0, 1.4479918)
+use_collision = true
+size = Vector3(15.999634, 0.2, 16.564945)
 material = ExtResource("2_myyj8")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
@@ -45,13 +72,120 @@ light_energy = 2.0
 shadow_enabled = true
 omni_range = 6.0
 
-[node name="Wall" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.1401377, 2.2438781, -1.3857422)
+[node name="StairTemp" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.9472886, -0.3203814, 0, 0.3203814, 0.9472886, 0.058732986, 1.288179, 0.14312154)
 use_collision = true
-size = Vector3(0.057140626, 5.5730104, 20)
+size = Vector3(5.140625, 0.2, 10.981323)
+material = ExtResource("2_myyj8")
+
+[node name="Walls" type="CSGCombiner3D" parent="."]
+
+[node name="WallFirstFloorRight" type="CSGBox3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.140138, 1.1480498, 3.0204468)
+use_collision = true
+size = Vector3(0.057140626, 3.3813539, 16.528442)
 material = ExtResource("3_myyj8")
 
-[node name="Doorwayd" type="CSGBox3D" parent="Wall"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.022563934, -1.3683, 6.3535666)
+[node name="Doorwayd" type="CSGBox3D" parent="Walls/WallFirstFloorRight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24318695, -0.33578575, 4.5052013)
 operation = 2
-size = Vector3(1, 2.40868, 1.5374908)
+size = Vector3(1, 2.5353081, 1.5374908)
+
+[node name="WallFirstFloorLeft" type="CSGBox3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.8578796, 1.1480498, 1.5715942)
+use_collision = true
+size = Vector3(0.057140626, 3.3813539, 19.426147)
+material = ExtResource("3_myyj8")
+
+[node name="Doorwayd2" type="CSGBox3D" parent="Walls/WallFirstFloorLeft"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12621117, -0.38998497, 6.3535666)
+operation = 2
+size = Vector3(1, 2.6437066, 1.5374908)
+
+[node name="OutterWallFront" type="CSGBox3D" parent="Walls"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.2736511, 1.1480498, 11.27415)
+use_collision = true
+size = Vector3(0.057140626, 3.3813539, 44.029785)
+material = ExtResource("3_myyj8")
+
+[node name="OutterWallBack" type="CSGBox3D" parent="Walls"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.2736511, 1.1480498, -17.689152)
+use_collision = true
+size = Vector3(0.057140626, 3.3813539, 44.029785)
+material = ExtResource("3_myyj8")
+
+[node name="DividerMidders" type="CSGBox3D" parent="Walls"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.13170624, 1.1480498, -5.2629414)
+use_collision = true
+size = Vector3(0.057140626, 3.3813539, 16.020493)
+material = ExtResource("3_myyj8")
+
+[node name="Doorwayd2" type="CSGBox3D" parent="Walls/DividerMidders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12621117, -0.38998497, 6.3535666)
+operation = 2
+size = Vector3(1, 2.6437066, 1.5374908)
+
+[node name="Doorwayd3" type="CSGBox3D" parent="Walls/DividerMidders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25242424, -0.77996993, -6.4596114)
+operation = 2
+size = Vector3(1, 2.6437066, 1.5374908)
+
+[node name="OutterWallRight" type="CSGBox3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.573008, 1.1480498, -3.2178955)
+use_collision = true
+size = Vector3(0.057140626, 3.3813539, 29.005127)
+material = ExtResource("3_myyj8")
+
+[node name="OutterWallLeft" type="CSGBox3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.85788, 1.1480498, -3.4691162)
+use_collision = true
+size = Vector3(0.057140626, 3.3813539, 29.507568)
+material = ExtResource("3_myyj8")
+
+[node name="Divider1" type="CSGBox3D" parent="Walls"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -13.887569, 1.1480498, -8.149898)
+use_collision = true
+size = Vector3(0.057140626, 3.3813539, 12.041382)
+material = ExtResource("3_myyj8")
+
+[node name="Divider2" type="CSGBox3D" parent="Walls"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 16.334635, 1.1480498, -3.1498976)
+use_collision = true
+size = Vector3(0.057140626, 3.3813539, 16.377441)
+material = ExtResource("3_myyj8")
+
+[node name="Doorwayd2" type="CSGBox3D" parent="Walls/Divider2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1262114, -0.28117418, -0.42948723)
+operation = 2
+size = Vector3(1, 2.426085, 1.5374908)
+
+[node name="Doorwayd3" type="CSGBox3D" parent="Walls/Divider2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35742855, -0.28117418, -1.95858)
+operation = 2
+size = Vector3(1, 2.426085, 1.5374908)
+
+[node name="Floors(2ndFloor)" type="CSGCombiner3D" parent="."]
+
+[node name="2ndFloorL" type="CSGBox3D" parent="Floors(2ndFloor)"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.725442, 3.2446141, 1.3736877)
+use_collision = true
+size = Vector3(18.39209, 0.2, 25.687927)
+material = ExtResource("2_myyj8")
+
+[node name="2ndFloorR" type="CSGBox3D" parent="Floors(2ndFloor)"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.598572, 3.2446141, 1.4109192)
+use_collision = true
+size = Vector3(18.39209, 0.2, 25.76239)
+material = ExtResource("2_myyj8")
+
+[node name="2ndFloor" type="CSGBox3D" parent="Floors(2ndFloor)"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.043510556, 3.2446141, -8.180866)
+use_collision = true
+size = Vector3(11.138916, 0.2, 6.554268)
+material = ExtResource("2_myyj8")
+
+[node name="2ndFloor2" type="CSGBox3D" parent="Floors(2ndFloor)"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.043510556, 3.2446141, -16.983171)
+use_collision = true
+size = Vector3(45.90039, 0.2, 11.985142)
+material = ExtResource("2_myyj8")
