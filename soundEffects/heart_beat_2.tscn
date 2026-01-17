@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqnq1necldqyt"]
+
+[ext_resource type="AudioStream" uid="uid://o4uont3frfvd" path="res://soundEffects/real-heartbeat-sound-17663.mp3" id="1_opvtk"]
+
+[node name="heartBeat2" type="Node3D"]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("1_opvtk")
+autoplay = true

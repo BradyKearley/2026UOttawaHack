@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://ceq5ld0gfv2jq"]
+
+[ext_resource type="AudioStream" uid="uid://bhj3asgirvnj8" path="res://soundEffects/rain-sound-272604.mp3" id="1_5ln5q"]
+
+[node name="rainSound" type="Node3D"]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("1_5ln5q")
+volume_db = -29.515
+max_db = 1.0
+autoplay = true
