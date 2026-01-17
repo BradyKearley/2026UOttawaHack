@@ -102,6 +102,7 @@ var items_picked_up: int = 0
 
 # Door interaction
 var door_in_view: Node3D = null
+var inside_door_in_view: Node3D = null
 
 func _input(event):
 	# Mouse look
@@ -116,9 +117,13 @@ func _input(event):
 	# Door interaction with E key
 	if (event.is_action_pressed("ui_accept") or (event is InputEventKey and event.pressed and event.keycode == KEY_E)):
 		if door_in_view:
-			print("Door detected! Attempting to change scene...")
 			get_tree().change_scene_to_file("res://IsaacRm.tscn")
 			return
+		if inside_door_in_view:
+			if items_picked_up >= 5:
+				get_tree().change_scene_to_file("res://jacob_porch_win.tscn")
+			else:
+				inside_door_in_view.play_no_sound()
 		# Item interaction
 		if current_item and current_item.has_method("pick_up"):
 			print("Picking up item: ", current_item)
@@ -157,12 +162,15 @@ func _process(delta: float) -> void:
 
 func _check_for_items():
 	door_in_view = null
+	inside_door_in_view = null
 	if raycast.is_colliding():
 		var collider = raycast.get_collider()
 		# Door detection
 		if collider and collider.is_in_group("door"):
-			print("Looking at a door: ", collider)
 			door_in_view = collider
+			return
+		if collider and collider.is_in_group("insideDoor"):
+			inside_door_in_view = collider
 			return
 		# Check if we're looking at an item
 		if collider and collider.is_in_group("item"):
