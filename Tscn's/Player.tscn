@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bxj8y6qvnhm4w"]
+[gd_scene load_steps=6 format=3 uid="uid://bxj8y6qvnhm4w"]
 
 [ext_resource type="Script" uid="uid://gbtbdhb7e83w" path="res://Tscn's/Player.gd" id="1_v5k2m"]
 [ext_resource type="PackedScene" uid="uid://bgiytxfnbyhxc" path="res://soundEffects/heartBeatSound.tscn" id="2_qnqe6"]
@@ -7,18 +7,26 @@
 radius = 0.4
 height = 1.8
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_detection"]
+
 [sub_resource type="LabelSettings" id="LabelSettings_bpm"]
 font_size = 24
 font_color = Color(1, 0.2, 0.2, 1)
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_v5k2m")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 shape = SubResource("CapsuleShape3D_7yc8k")
+
+[node name="DetectionArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("SphereShape3D_detection")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)

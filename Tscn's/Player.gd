@@ -36,6 +36,9 @@ const BPM_DECREASE_SPEED = 25.0  # Faster recovery
 @onready var heartbeat_sound = $Camera3D/heartBeatSound/AudioStreamPlayer3D
 var heartbeat_timer: float = 0.0
 
+# Monster proximity effects
+var monster_bpm_modifier: float = 0.0  # Additional BPM from being near monster
+
 # Visual effects for high heart rate
 var vignette_intensity: float = 0.0
 const MAX_VIGNETTE = 0.3
@@ -89,6 +92,11 @@ func _physics_process(delta):
 	# Calculate horizontal speed for view effects
 	var horizontal_velocity = Vector2(velocity.x, velocity.z).length()
 	
+	# Sprinting attracts the monster with sound
+	if is_sprinting and horizontal_velocity > 0.5:
+		# Call soundMade every frame while sprinting (distance and strength can be adjusted)
+		soundMade(40.0, 0.6)  # Moderate hear distance and strength for sprinting
+	
 	# Update heart rate based on player state
 	_update_heart_rate(delta, is_sprinting, horizontal_velocity)
 	
@@ -131,10 +139,14 @@ func _update_heart_rate(delta, is_sprinting: bool, speed: float):
 		target_bpm = SPRINT_BPM
 	elif speed > 0.5:
 		# Walking increases heart rate moderately
-		target_bpm = 80.0
+		target_bpm = 70
 	else:
 		# Standing still, return to resting rate
 		target_bpm = NORMAL_BPM
+	
+	# Add monster proximity modifier to target BPM
+	target_bpm += monster_bpm_modifier
+	target_bpm = clamp(target_bpm, NORMAL_BPM, MAX_BPM)
 	
 	# Smoothly transition to target BPM
 	if heart_bpm < target_bpm:
@@ -169,7 +181,7 @@ func _update_heartbeat(delta):
 		
 		# Much louder at high BPM: starts at 0 dB, goes up to +40 dB at max
 		var volume_boost = remap(heart_bpm, NORMAL_BPM, MAX_BPM, 0.0, 40.0)
-		heartbeat_sound.volume_db = 0.0 + volume_boost
+		heartbeat_sound.volume_db = 0 + volume_boost
 		
 		# Start playing if not already
 		if not heartbeat_sound.playing:
@@ -180,3 +192,17 @@ func trigger_fear(intensity: float = 1.0):
 	# Instantly spike heart rate based on intensity (0.0 to 1.0)
 	var bpm_increase = intensity * 60.0  # Up to 60 BPM increase
 	heart_bpm = min(heart_bpm + bpm_increase, MAX_BPM)
+
+# Public method to set sustained BPM increase from monster proximity
+func set_monster_bpm_modifier(bpm_increase: float):
+	monster_bpm_modifier = bpm_increase
+
+# Public method to emit sounds that the monster can hear
+func soundMade(HearDistance: float, Strength: float):
+	# Find all monsters in the scene and notify them of the sound
+	var monsters = get_tree().get_nodes_in_group("monster")
+	for monster in monsters:
+		var distance = global_position.distance_to(monster.global_position)
+		if distance <= HearDistance:
+			# Call the monster's hear_sound function with player position and strength
+			monster.hear_sound(global_position, Strength, distance)
