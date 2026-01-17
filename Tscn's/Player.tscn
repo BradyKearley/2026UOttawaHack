@@ -1,10 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://bxj8y6qvnhm4w"]
+[gd_scene load_steps=5 format=3 uid="uid://bxj8y6qvnhm4w"]
 
-[ext_resource type="Script" path="res://Tscn's/Player.gd" id="1_v5k2m"]
+[ext_resource type="Script" uid="uid://gbtbdhb7e83w" path="res://Tscn's/Player.gd" id="1_v5k2m"]
+[ext_resource type="PackedScene" uid="uid://bgiytxfnbyhxc" path="res://soundEffects/heartBeatSound.tscn" id="2_qnqe6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7yc8k"]
 radius = 0.4
 height = 1.8
+
+[sub_resource type="LabelSettings" id="LabelSettings_bpm"]
+font_size = 24
+font_color = Color(1, 0.2, 0.2, 1)
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_v5k2m")
@@ -16,3 +23,15 @@ shape = SubResource("CapsuleShape3D_7yc8k")
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
 fov = 85.0
+
+[node name="heartBeatSound" parent="Camera3D" instance=ExtResource("2_qnqe6")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="BPMLabel" type="Label" parent="CanvasLayer"]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 150.0
+offset_bottom = 50.0
+text = "BPM: 60"
+label_settings = SubResource("LabelSettings_bpm")

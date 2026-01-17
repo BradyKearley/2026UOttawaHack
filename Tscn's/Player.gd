@@ -15,6 +15,7 @@ var bob_time = 0.0
 # Camera reference and base position
 @onready var camera = $Camera3D
 var camera_base_y = 1.6
+@onready var bpm_label = $CanvasLayer/BPMLabel
 
 # Movement smoothing
 const ACCELERATION = 8.0
@@ -24,6 +25,20 @@ const DECELERATION = 10.0
 const BASE_FOV = 85.0
 const SPRINT_FOV = 95.0
 const FOV_LERP_SPEED = 8.0
+
+# Heart rate system
+var heart_bpm: float = 60.0  # Resting heart rate
+const NORMAL_BPM = 60.0
+const SPRINT_BPM = 160.0  # Heart rate while sprinting (increased cap)
+const MAX_BPM = 200.0  # Maximum possible BPM
+const BPM_INCREASE_SPEED = 15.0  # Slower increase (was 30.0)
+const BPM_DECREASE_SPEED = 25.0  # Faster recovery
+@onready var heartbeat_sound = $Camera3D/heartBeatSound/AudioStreamPlayer3D
+var heartbeat_timer: float = 0.0
+
+# Visual effects for high heart rate
+var vignette_intensity: float = 0.0
+const MAX_VIGNETTE = 0.3
 
 # Gravity from project settings
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -74,6 +89,9 @@ func _physics_process(delta):
 	# Calculate horizontal speed for view effects
 	var horizontal_velocity = Vector2(velocity.x, velocity.z).length()
 	
+	# Update heart rate based on player state
+	_update_heart_rate(delta, is_sprinting, horizontal_velocity)
+	
 	# View bobbing effect
 	if is_on_floor() and horizontal_velocity > 0.1:
 		bob_time += delta * horizontal_velocity * BOB_FREQ
@@ -96,8 +114,69 @@ func _physics_process(delta):
 		camera.position.x = lerp(camera.position.x, 0.0, delta * 10.0)
 		camera.rotation.z = lerp(camera.rotation.z, 0.0, delta * 5.0)
 	
-	# Sprint FOV effect
-	var target_fov = SPRINT_FOV if is_sprinting else BASE_FOV
-	camera.fov = lerp(camera.fov, target_fov, delta * FOV_LERP_SPEED)
+	# Apply visual effects based on heart rate
+	_apply_heart_rate_effects(delta)
+	
+	# Update heartbeat sound
+	_update_heartbeat(delta)
 	
 	move_and_slide()
+
+func _update_heart_rate(delta, is_sprinting: bool, speed: float):
+	# Determine target BPM based on player state
+	var target_bpm = NORMAL_BPM
+	
+	if is_sprinting:
+		# Sprinting increases heart rate significantly
+		target_bpm = SPRINT_BPM
+	elif speed > 0.5:
+		# Walking increases heart rate moderately
+		target_bpm = 80.0
+	else:
+		# Standing still, return to resting rate
+		target_bpm = NORMAL_BPM
+	
+	# Smoothly transition to target BPM
+	if heart_bpm < target_bpm:
+		heart_bpm = min(heart_bpm + BPM_INCREASE_SPEED * delta, target_bpm)
+	elif heart_bpm > target_bpm:
+		heart_bpm = max(heart_bpm - BPM_DECREASE_SPEED * delta, target_bpm)
+
+func _apply_heart_rate_effects(delta):
+	# Calculate vignette intensity based on heart rate
+	var stress_level = (heart_bpm - NORMAL_BPM) / (MAX_BPM - NORMAL_BPM)
+	var target_vignette = clamp(stress_level * MAX_VIGNETTE, 0.0, MAX_VIGNETTE)
+	vignette_intensity = lerp(vignette_intensity, target_vignette, delta * 5.0)
+	
+	# Add subtle camera shake at high heart rates
+	if heart_bpm > 100.0:
+		var shake_intensity = (heart_bpm - 100.0) / 80.0  # 0 to 1 range
+		var shake_amount = shake_intensity * 0.01
+		camera.position.x += randf_range(-shake_amount, shake_amount)
+		camera.position.y += randf_range(-shake_amount, shake_amount)
+
+func _update_heartbeat(delta):
+	# Update BPM display
+	if bpm_label:
+		bpm_label.text = "BPM: " + str(int(heart_bpm))
+	
+	# Adjust playback speed based on BPM - moderate scaling
+	# pitch_scale also controls playback speed in Godot
+	if heartbeat_sound:
+		# Less aggressive: 1.0x at 60 BPM to 2.0x at 200 BPM
+		var speed_scale = remap(heart_bpm, NORMAL_BPM, MAX_BPM, 1.0, 2.0)
+		heartbeat_sound.pitch_scale = clamp(speed_scale, 0.8, 2.2)
+		
+		# Much louder at high BPM: starts at 0 dB, goes up to +40 dB at max
+		var volume_boost = remap(heart_bpm, NORMAL_BPM, MAX_BPM, 0.0, 40.0)
+		heartbeat_sound.volume_db = 0.0 + volume_boost
+		
+		# Start playing if not already
+		if not heartbeat_sound.playing:
+			heartbeat_sound.play()
+
+# Public method to trigger fear response (call this from other scripts)
+func trigger_fear(intensity: float = 1.0):
+	# Instantly spike heart rate based on intensity (0.0 to 1.0)
+	var bpm_increase = intensity * 60.0  # Up to 60 BPM increase
+	heart_bpm = min(heart_bpm + bpm_increase, MAX_BPM)
