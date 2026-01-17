@@ -1,21 +1,24 @@
-[gd_scene load_steps=20 format=3 uid="uid://cywilqb21k76b"]
+[gd_scene load_steps=23 format=3 uid="uid://cywilqb21k76b"]
 
 [ext_resource type="PackedScene" uid="uid://bxj8y6qvnhm4w" path="res://Tscn's/Player.tscn" id="1_pu4ar"]
 [ext_resource type="Material" uid="uid://cwljo58x5xacl" path="res://Materials/floor.tres" id="2_6mf0j"]
 [ext_resource type="Material" uid="uid://ddgqk5ag3vvda" path="res://Materials/Ground.tres" id="2_myyj8"]
 [ext_resource type="Material" uid="uid://dgfmrlor71dtb" path="res://Materials/Cobble.tres" id="3_gipgq"]
 [ext_resource type="Material" uid="uid://b0p18gxn3nfln" path="res://Materials/Wall.tres" id="3_myyj8"]
+[ext_resource type="Material" uid="uid://3u6t3pi16bch" path="res://Materials/bearskin.tres" id="3_y14xb"]
+[ext_resource type="PackedScene" uid="uid://c5u5vyx0i024q" path="res://Furneture/candle.tscn" id="5_b583f"]
 [ext_resource type="PackedScene" uid="uid://cwf7v5nfsyjok" path="res://Furneture/LargeBookSelf.tscn" id="5_sty18"]
-[ext_resource type="PackedScene" uid="uid://ivamciba4wte" path="res://Furneture/Bear.tscn" id="6_yuus1"]
+[ext_resource type="PackedScene" path="res://Furneture/Bear.tscn" id="6_yuus1"]
 [ext_resource type="PackedScene" uid="uid://dr0fqqquud4du" path="res://Furneture/Table.tscn" id="7_hxbci"]
 [ext_resource type="PackedScene" uid="uid://hx4y2vug4jv3" path="res://Furneture/chair.tscn" id="8_rdvwe"]
 [ext_resource type="PackedScene" uid="uid://bji6sp431be62" path="res://Furneture/throneActual.tscn" id="9_4kv3g"]
-[ext_resource type="PackedScene" uid="uid://bitwnyfpl3m1y" path="res://Furneture/Crate.tscn" id="10_w48sl"]
+[ext_resource type="PackedScene" path="res://Furneture/Crate.tscn" id="10_w48sl"]
 [ext_resource type="PackedScene" path="res://Materials/couch.tscn" id="11_5d5hm"]
-[ext_resource type="PackedScene" uid="uid://d2rdh0xxkj7u0" path="res://Furneture/Barrel.tscn" id="11_ewpd5"]
+[ext_resource type="PackedScene" path="res://Furneture/Barrel.tscn" id="11_ewpd5"]
 [ext_resource type="PackedScene" path="res://Materials/harp.tscn" id="11_mvje0"]
-[ext_resource type="PackedScene" uid="uid://cfctpib0d64v4" path="res://Furneture/armorstand.tscn" id="12_gipgq"]
-[ext_resource type="PackedScene" uid="uid://bijkr65u6g56s" path="res://Materials/fire_place.tscn" id="13_ubmck"]
+[ext_resource type="PackedScene" path="res://Furneture/armorstand.tscn" id="12_gipgq"]
+[ext_resource type="PackedScene" uid="uid://c48l3uj4lw56x" path="res://Materials/fire_place.tscn" id="13_ubmck"]
+[ext_resource type="PackedScene" uid="uid://4irkirx8txps" path="res://Tscn's/monster.tscn" id="19_ydcpm"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lyjjt"]
 sky_top_color = Color(0.297738, 0.000589698, 0.7863699, 1)
@@ -27,6 +30,7 @@ sky_material = SubResource("ProceduralSkyMaterial_lyjjt")
 
 [sub_resource type="Environment" id="Environment_sty18"]
 background_mode = 2
+background_energy_multiplier = 0.6
 sky = SubResource("Sky_3vd4b")
 ambient_light_energy = 0.65
 tonemap_mode = 4
@@ -58,7 +62,7 @@ material = ExtResource("2_6mf0j")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.564964, 0, 0)
 use_collision = true
 size = Vector3(23.884449, 0.2, 19.474983)
-material = ExtResource("2_6mf0j")
+material = ExtResource("3_y14xb")
 
 [node name="LivingRmFloor" type="CSGBox3D" parent="FirstFloors"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.228424, 0, -11.989258)
@@ -77,6 +81,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4118433, -0.042495012, -16
 use_collision = true
 size = Vector3(15.950647, 0.2, 13.084426)
 material = ExtResource("3_gipgq")
+
+[node name="Candle" parent="FirstFloors" instance=ExtResource("5_b583f")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 16.086174, 0.67632765, -0.58902526)
+
+[node name="Candle2" parent="FirstFloors" instance=ExtResource("5_b583f")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 11.39942, 0.67632765, -0.58902526)
+
+[node name="Candle3" parent="FirstFloors" instance=ExtResource("5_b583f")]
+transform = Transform3D(1, 0, 0, 0, 0.9659258, -0.25881904, 0, 0.25881904, 0.9659258, 8.911889, 1.4137874, -7.494779)
+
+[node name="Candle4" parent="FirstFloors" instance=ExtResource("5_b583f")]
+transform = Transform3D(1, 0, 0, 0, 0.9659258, -0.25881904, 0, 0.25881904, 0.9659258, 17.899715, 1.4137874, -7.494779)
+
+[node name="Candle5" parent="FirstFloors" instance=ExtResource("5_b583f")]
+transform = Transform3D(-4.371139e-08, -0.258819, 0.9659257, 0, 0.9659257, 0.258819, -1, 1.1313338e-08, -4.2221956e-08, 21.399889, 1.1848154, -0.54839945)
+
+[node name="Candle6" parent="FirstFloors" instance=ExtResource("5_b583f")]
+transform = Transform3D(-4.371139e-08, 0.25881898, 0.96592563, 0, 0.96592563, -0.25881898, -1, -1.1313338e-08, -4.2221952e-08, 5.271289, 1.1848154, 4.6527767)
 
 [node name="Walls" type="CSGCombiner3D" parent="."]
 use_collision = true
@@ -200,11 +222,17 @@ operation = 2
 size = Vector3(1, 2.426085, 1.5374908)
 
 [node name="Floors(2ndFloor)" type="CSGCombiner3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.9005795, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3512411, 0)
 use_collision = true
 
 [node name="2ndFloorL" type="CSGBox3D" parent="Floors(2ndFloor)"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.725442, 3.2446141, 1.3736877)
+use_collision = true
+size = Vector3(18.39209, 0.2, 25.687927)
+material = ExtResource("2_myyj8")
+
+[node name="2ndFloorL2" type="CSGBox3D" parent="Floors(2ndFloor)"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.013791, 3.2446141, 1.3736877)
 use_collision = true
 size = Vector3(18.39209, 0.2, 25.687927)
 material = ExtResource("2_myyj8")
@@ -254,6 +282,9 @@ transform = Transform3D(0.18, 0, 0, 0, 0.18, 0, 0, 0, 0.18, -13.778291, -0.25752
 [node name="Node3D4" parent="Library Furneture" instance=ExtResource("5_sty18")]
 transform = Transform3D(-0.18, 0, 1.57361e-08, 0, 0.18, 0, -1.57361e-08, 0, -0.18, -16.937603, -0.267488, 5.681169)
 
+[node name="Node3D13" parent="Library Furneture" instance=ExtResource("5_sty18")]
+transform = Transform3D(-0.18, 0, 1.57361e-08, 0, 0.18, 0, -1.57361e-08, 0, -0.18, -7.3472266, -0.267488, 2.1838574)
+
 [node name="Node3D11" parent="Library Furneture" instance=ExtResource("5_sty18")]
 transform = Transform3D(-7.86805e-09, 0, -0.18, 0, 0.18, 0, 0.18, 0, -7.86805e-09, -16.937603, -0.33322918, 10.911246)
 
@@ -278,6 +309,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.764415, -0.2866603, 6.2909
 
 [node name="Table2" parent="Dining Rm" instance=ExtResource("7_hxbci")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.496555, -0.29465687, 2.2913313)
+
+[node name="Table6" parent="Dining Rm" instance=ExtResource("7_hxbci")]
+transform = Transform3D(0.5113484, 0, 0, 0, 0.83200216, 0, 0, 0, 0.2171108, 3.988152, -0.29465687, 1.3822403)
+
+[node name="Table7" parent="Dining Rm" instance=ExtResource("7_hxbci")]
+transform = Transform3D(0.5113484, 0, 0, 0, 0.83200216, 0, 0, 0, 0.2171108, -0.33400095, -0.29465687, 1.3822402)
 
 [node name="Table5" parent="Dining Rm" instance=ExtResource("7_hxbci")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.50705, -0.29465687, 6.316878)
@@ -332,6 +369,9 @@ transform = Transform3D(-5.769903e-08, 0, 1.3199998, 0, 1.3199998, 0, -1.3199998
 [node name="Couch2" parent="LivinRm" instance=ExtResource("11_5d5hm")]
 transform = Transform3D(1.3199998, 0, 3.5527133e-15, 0, 1.3199998, 0, -3.5527133e-15, 0, 1.3199998, 16.386272, -0.77091575, -16.648464)
 
+[node name="Couch3" parent="LivinRm" instance=ExtResource("11_5d5hm")]
+transform = Transform3D(-1.3199998, 0, -1.1539805e-07, 0, 1.3199998, 0, 1.1539805e-07, 0, -1.3199998, 0.4209484, -0.8052918, 2.4305415)
+
 [node name="Node3D2" parent="LivinRm" instance=ExtResource("9_4kv3g")]
 transform = Transform3D(-0.59999996, 0, -5.2453665e-08, 0, 0.59999996, 0, 5.2453665e-08, 0, -0.59999996, 15.849093, -0.44816548, -10.142149)
 
@@ -340,6 +380,9 @@ transform = Transform3D(0.83955103, 0, 0.85741115, 0, 1.1999999, 0, -0.85741115,
 
 [node name="firePlace" parent="LivinRm" instance=ExtResource("13_ubmck")]
 transform = Transform3D(-0.14999999, 0, 1.3113416e-08, 0, 0.14999999, 0, -1.3113416e-08, 0, -0.14999999, 17.524391, -0.29291874, -11.825556)
+
+[node name="firePlace2" parent="LivinRm" instance=ExtResource("13_ubmck")]
+transform = Transform3D(-6.556708e-09, 0, -0.14999999, 0, 0.14999999, 0, 0.14999999, 0, -6.556708e-09, 1.1138897, -0.29173, -2.1133337)
 
 [node name="Node3D6" parent="LivinRm" instance=ExtResource("8_rdvwe")]
 transform = Transform3D(-0.53823936, 0, 0.2651384, 0, 0.5999998, 0, -0.2651384, 0, -0.53823936, 14.243498, -0.37099928, -5.519896)
@@ -402,3 +445,6 @@ transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -17.843334, -0.5345988,
 
 [node name="Node3D16" parent="Storage" instance=ExtResource("5_sty18")]
 transform = Transform3D(2.3604152e-08, 0, 0.18, 0, 0.18, 0, -0.18, 0, 2.3604152e-08, 11.553939, -0.3008623, -17.247171)
+
+[node name="Monster" parent="." instance=ExtResource("19_ydcpm")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, -7.5258474)

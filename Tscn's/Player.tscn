@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bgiytxfnbyhxc" path="res://soundEffects/heartBeatSound.tscn" id="2_qnqe6"]
 [ext_resource type="PackedScene" uid="uid://c4gtbfrdvtpnp" path="res://soundEffects/wooden_floor.tscn" id="3_f0db6"]
 [ext_resource type="AudioStream" uid="uid://mp1bth6xfco4" path="res://soundEffects/ambient background music.mp3" id="4_72xvq"]
+[ext_resource type="PackedScene" uid="uid://cmyxgovglys2p" path="res://hands_candle.tscn" id="4_gr6dl"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7yc8k"]
 radius = 0.4
@@ -71,6 +72,9 @@ fov = 85.0
 [node name="AudioListener3D" type="AudioListener3D" parent="Camera3D"]
 doppler_tracking = 2
 current = true
+
+[node name="HandsCandle" parent="Camera3D" instance=ExtResource("4_gr6dl")]
+transform = Transform3D(1, 0, 0, 0, 0.90630776, 0.42261827, 0, -0.42261827, 0.90630776, 0.18787384, -1.1378419, -0.86062783)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

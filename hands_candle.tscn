@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmyxgovglys2p"]
+
+[ext_resource type="PackedScene" path="res://Tscn's/CandleFire.tscn" id="1_8px62"]
+[ext_resource type="Material" uid="uid://b0p18gxn3nfln" path="res://Materials/Wall.tres" id="2_yiq1a"]
+[ext_resource type="PackedScene" uid="uid://cskgv0mn4loo6" path="res://Tscn's/CandleLight.tscn" id="3_i1nv4"]
+
+[node name="HandsCandle" type="Node3D"]
+
+[node name="CandleFire" parent="." instance=ExtResource("1_8px62")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 0.37367076, 0, -1, 0, -4.371139e-08, 0.3423161, 0.73336804, 0.663294)
+
+[node name="Wall3" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.33673787, 0.57014054, 0.6599916)
+use_collision = true
+size = Vector3(0.14056432, 0.29873812, 0.1264801)
+material = ExtResource("2_yiq1a")
+
+[node name="CandleLight" parent="." instance=ExtResource("3_i1nv4")]
+transform = Transform3D(-0.005305786, -0.99998593, 0, 0.99998593, -0.005305786, 0, 0, 0, 1, 0.3517245, 0.8163508, 0.6740327)
+omni_range = 6.0
+omni_attenuation = 1.0
+script = null
