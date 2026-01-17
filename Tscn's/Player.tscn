@@ -61,4 +61,12 @@ offset_bottom = 90.0
 text = "Stamina: 100"
 label_settings = SubResource("LabelSettings_stamina")
 
+[node name="ItemCounterLabel" type="Label" parent="CanvasLayer"]
+offset_left = 10.0
+offset_top = 90.0
+offset_right = 200.0
+offset_bottom = 130.0
+text = "Items: 0"
+label_settings = SubResource("LabelSettings_stamina")
+
 [node name="woodenFloor" parent="." instance=ExtResource("3_f0db6")]

@@ -18,6 +18,11 @@ var camera_base_y = 1.6
 @onready var bpm_label = $CanvasLayer/BPMLabel
 @onready var stamina_label = $CanvasLayer/StaminaLabel
 
+# Item interaction
+var raycast: RayCast3D
+var current_item: Node3D = null
+const INTERACTION_DISTANCE = 3.0
+
 # Movement smoothing
 const ACCELERATION = 8.0
 const DECELERATION = 10.0
@@ -71,12 +76,28 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	camera_base_y = camera.position.y
 	
+	# Setup raycast for item interaction
+	raycast = RayCast3D.new()
+	camera.add_child(raycast)
+	raycast.target_position = Vector3(0, 0, -INTERACTION_DISTANCE)
+	raycast.enabled = true
+	raycast.collide_with_areas = true
+	raycast.collide_with_bodies = true
+	
 	# Get Sentry node for tracking
 	sentry = get_tree().get_first_node_in_group("sentry")
 	if sentry:
 		sentry.track_event("Player initialized")
 	else:
 		print("Warning: Sentry node not found")
+
+	# Initialize item counter label
+	if item_counter_label:
+		item_counter_label.text = "Items: 0"
+
+# Item pickup counter
+var items_picked_up: int = 0
+@onready var item_counter_label = $CanvasLayer/ItemCounterLabel
 
 func _input(event):
 	# Mouse look
@@ -87,6 +108,15 @@ func _input(event):
 		camera.rotate_x(-event.relative.y * MOUSE_SENSITIVITY)
 		# Clamp vertical rotation to prevent over-rotation
 		camera.rotation.x = clamp(camera.rotation.x, -PI / 2, PI / 2)
+	
+	# Item interaction with E key
+	if event.is_action_pressed("ui_accept") or (event is InputEventKey and event.pressed and event.keycode == KEY_E):
+		if current_item and current_item.has_method("pick_up"):
+			current_item.pick_up()
+			items_picked_up += 1
+			if item_counter_label:
+				item_counter_label.text = "Items: " + str(items_picked_up)
+			current_item = null
 	
 	# Release mouse with ESC (for testing)
 	if event.is_action_pressed("ui_cancel"):
@@ -111,6 +141,35 @@ func _process(delta: float) -> void:
 	else:
 		if breathing_sound:
 			breathing_sound.stop()
+	
+	# Check for items in front of the player
+	_check_for_items()
+
+func _check_for_items():
+	if raycast.is_colliding():
+		var collider = raycast.get_collider()
+		
+		# Check if we're looking at an item
+		if collider and collider.is_in_group("item"):
+			# New item detected
+			if current_item != collider:
+				# Clear previous item
+				if current_item and current_item.has_method("look_away"):
+					current_item.look_away()
+				
+				current_item = collider
+				if current_item.has_method("look_at_item"):
+					current_item.look_at_item()
+		else:
+			# Not looking at an item
+			if current_item and current_item.has_method("look_away"):
+				current_item.look_away()
+			current_item = null
+	else:
+		# Not looking at anything
+		if current_item and current_item.has_method("look_away"):
+			current_item.look_away()
+		current_item = null
 
 func _physics_process(delta):
 	# Add gravity
