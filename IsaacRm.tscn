@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cywilqb21k76b"]
+[gd_scene load_steps=10 format=3 uid="uid://cywilqb21k76b"]
 
 [ext_resource type="PackedScene" uid="uid://bxj8y6qvnhm4w" path="res://Tscn's/Player.tscn" id="1_pu4ar"]
 [ext_resource type="Material" uid="uid://ddgqk5ag3vvda" path="res://Materials/Ground.tres" id="2_myyj8"]
 [ext_resource type="Material" uid="uid://csqmq8hobdbnp" path="res://Materials/GroundGrey.tres" id="3_lyjjt"]
 [ext_resource type="Material" uid="uid://b0p18gxn3nfln" path="res://Materials/Wall.tres" id="3_myyj8"]
+[ext_resource type="PackedScene" uid="uid://cwf7v5nfsyjok" path="res://Furneture/LargeBookSelf.tscn" id="5_sty18"]
+[ext_resource type="PackedScene" uid="uid://ivamciba4wte" path="res://Furneture/Bear.tscn" id="6_yuus1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lyjjt"]
 sky_top_color = Color(0.297738, 0.000589698, 0.7863699, 1)
@@ -66,12 +68,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.006222, 0, 1.5845876)
 use_collision = true
 size = Vector3(15.999634, 0.2, 16.838137)
 material = ExtResource("2_myyj8")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.99827486, 0.058713995, 0, -0.058713995, 0.99827486, -1.2845109, 12.500308, -0.16902351)
-light_energy = 2.0
-shadow_enabled = true
-omni_range = 6.0
 
 [node name="StairTemp" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.9472886, -0.3203814, 0, 0.3203814, 0.9472886, 0.058732986, 1.288179, 0.14312154)
@@ -227,3 +223,42 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.043510556, 3.2446141, -16.9
 use_collision = true
 size = Vector3(45.90039, 0.2, 11.985142)
 material = ExtResource("2_myyj8")
+
+[node name="Library Furneture" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="Node3D2" parent="Library Furneture" instance=ExtResource("5_sty18")]
+transform = Transform3D(0.18, 0, 0, 0, 0.18, 0, 0, 0, 0.18, -8.2258215, -0.33375764, -0.2692666)
+
+[node name="Node3D10" parent="Library Furneture" instance=ExtResource("5_sty18")]
+transform = Transform3D(0.18, 0, 0, 0, 0.18, 0, 0, 0, 0.18, -10.924007, -0.31395876, -0.2692666)
+
+[node name="Node3D6" parent="Library Furneture" instance=ExtResource("5_sty18")]
+transform = Transform3D(-7.86805e-09, 0, -0.18, 0, 0.18, 0, 0.18, 0, -7.86805e-09, -11.24843, -0.33215284, -7.7500215)
+
+[node name="Node3D7" parent="Library Furneture" instance=ExtResource("5_sty18")]
+transform = Transform3D(-7.86805e-09, 0, -0.18, 0, 0.18, 0, 0.18, 0, -7.86805e-09, -16.936415, -0.30964184, -7.7487507)
+
+[node name="Node3D8" parent="Library Furneture" instance=ExtResource("5_sty18")]
+transform = Transform3D(-7.86805e-09, 0, -0.18, 0, 0.18, 0, 0.18, 0, -7.86805e-09, -16.936415, -0.3315419, -2.281272)
+
+[node name="Node3D9" parent="Library Furneture" instance=ExtResource("5_sty18")]
+transform = Transform3D(-7.86805e-09, 0, -0.18, 0, 0.18, 0, 0.18, 0, -7.86805e-09, -12.027143, -0.33795035, -4.8236837)
+
+[node name="Node3D3" parent="Library Furneture" instance=ExtResource("5_sty18")]
+transform = Transform3D(0.18, 0, 0, 0, 0.18, 0, 0, 0, 0.18, -13.778291, -0.25752878, 0.81365013)
+
+[node name="Node3D4" parent="Library Furneture" instance=ExtResource("5_sty18")]
+transform = Transform3D(0.18, 0, 0, 0, 0.18, 0, 0, 0, 0.18, -16.937603, -0.267488, 5.681169)
+
+[node name="Node3D11" parent="Library Furneture" instance=ExtResource("5_sty18")]
+transform = Transform3D(-7.86805e-09, 0, -0.18, 0, 0.18, 0, 0.18, 0, -7.86805e-09, -16.937603, -0.33322918, 10.911246)
+
+[node name="Node3D12" parent="Library Furneture" instance=ExtResource("5_sty18")]
+transform = Transform3D(-7.86805e-09, 0, -0.18, 0, 0.18, 0, 0.18, 0, -7.86805e-09, -11.261385, -0.32553822, 10.911246)
+
+[node name="Node3D5" parent="Library Furneture" instance=ExtResource("5_sty18")]
+transform = Transform3D(0.18, 0, 0, 0, 0.18, 0, 0, 0, 0.18, -10.922175, -0.28724504, 5.681169)
+
+[node name="Bear" parent="Library Furneture" instance=ExtResource("6_yuus1")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -13.717539, -0.26465517, 7.185955)
