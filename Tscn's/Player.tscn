@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Tscn's/Player.gd" id="1_v5k2m"]
 [ext_resource type="PackedScene" uid="uid://bgiytxfnbyhxc" path="res://soundEffects/heartBeatSound.tscn" id="2_qnqe6"]
 [ext_resource type="PackedScene" uid="uid://c4gtbfrdvtpnp" path="res://soundEffects/wooden_floor.tscn" id="3_f0db6"]
-[ext_resource type="AudioStream" uid="uid://da165fsfx5g3p" path="res://soundEffects/ambient background music.mp3" id="4_72xvq"]
+[ext_resource type="AudioStream" uid="uid://mp1bth6xfco4" path="res://soundEffects/ambient background music.mp3" id="4_72xvq"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7yc8k"]
 radius = 0.4
