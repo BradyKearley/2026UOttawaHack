@@ -1,10 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://b5mei3axn7y4n"]
+[gd_scene load_steps=14 format=3 uid="uid://yi20a7mmhdap"]
 
 [ext_resource type="PackedScene" uid="uid://bxj8y6qvnhm4w" path="res://Tscn's/Player.tscn" id="1_svc71"]
 [ext_resource type="Material" uid="uid://fa07068w0p2y" path="res://Materials/Fence.tres" id="2_hdeur"]
 [ext_resource type="Material" uid="uid://b0p18gxn3nfln" path="res://Materials/Wall.tres" id="3_qckp1"]
 [ext_resource type="Material" uid="uid://ddgqk5ag3vvda" path="res://Materials/Ground.tres" id="4_y0u00"]
 [ext_resource type="PackedScene" uid="uid://c5u5vyx0i024q" path="res://Furneture/candle.tscn" id="6_bb4o6"]
+[ext_resource type="PackedScene" uid="uid://dv347633o7186" path="res://Furneture/CrystalBall.tscn" id="6_svc71"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hdeur"]
+albedo_color = Color(0.003921569, 0.3764706, 0, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ud1r"]
 albedo_color = Color(0.48962224, 0.48962224, 0.48962218, 1)
@@ -43,6 +47,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.335104, 0.86284375, -4.525
 use_collision = true
 size = Vector3(11.98584, 0.2, 4.1507645)
 material = ExtResource("2_hdeur")
+
+[node name="Ground3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.815662, 0.39578748, 9.28023)
+use_collision = true
+size = Vector3(210.72073, 0.2, 226.48013)
+material = SubResource("StandardMaterial3D_hdeur")
 
 [node name="Ground2" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6099577, 4.7716637, -4.941405)
@@ -243,7 +253,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.38357, 1.4124191, -7.19139
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9782605, 1.4243666, -7.2148905)
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.706015, 7.220132, -19.775043)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.208027, 8.790188, -17.357958)
 material = SubResource("StandardMaterial3D_2ud1r")
 
 [node name="Wall7" type="CSGBox3D" parent="."]
@@ -316,3 +326,6 @@ shape = SubResource("BoxShape3D_2ud1r")
 
 [node name="CSGSphere3D2" type="CSGSphere3D" parent="."]
 transform = Transform3D(0.18304949, 0, 0, 0, 0.15970154, 0, 0, 0, 0.13503908, -6.2695265, 2.1873145, -3.6369112)
+
+[node name="CrystalBall" parent="." instance=ExtResource("6_svc71")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7792368, 2.2586858, -6.544218)
