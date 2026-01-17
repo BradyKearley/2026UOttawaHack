@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cmxfe3ju58wwy"
+path="res://.godot/imported/2nd closest.mp3-70835a81f435ebf0624814efd0fdb2b2.mp3str"
+
+[deps]
+
+source_file="res://soundEffects/2nd closest.mp3"
+dest_files=["res://.godot/imported/2nd closest.mp3-70835a81f435ebf0624814efd0fdb2b2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

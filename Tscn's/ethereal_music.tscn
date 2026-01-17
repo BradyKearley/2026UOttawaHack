@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cigjasc31lvay"]
+
+[ext_resource type="AudioStream" uid="uid://baa3ouv2jybwa" path="res://soundEffects/ethereal music.mp3" id="1_im2oe"]
+
+[node name="Ethereal_music" type="AudioStreamPlayer3D"]
+stream = ExtResource("1_im2oe")
+volume_db = -29.002

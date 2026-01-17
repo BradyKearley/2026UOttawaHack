@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8bt8vcinp7dt"]
+
+[ext_resource type="AudioStream" uid="uid://mp1bth6xfco4" path="res://soundEffects/ambient background music.mp3" id="1_48sjn"]
+
+[node name="main_ambience" type="AudioStreamPlayer"]
+stream = ExtResource("1_48sjn")
+volume_db = -1.397
+autoplay = true

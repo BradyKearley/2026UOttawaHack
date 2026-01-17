@@ -1,21 +1,24 @@
-[gd_scene load_steps=7 format=3 uid="uid://4irkirx8txps"]
+[gd_scene load_steps=10 format=3 uid="uid://4irkirx8txps"]
 
-[ext_resource type="Script" uid="uid://dqt2geqrsdya5" path="res://monster.gd" id="1_baiyt"]
+[ext_resource type="Script" path="res://monster.gd" id="1_baiyt"]
 [ext_resource type="Material" uid="uid://b0p18gxn3nfln" path="res://Materials/Wall.tres" id="2_vaa0s"]
+[ext_resource type="AudioStream" uid="uid://boa5cpq43c3ho" path="res://soundEffects/near.mp3" id="3_d0pib"]
+[ext_resource type="AudioStream" uid="uid://bt4cd4urd5iew" path="res://soundEffects/closest_final.mp3" id="4_r23xl"]
+[ext_resource type="AudioStream" uid="uid://cmxfe3ju58wwy" path="res://soundEffects/2nd closest.mp3" id="5_a7gd6"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_vaa0s"]
-height = 0.78793335
-radius = 0.37060547
+height = 0.787933
+radius = 0.546294
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_6uyv7"]
-height = 1.6337891
-radius = 0.91015625
+height = 1.63379
+radius = 1.10276
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_8yn5v"]
-radius = 1.7768555
+radius = 1.77686
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_dln71"]
-radius = 2.7226563
+radius = 2.72266
 
 [node name="Monster" type="Node3D" groups=["monster"]]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
@@ -24,31 +27,44 @@ script = ExtResource("1_baiyt")
 [node name="SmallArea" type="Area3D" parent="."]
 
 [node name="SmallArea" type="CollisionShape3D" parent="SmallArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4123993, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.412399, 0)
 shape = SubResource("CylinderShape3D_vaa0s")
 
 [node name="SmallArea2" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4123993, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.412399, 0)
 
 [node name="SmallArea2" type="CollisionShape3D" parent="SmallArea2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18310547, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.183105, 0)
 shape = SubResource("CylinderShape3D_6uyv7")
 
 [node name="BigArea" type="Area3D" parent="."]
 
 [node name="BigArea" type="CollisionShape3D" parent="BigArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4123993, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.412399, 0)
 shape = SubResource("CylinderShape3D_8yn5v")
 
 [node name="BigArea2" type="Area3D" parent="."]
 
 [node name="BigArea2" type="CollisionShape3D" parent="BigArea2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4123993, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.412399, 0)
 shape = SubResource("CylinderShape3D_dln71")
 
 [node name="Wall2" type="CSGBox3D" parent="."]
-size = Vector3(0.16964722, 0.050222486, 0.090099335)
+size = Vector3(0.169647, 0.0502225, 0.0900993)
 material = ExtResource("2_vaa0s")
+
+[node name="near" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_d0pib")
+volume_db = 60.0
+max_db = 6.0
+
+[node name="closest" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_r23xl")
+volume_db = 1.5
+
+[node name="middle_near" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_a7gd6")
+volume_db = 8.0
 
 [connection signal="area_entered" from="SmallArea" to="." method="_on_small_area_area_entered"]
 [connection signal="area_exited" from="SmallArea" to="." method="_on_small_area_area_exited"]

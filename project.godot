@@ -11,8 +11,8 @@ config_version=5
 [application]
 
 config/name="Hackathon Project"
-run/main_scene="uid://bd27ntmnbikpa"
-config/features=PackedStringArray("4.5", "GL Compatibility")
+run/main_scene="res://Tscn's/monster.tscn"
+config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [debug]
