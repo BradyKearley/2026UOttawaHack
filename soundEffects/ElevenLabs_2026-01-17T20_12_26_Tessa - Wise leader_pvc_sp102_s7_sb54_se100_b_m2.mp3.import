@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dss2353w8xknd"
+path="res://.godot/imported/ElevenLabs_2026-01-17T20_12_26_Tessa - Wise leader_pvc_sp102_s7_sb54_se100_b_m2.mp3-3b36a24fc2e772ade386e1b75eb721f6.mp3str"
+
+[deps]
+
+source_file="res://soundEffects/ElevenLabs_2026-01-17T20_12_26_Tessa - Wise leader_pvc_sp102_s7_sb54_se100_b_m2.mp3"
+dest_files=["res://.godot/imported/ElevenLabs_2026-01-17T20_12_26_Tessa - Wise leader_pvc_sp102_s7_sb54_se100_b_m2.mp3-3b36a24fc2e772ade386e1b75eb721f6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
