@@ -7,9 +7,9 @@ const JUMP_VELOCITY = 4.5
 const MOUSE_SENSITIVITY = 0.002
 
 # View bobbing parameters
-const BOB_FREQ = 2.0  # Footstep frequency
-const BOB_AMP = 0.05  # Vertical amplitude (subtle for horror)
-const BOB_AMP_SPRINT = 0.08  # More intense during sprint
+const BOB_FREQ = 2.0 # Footstep frequency
+const BOB_AMP = 0.05 # Vertical amplitude (subtle for horror)
+const BOB_AMP_SPRINT = 0.08 # More intense during sprint
 var bob_time = 0.0
 
 # Camera reference and base position
@@ -28,24 +28,25 @@ const SPRINT_FOV = 95.0
 const FOV_LERP_SPEED = 8.0
 
 # Heart rate system
-var heart_bpm: float = 60.0  # Resting heart rate
+var heart_bpm: float = 60.0 # Resting heart rate
 const NORMAL_BPM = 60.0
-const SPRINT_BPM = 160.0  # Heart rate while sprinting (increased cap)
-const MAX_BPM = 200.0  # Maximum possible BPM
-const BPM_INCREASE_SPEED = 15.0  # Slower increase (was 30.0)
-const BPM_DECREASE_SPEED = 25.0  # Faster recovery
-@onready var heartbeat_sound = $Camera3D/heartBeatSound/AudioStreamPlayer3D
+const SPRINT_BPM = 160.0 # Heart rate while sprinting (increased cap)
+const MAX_BPM = 200.0 # Maximum possible BPM
+const BPM_INCREASE_SPEED = 15.0 # Slower increase (was 30.0)
+const BPM_DECREASE_SPEED = 25.0 # Faster recovery
+@onready var heartbeat_sound = $Camera3D/SFXManager/Heart
+@onready var breathing_sound = $Camera3D/SFXManager/Breathing
 var heartbeat_timer: float = 0.0
 
 # Monster proximity effects
-var monster_bpm_modifier: float = 0.0  # Additional BPM from being near monster
+var monster_bpm_modifier: float = 0.0 # Additional BPM from being near monster
 
 # Stamina system
-var stamina: float = 100.0  # Current stamina
+var stamina: float = 100.0 # Current stamina
 const MAX_STAMINA = 100.0
-const STAMINA_DRAIN_RATE = 20.0  # Stamina per second while sprinting
-const STAMINA_RECOVERY_RATE = 15.0  # Stamina per second while not sprinting
-const MIN_STAMINA_TO_SPRINT = 0.0  # Minimum stamina needed to start sprinting
+const STAMINA_DRAIN_RATE = 20.0 # Stamina per second while sprinting
+const STAMINA_RECOVERY_RATE = 15.0 # Stamina per second while not sprinting
+const MIN_STAMINA_TO_SPRINT = 0.0 # Minimum stamina needed to start sprinting
 var is_winded: bool = false
 var winded_sound_played: bool = false
 
@@ -69,7 +70,7 @@ func _input(event):
 		# Rotate camera vertically
 		camera.rotate_x(-event.relative.y * MOUSE_SENSITIVITY)
 		# Clamp vertical rotation to prevent over-rotation
-		camera.rotation.x = clamp(camera.rotation.x, -PI/2, PI/2)
+		camera.rotation.x = clamp(camera.rotation.x, -PI / 2, PI / 2)
 	
 	# Release mouse with ESC (for testing)
 	if event.is_action_pressed("ui_cancel"):
@@ -77,6 +78,23 @@ func _input(event):
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+
+func _process(delta: float) -> void:
+	if stamina < 70:
+		if breathing_sound: # Check if node exists
+			if not breathing_sound.is_playing():
+				breathing_sound.play()
+			# Make louder as stamina gets lower - using very quiet volumes
+			# Loudest at stamina 0 (-20 dB), quietest at stamina 50 (-40 dB)
+			var new_volume = remap(stamina, 0.0, 50.0, -30.0, -50.0)
+			breathing_sound.volume_db = new_volume
+			# Make breathing faster as stamina decreases
+			var breathing_speed = remap(stamina, 0.0, 70.0, 1.4, 1.0)
+			breathing_sound.pitch_scale = breathing_speed
+	else:
+		if breathing_sound:
+			breathing_sound.stop()
 
 func _physics_process(delta):
 	# Add gravity
@@ -107,7 +125,7 @@ func _physics_process(delta):
 	elif not wants_to_sprint:
 		# Only recover stamina when not trying to sprint
 		stamina = min(MAX_STAMINA, stamina + STAMINA_RECOVERY_RATE * delta)
-		if stamina >= MAX_STAMINA * 0.3:  # Reset winded state at 30% stamina
+		if stamina >= MAX_STAMINA * 0.3: # Reset winded state at 30% stamina
 			is_winded = false
 			winded_sound_played = false
 	
@@ -130,7 +148,7 @@ func _physics_process(delta):
 	# Sprinting attracts the monster with sound
 	if is_sprinting and horizontal_velocity > 0.5:
 		# Call soundMade every frame while sprinting (distance and strength can be adjusted)
-		soundMade(40.0, 0.6)  # Moderate hear distance and strength for sprinting
+		soundMade(40.0, 0.6) # Moderate hear distance and strength for sprinting
 	
 	# Update heart rate based on player state
 	_update_heart_rate(delta, is_sprinting, horizontal_velocity)
@@ -197,7 +215,7 @@ func _apply_heart_rate_effects(delta):
 	
 	# Add subtle camera shake at high heart rates
 	if heart_bpm > 100.0:
-		var shake_intensity = (heart_bpm - 100.0) / 80.0  # 0 to 1 range
+		var shake_intensity = (heart_bpm - 100.0) / 80.0 # 0 to 1 range
 		var shake_amount = shake_intensity * 0.01
 		camera.position.x += randf_range(-shake_amount, shake_amount)
 		camera.position.y += randf_range(-shake_amount, shake_amount)
@@ -212,11 +230,11 @@ func _update_heartbeat(delta):
 		stamina_label.text = "Stamina: " + str(int(stamina))
 		# Change color based on stamina level
 		if stamina < 30.0:
-			stamina_label.label_settings.font_color = Color(1, 0.2, 0.2, 1)  # Red when low
+			stamina_label.label_settings.font_color = Color(1, 0.2, 0.2, 1) # Red when low
 		elif stamina < 60.0:
-			stamina_label.label_settings.font_color = Color(1, 1, 0.2, 1)  # Yellow when medium
+			stamina_label.label_settings.font_color = Color(1, 1, 0.2, 1) # Yellow when medium
 		else:
-			stamina_label.label_settings.font_color = Color(0.2, 1, 0.2, 1)  # Green when high
+			stamina_label.label_settings.font_color = Color(0.2, 1, 0.2, 1) # Green when high
 	
 	# Adjust playback speed based on BPM - moderate scaling
 	# pitch_scale also controls playback speed in Godot
@@ -236,7 +254,7 @@ func _update_heartbeat(delta):
 # Public method to trigger fear response (call this from other scripts)
 func trigger_fear(intensity: float = 1.0):
 	# Instantly spike heart rate based on intensity (0.0 to 1.0)
-	var bpm_increase = intensity * 60.0  # Up to 60 BPM increase
+	var bpm_increase = intensity * 60.0 # Up to 60 BPM increase
 	heart_bpm = min(heart_bpm + bpm_increase, MAX_BPM)
 
 # Public method to set sustained BPM increase from monster proximity

@@ -1,9 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://bgiytxfnbyhxc"]
+[gd_scene load_steps=3 format=3 uid="uid://bgiytxfnbyhxc"]
 
-[ext_resource type="AudioStream" uid="uid://cykrt75xolut" path="res://soundEffects/heartbeat-sfx-320981.mp3" id="1_2bfhm"]
+[ext_resource type="AudioStream" uid="uid://bcfmc74jf5qpc" path="res://soundEffects/heartSFX.mp3" id="1_2bfhm"]
+[ext_resource type="AudioStream" uid="uid://bobsyb12680qe" path="res://soundEffects/Regular respiration.mp3" id="2_5b54x"]
 
 [node name="heartBeatSound" type="Node3D"]
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+[node name="Heart" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("1_2bfhm")
 autoplay = true
+
+[node name="Breathing" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_5b54x")
+volume_db = -40.0
+mix_target = 1

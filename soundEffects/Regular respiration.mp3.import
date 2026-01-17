@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bobsyb12680qe"
+path="res://.godot/imported/Regular respiration.mp3-3dc5fad37e5ddc12514a68af3aedda3a.mp3str"
+
+[deps]
+
+source_file="res://soundEffects/Regular respiration.mp3"
+dest_files=["res://.godot/imported/Regular respiration.mp3-3dc5fad37e5ddc12514a68af3aedda3a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

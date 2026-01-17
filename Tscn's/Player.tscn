@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bxj8y6qvnhm4w"]
+[gd_scene load_steps=7 format=3 uid="uid://bxj8y6qvnhm4w"]
 
 [ext_resource type="Script" uid="uid://gbtbdhb7e83w" path="res://Tscn's/Player.gd" id="1_v5k2m"]
 [ext_resource type="PackedScene" uid="uid://bgiytxfnbyhxc" path="res://soundEffects/heartBeatSound.tscn" id="2_qnqe6"]
@@ -38,7 +38,7 @@ shape = SubResource("SphereShape3D_detection")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
 fov = 85.0
 
-[node name="heartBeatSound" parent="Camera3D" instance=ExtResource("2_qnqe6")]
+[node name="SFXManager" parent="Camera3D" instance=ExtResource("2_qnqe6")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
