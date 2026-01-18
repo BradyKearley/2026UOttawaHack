@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=4 uid="uid://hx4y2vug4jv3"]
 
-[ext_resource type="Material" uid="uid://byxiyjgis7ucg" path="res://Materials/Chair.tres" id="1_xqo0f"]
+[ext_resource type="Material" uid="uid://sl7kwi455r2" path="res://Materials/Chair.tres" id="1_xqo0f"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_ititv"]
 _surfaces = [{
@@ -20,8 +20,14 @@ _surfaces = [{
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.9611453, -0.66845703)
 mesh = SubResource("ArrayMesh_ititv")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.50938416, 1.1109619, -0.7348989)
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.50938416, 0.64035034, -0.7063345)
 visible = false
 use_collision = true
-size = Vector3(0.8578186, 1.7556152, 1)
+size = Vector3(0.8578186, 0.8143921, 1.0571289)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.50938416, 1.0870819, -1.1133779)
+visible = false
+use_collision = true
+size = Vector3(0.8578186, 1.7078552, 0.099243164)

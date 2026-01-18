@@ -37,3 +37,10 @@ _surfaces = [{
 [node name="CSGBakedMeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 1.2512599e-08, -0.28625488)
 mesh = SubResource("ArrayMesh_qqnrs")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -1.2064386e-08, -0.27600098)
+visible = false
+use_collision = true
+radius = 0.8276367
+height = 2.683838

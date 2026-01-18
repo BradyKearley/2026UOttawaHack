@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://bd27ntmnbikpa"]
+[gd_scene load_steps=15 format=3 uid="uid://bd27ntmnbikpa"]
 
 [ext_resource type="Material" uid="uid://ddgqk5ag3vvda" path="res://Materials/Ground.tres" id="1_k5u8p"]
+[ext_resource type="PackedScene" uid="uid://dacjexb1e3eyq" path="res://Tscn's/Eminem.tscn" id="2_jl5ch"]
 [ext_resource type="Material" uid="uid://b0p18gxn3nfln" path="res://Materials/Wall.tres" id="2_x8ts6"]
 [ext_resource type="PackedScene" uid="uid://bxj8y6qvnhm4w" path="res://Tscn's/Player.tscn" id="3_player"]
 [ext_resource type="PackedScene" uid="uid://4irkirx8txps" path="res://Tscn's/monster.tscn" id="4_d3e62"]
@@ -33,6 +34,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.906094, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_u6jok")
+
+[node name="Eminem" parent="WorldEnvironment" instance=ExtResource("2_jl5ch")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.2892504)
 
 [node name="Ground" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.442627, -1.38574)

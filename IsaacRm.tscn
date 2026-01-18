@@ -1,11 +1,11 @@
 [gd_scene load_steps=33 format=3 uid="uid://cywilqb21k76b"]
 
+[ext_resource type="PackedScene" uid="uid://dacjexb1e3eyq" path="res://Tscn's/Eminem.tscn" id="1_h5s2s"]
 [ext_resource type="PackedScene" uid="uid://bxj8y6qvnhm4w" path="res://Tscn's/Player.tscn" id="1_pu4ar"]
 [ext_resource type="Material" uid="uid://bhy3h4a4apm2k" path="res://Materials/floor.tres" id="2_6mf0j"]
 [ext_resource type="Material" uid="uid://ddgqk5ag3vvda" path="res://Materials/Ground.tres" id="2_myyj8"]
 [ext_resource type="Material" uid="uid://dgfmrlor71dtb" path="res://Materials/Cobble.tres" id="3_gipgq"]
 [ext_resource type="Material" uid="uid://b0p18gxn3nfln" path="res://Materials/Wall.tres" id="3_myyj8"]
-[ext_resource type="Material" uid="uid://b6bdtid1f82nv" path="res://Materials/bearskin.tres" id="3_y14xb"]
 [ext_resource type="PackedScene" uid="uid://cwf7v5nfsyjok" path="res://Furneture/LargeBookSelf.tscn" id="5_sty18"]
 [ext_resource type="PackedScene" uid="uid://ivamciba4wte" path="res://Furneture/Bear.tscn" id="6_yuus1"]
 [ext_resource type="PackedScene" uid="uid://dr0fqqquud4du" path="res://Furneture/Table.tscn" id="7_hxbci"]
@@ -17,17 +17,17 @@
 [ext_resource type="PackedScene" uid="uid://di72fj8c6fmom" path="res://Materials/couch.tscn" id="11_5d5hm"]
 [ext_resource type="PackedScene" uid="uid://d2rdh0xxkj7u0" path="res://Furneture/Barrel.tscn" id="11_ewpd5"]
 [ext_resource type="PackedScene" uid="uid://6aaskxxtp0ii" path="res://Materials/harp.tscn" id="11_mvje0"]
-[ext_resource type="PackedScene" path="res://Furneture/armorstand.tscn" id="12_gipgq"]
+[ext_resource type="PackedScene" uid="uid://cfctpib0d64v4" path="res://Furneture/armorstand.tscn" id="12_gipgq"]
 [ext_resource type="PackedScene" uid="uid://c48l3uj4lw56x" path="res://Materials/fire_place.tscn" id="13_ubmck"]
 [ext_resource type="PackedScene" uid="uid://drvsffqttfxso" path="res://Materials/itemcrystalball.tscn" id="15_h5s2s"]
-[ext_resource type="PackedScene" path="res://Cabinet.tscn" id="19_foql3"]
+[ext_resource type="PackedScene" uid="uid://tj2pxiw4sr2d" path="res://Cabinet.tscn" id="19_foql3"]
 [ext_resource type="PackedScene" uid="uid://4irkirx8txps" path="res://Tscn's/monster.tscn" id="19_ydcpm"]
-[ext_resource type="PackedScene" uid="uid://cmo357m2fuhas" path="res://Tscn's/InsideDoor.tscn" id="20_fq1er"]
+[ext_resource type="PackedScene" path="res://Tscn's/InsideDoor.tscn" id="20_fq1er"]
 [ext_resource type="PackedScene" uid="uid://dsy33ijcvmh7f" path="res://Tscn's/item.tscn" id="20_r1kxd"]
-[ext_resource type="PackedScene" path="res://Grill.tscn" id="20_x44yw"]
-[ext_resource type="PackedScene" path="res://Sink.tscn" id="21_3jqlj"]
-[ext_resource type="PackedScene" path="res://Cauldron.tscn" id="22_3jqlj"]
-[ext_resource type="PackedScene" path="res://PotionHolder.tscn" id="23_2ohi5"]
+[ext_resource type="PackedScene" uid="uid://bd1t276kgho5w" path="res://Grill.tscn" id="20_x44yw"]
+[ext_resource type="PackedScene" uid="uid://euejeuih06nl" path="res://Sink.tscn" id="21_3jqlj"]
+[ext_resource type="PackedScene" uid="uid://dcc8hskcvfi36" path="res://Cauldron.tscn" id="22_3jqlj"]
+[ext_resource type="PackedScene" uid="uid://cn2akw4kn3wl1" path="res://PotionHolder.tscn" id="23_2ohi5"]
 [ext_resource type="PackedScene" uid="uid://dhnoewhvae02g" path="res://Materials/itempotion.tscn" id="27_a5bku"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lyjjt"]
@@ -50,6 +50,18 @@ tonemap_mode = 4
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_sty18")
 
+[node name="Eminem" parent="." instance=ExtResource("1_h5s2s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.2517242, 0.3837248, -3.9770522)
+
+[node name="Eminem2" parent="." instance=ExtResource("1_h5s2s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.462961, 0.3837248, -13.855123)
+
+[node name="Eminem3" parent="." instance=ExtResource("1_h5s2s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.99879694, 0.38372457, -12.2171545)
+
+[node name="Eminem4" parent="." instance=ExtResource("1_h5s2s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.398788, 0.3837245, -6.2626467)
+
 [node name="Player" parent="." instance=ExtResource("1_pu4ar")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0575454, 5.16425)
 
@@ -69,10 +81,10 @@ size = Vector3(23.8844, 0.2, 19.475)
 material = ExtResource("2_6mf0j")
 
 [node name="Entrance2" type="CSGBox3D" parent="FirstFloors"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.565, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.500317, 0, 0)
 use_collision = true
-size = Vector3(23.8844, 0.2, 19.475)
-material = ExtResource("3_y14xb")
+size = Vector3(11.755035, 0.2, 19.475)
+material = ExtResource("2_6mf0j")
 
 [node name="LivingRmFloor" type="CSGBox3D" parent="FirstFloors"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.2284, 0, -11.9893)
