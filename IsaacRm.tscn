@@ -52,15 +52,19 @@ environment = SubResource("Environment_sty18")
 
 [node name="Eminem" parent="." instance=ExtResource("1_h5s2s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.2517242, 0.3837248, -3.9770522)
+look_threshold = 0.85
 
 [node name="Eminem2" parent="." instance=ExtResource("1_h5s2s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.462961, 0.3837248, -13.855123)
+look_threshold = 0.85
 
 [node name="Eminem3" parent="." instance=ExtResource("1_h5s2s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.99879694, 0.38372457, -12.2171545)
+look_threshold = 0.85
 
 [node name="Eminem4" parent="." instance=ExtResource("1_h5s2s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.398788, 0.3837245, -6.2626467)
+look_threshold = 0.85
 
 [node name="Player" parent="." instance=ExtResource("1_pu4ar")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0575454, 5.16425)
