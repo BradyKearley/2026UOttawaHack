@@ -40,7 +40,7 @@ func _on_small_area_area_entered(area: Area3D) -> void:
 		# High sustained BPM increase for small (close) area
 		player.set_monster_bpm_modifier(100.0)
 		closest_sound.volume_db = -10
-		closest_sound.play()
+		#closest_sound.play()
 
 
 func _on_small_area_area_exited(area: Area3D) -> void:
@@ -50,7 +50,7 @@ func _on_small_area_area_exited(area: Area3D) -> void:
 		if player_ref:
 			player_ref.set_monster_bpm_modifier(50.0)
 		player = null
-		fade_out_sound(closest_sound, 1.0)
+		#fade_out_sound(closest_sound, 1.0)
 
 
 func _on_small_area_2_area_entered(area: Area3D) -> void:

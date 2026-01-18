@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://cywilqb21k76b"]
+[gd_scene load_steps=33 format=3 uid="uid://cywilqb21k76b"]
 
 [ext_resource type="PackedScene" uid="uid://bxj8y6qvnhm4w" path="res://Tscn's/Player.tscn" id="1_pu4ar"]
 [ext_resource type="Material" uid="uid://bhy3h4a4apm2k" path="res://Materials/floor.tres" id="2_6mf0j"]
@@ -17,19 +17,18 @@
 [ext_resource type="PackedScene" uid="uid://di72fj8c6fmom" path="res://Materials/couch.tscn" id="11_5d5hm"]
 [ext_resource type="PackedScene" uid="uid://d2rdh0xxkj7u0" path="res://Furneture/Barrel.tscn" id="11_ewpd5"]
 [ext_resource type="PackedScene" uid="uid://6aaskxxtp0ii" path="res://Materials/harp.tscn" id="11_mvje0"]
-[ext_resource type="PackedScene" uid="uid://cfctpib0d64v4" path="res://Furneture/armorstand.tscn" id="12_gipgq"]
+[ext_resource type="PackedScene" path="res://Furneture/armorstand.tscn" id="12_gipgq"]
 [ext_resource type="PackedScene" uid="uid://c48l3uj4lw56x" path="res://Materials/fire_place.tscn" id="13_ubmck"]
 [ext_resource type="PackedScene" uid="uid://drvsffqttfxso" path="res://Materials/itemcrystalball.tscn" id="15_h5s2s"]
-[ext_resource type="PackedScene" uid="uid://tj2pxiw4sr2d" path="res://Cabinet.tscn" id="19_foql3"]
+[ext_resource type="PackedScene" path="res://Cabinet.tscn" id="19_foql3"]
 [ext_resource type="PackedScene" uid="uid://4irkirx8txps" path="res://Tscn's/monster.tscn" id="19_ydcpm"]
-[ext_resource type="PackedScene" path="res://Tscn's/InsideDoor.tscn" id="20_fq1er"]
+[ext_resource type="PackedScene" uid="uid://cmo357m2fuhas" path="res://Tscn's/InsideDoor.tscn" id="20_fq1er"]
 [ext_resource type="PackedScene" uid="uid://dsy33ijcvmh7f" path="res://Tscn's/item.tscn" id="20_r1kxd"]
-[ext_resource type="PackedScene" uid="uid://bd1t276kgho5w" path="res://Grill.tscn" id="20_x44yw"]
-[ext_resource type="PackedScene" uid="uid://euejeuih06nl" path="res://Sink.tscn" id="21_3jqlj"]
-[ext_resource type="PackedScene" uid="uid://dcc8hskcvfi36" path="res://Cauldron.tscn" id="22_3jqlj"]
-[ext_resource type="PackedScene" uid="uid://cn2akw4kn3wl1" path="res://PotionHolder.tscn" id="23_2ohi5"]
+[ext_resource type="PackedScene" path="res://Grill.tscn" id="20_x44yw"]
+[ext_resource type="PackedScene" path="res://Sink.tscn" id="21_3jqlj"]
+[ext_resource type="PackedScene" path="res://Cauldron.tscn" id="22_3jqlj"]
+[ext_resource type="PackedScene" path="res://PotionHolder.tscn" id="23_2ohi5"]
 [ext_resource type="PackedScene" uid="uid://dhnoewhvae02g" path="res://Materials/itempotion.tscn" id="27_a5bku"]
-[ext_resource type="PackedScene" uid="uid://diby0dogrcshp" path="res://sentry.tscn" id="30_h5s2s"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lyjjt"]
 sky_top_color = Color(0.297738, 0.000589698, 0.78637, 1)
@@ -519,5 +518,3 @@ transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 12.517778, 0.68737644, 
 
 [node name="w" parent="." instance=ExtResource("11_mvje0")]
 transform = Transform3D(0.839551, 0, 0.857411, 0, 1.2, 0, -0.857411, 0, 0.839551, 17.9294, 0.44333535, -10.5431)
-
-[node name="Sentry" parent="." instance=ExtResource("30_h5s2s")]
