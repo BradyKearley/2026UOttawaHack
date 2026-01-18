@@ -184,6 +184,15 @@ func _check_for_items():
 		if collider and collider.is_in_group("insideDoor"):
 			inside_door_in_view = collider
 			return
+		# Check if we're looking at a shadowy entity
+		if collider and collider.is_in_group("shadowy_entity"):
+			if current_item != collider:
+				if current_item and current_item.has_method("look_away"):
+					current_item.look_away()
+				current_item = collider
+				if current_item.has_method("look_at_item"):
+					current_item.look_at_item()
+			return
 		# Check if we're looking at an item
 		if collider and collider.is_in_group("item"):
 			# New item detected

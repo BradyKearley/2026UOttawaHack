@@ -1,11 +1,11 @@
 [gd_scene load_steps=15 format=3 uid="uid://b7h7ccuobuso3"]
 
 [ext_resource type="PackedScene" uid="uid://bxj8y6qvnhm4w" path="res://Tscn's/Player.tscn" id="1_svc71"]
-[ext_resource type="Material" path="res://Materials/Fence.tres" id="2_hdeur"]
+[ext_resource type="Material" uid="uid://fa07068w0p2y" path="res://Materials/Fence.tres" id="2_hdeur"]
 [ext_resource type="Material" uid="uid://b0p18gxn3nfln" path="res://Materials/Wall.tres" id="3_qckp1"]
 [ext_resource type="Material" uid="uid://ddgqk5ag3vvda" path="res://Materials/Ground.tres" id="4_y0u00"]
-[ext_resource type="PackedScene" uid="uid://c5u5vyx0i024q" path="res://Furneture/candle.tscn" id="6_bb4o6"]
-[ext_resource type="PackedScene" path="res://Furneture/CrystalBall.tscn" id="6_svc71"]
+[ext_resource type="PackedScene" uid="uid://c5u5vyx0i024q" path="res://candle.tscn" id="6_bb4o6"]
+[ext_resource type="PackedScene" uid="uid://dv347633o7186" path="res://Furneture/CrystalBall.tscn" id="6_svc71"]
 [ext_resource type="PackedScene" uid="uid://cigjasc31lvay" path="res://Tscn's/ethereal_music.tscn" id="7_o52dv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hdeur"]
