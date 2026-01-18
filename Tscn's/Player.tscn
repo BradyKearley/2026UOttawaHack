@@ -86,22 +86,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="BPMLabel" type="Label" parent="CanvasLayer"]
-offset_left = 10.0
-offset_top = 10.0
-offset_right = 150.0
-offset_bottom = 50.0
-text = "BPM: 60"
-label_settings = SubResource("LabelSettings_bpm")
-
-[node name="StaminaLabel" type="Label" parent="CanvasLayer"]
-offset_left = 10.0
-offset_top = 50.0
-offset_right = 200.0
-offset_bottom = 90.0
-text = "Stamina: 100"
-label_settings = SubResource("LabelSettings_stamina")
-
 [node name="ItemCounterLabel" type="Label" parent="CanvasLayer"]
 offset_left = 10.0
 offset_top = 90.0

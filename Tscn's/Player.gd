@@ -15,8 +15,6 @@ var bob_time = 0.0
 # Camera reference and base position
 @onready var camera = $Camera3D
 var camera_base_y = 1.6
-@onready var bpm_label = $CanvasLayer/BPMLabel
-@onready var stamina_label = $CanvasLayer/StaminaLabel
 @onready var heart_ui = $CanvasLayer/HeartUI
 @onready var red_flash_overlay = $CanvasLayer/RedFlashOverlay
 
@@ -390,21 +388,6 @@ func _apply_heart_rate_effects(delta):
 		camera.position.y += randf_range(-shake_amount, shake_amount)
 
 func _update_heartbeat(delta):
-	# Update BPM display
-	if bpm_label:
-		bpm_label.text = "BPM: " + str(int(heart_bpm))
-	
-	# Update stamina display
-	if stamina_label:
-		stamina_label.text = "Stamina: " + str(int(stamina))
-		# Change color based on stamina level
-		if stamina < 30.0:
-			stamina_label.label_settings.font_color = Color(1, 0.2, 0.2, 1) # Red when low
-		elif stamina < 60.0:
-			stamina_label.label_settings.font_color = Color(1, 1, 0.2, 1) # Yellow when medium
-		else:
-			stamina_label.label_settings.font_color = Color(0.2, 1, 0.2, 1) # Green when high
-	
 	# Adjust playback speed based on BPM - moderate scaling
 	# pitch_scale also controls playback speed in Godot
 	if heartbeat_sound:
