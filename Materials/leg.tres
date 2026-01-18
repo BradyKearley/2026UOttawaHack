@@ -3,5 +3,5 @@
 [ext_resource type="Texture2D" uid="uid://mgj5o255k2n4" path="res://Materials/woodtest1.jpeg" id="1_6dkq6"]
 
 [resource]
-albedo_color = Color(0.29578036, 0.23089084, 0.0010760592, 1)
+albedo_color = Color(0.29578, 0.230891, 0.00107606, 1)
 albedo_texture = ExtResource("1_6dkq6")
