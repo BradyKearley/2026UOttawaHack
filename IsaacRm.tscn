@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://cywilqb21k76b"]
+[gd_scene load_steps=33 format=3 uid="uid://cywilqb21k76b"]
 
 [ext_resource type="PackedScene" uid="uid://bxj8y6qvnhm4w" path="res://Tscn's/Player.tscn" id="1_pu4ar"]
 [ext_resource type="Material" uid="uid://bhy3h4a4apm2k" path="res://Materials/floor.tres" id="2_6mf0j"]
@@ -6,14 +6,13 @@
 [ext_resource type="Material" uid="uid://dgfmrlor71dtb" path="res://Materials/Cobble.tres" id="3_gipgq"]
 [ext_resource type="Material" uid="uid://b0p18gxn3nfln" path="res://Materials/Wall.tres" id="3_myyj8"]
 [ext_resource type="Material" uid="uid://b6bdtid1f82nv" path="res://Materials/bearskin.tres" id="3_y14xb"]
-[ext_resource type="PackedScene" uid="uid://c5u5vyx0i024q" path="res://Furneture/candle.tscn" id="5_b583f"]
 [ext_resource type="PackedScene" uid="uid://cwf7v5nfsyjok" path="res://Furneture/LargeBookSelf.tscn" id="5_sty18"]
 [ext_resource type="PackedScene" path="res://Furneture/Bear.tscn" id="6_yuus1"]
 [ext_resource type="PackedScene" uid="uid://dr0fqqquud4du" path="res://Furneture/Table.tscn" id="7_hxbci"]
 [ext_resource type="PackedScene" uid="uid://bk0uvcfjxptdo" path="res://item_spellbook_2.tscn" id="8_cygmn"]
 [ext_resource type="PackedScene" uid="uid://hx4y2vug4jv3" path="res://Furneture/chair.tscn" id="8_rdvwe"]
 [ext_resource type="PackedScene" uid="uid://bji6sp431be62" path="res://Furneture/throneActual.tscn" id="9_4kv3g"]
-[ext_resource type="PackedScene" path="res://Lecturn.tscn" id="10_2ohi5"]
+[ext_resource type="PackedScene" uid="uid://cyvjv5o6jn61c" path="res://Lecturn.tscn" id="10_2ohi5"]
 [ext_resource type="PackedScene" path="res://Furneture/Crate.tscn" id="10_w48sl"]
 [ext_resource type="PackedScene" path="res://Materials/couch.tscn" id="11_5d5hm"]
 [ext_resource type="PackedScene" path="res://Furneture/Barrel.tscn" id="11_ewpd5"]
@@ -92,9 +91,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.41184, -0.042495, -16.2465
 use_collision = true
 size = Vector3(15.9506, 0.2, 13.0844)
 material = ExtResource("3_gipgq")
-
-[node name="Candle6" parent="FirstFloors" instance=ExtResource("5_b583f")]
-transform = Transform3D(-4.37114e-08, 0.258819, 0.965926, 0, 0.965926, -0.258819, -1, -1.13133e-08, -4.2222e-08, 5.27129, 1.18482, 4.65278)
 
 [node name="Walls" type="CSGCombiner3D" parent="."]
 use_collision = true
