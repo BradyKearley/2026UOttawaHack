@@ -11,13 +11,17 @@ config_version=5
 [application]
 
 config/name="Hackathon Project"
-run/main_scene="res://Tscn's/monster.tscn"
-config/features=PackedStringArray("4.5", "GL Compatibility")
+run/main_scene="res://jacob_porch_win.tscn"
+config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [debug]
 
 settings/gdscript/always_track_call_stacks=true
+
+[display]
+
+window/vsync/vsync_mode=0
 
 [input]
 

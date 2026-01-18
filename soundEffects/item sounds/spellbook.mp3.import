@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cvll7066dw25y"
+path="res://.godot/imported/spellbook.mp3-c058836db1edba63bd990c1a47047dd3.mp3str"
+
+[deps]
+
+source_file="res://soundEffects/item sounds/spellbook.mp3"
+dest_files=["res://.godot/imported/spellbook.mp3-c058836db1edba63bd990c1a47047dd3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
