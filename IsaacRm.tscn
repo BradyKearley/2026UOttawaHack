@@ -1,25 +1,35 @@
-[gd_scene load_steps=24 format=3 uid="uid://cywilqb21k76b"]
+[gd_scene load_steps=34 format=3 uid="uid://cywilqb21k76b"]
 
 [ext_resource type="PackedScene" uid="uid://bxj8y6qvnhm4w" path="res://Tscn's/Player.tscn" id="1_pu4ar"]
-[ext_resource type="Material" uid="uid://cwljo58x5xacl" path="res://Materials/floor.tres" id="2_6mf0j"]
+[ext_resource type="Material" uid="uid://bhy3h4a4apm2k" path="res://Materials/floor.tres" id="2_6mf0j"]
 [ext_resource type="Material" uid="uid://ddgqk5ag3vvda" path="res://Materials/Ground.tres" id="2_myyj8"]
 [ext_resource type="Material" uid="uid://dgfmrlor71dtb" path="res://Materials/Cobble.tres" id="3_gipgq"]
 [ext_resource type="Material" uid="uid://b0p18gxn3nfln" path="res://Materials/Wall.tres" id="3_myyj8"]
 [ext_resource type="Material" uid="uid://3u6t3pi16bch" path="res://Materials/bearskin.tres" id="3_y14xb"]
-[ext_resource type="PackedScene" uid="uid://c5u5vyx0i024q" path="res://Furneture/candle.tscn" id="5_b583f"]
+[ext_resource type="PackedScene" path="res://Furneture/candle.tscn" id="5_b583f"]
 [ext_resource type="PackedScene" uid="uid://cwf7v5nfsyjok" path="res://Furneture/LargeBookSelf.tscn" id="5_sty18"]
-[ext_resource type="PackedScene" path="res://Furneture/Bear.tscn" id="6_yuus1"]
+[ext_resource type="PackedScene" uid="uid://ivamciba4wte" path="res://Furneture/Bear.tscn" id="6_yuus1"]
 [ext_resource type="PackedScene" uid="uid://dr0fqqquud4du" path="res://Furneture/Table.tscn" id="7_hxbci"]
+[ext_resource type="PackedScene" path="res://item_spellbook_2.tscn" id="8_cygmn"]
 [ext_resource type="PackedScene" uid="uid://hx4y2vug4jv3" path="res://Furneture/chair.tscn" id="8_rdvwe"]
 [ext_resource type="PackedScene" uid="uid://bji6sp431be62" path="res://Furneture/throneActual.tscn" id="9_4kv3g"]
-[ext_resource type="PackedScene" path="res://Furneture/Crate.tscn" id="10_w48sl"]
-[ext_resource type="PackedScene" path="res://Materials/couch.tscn" id="11_5d5hm"]
-[ext_resource type="PackedScene" path="res://Furneture/Barrel.tscn" id="11_ewpd5"]
+[ext_resource type="PackedScene" uid="uid://cyvjv5o6jn61c" path="res://Lecturn.tscn" id="10_2ohi5"]
+[ext_resource type="PackedScene" uid="uid://bitwnyfpl3m1y" path="res://Furneture/Crate.tscn" id="10_w48sl"]
+[ext_resource type="PackedScene" uid="uid://di72fj8c6fmom" path="res://Materials/couch.tscn" id="11_5d5hm"]
+[ext_resource type="PackedScene" uid="uid://d2rdh0xxkj7u0" path="res://Furneture/Barrel.tscn" id="11_ewpd5"]
 [ext_resource type="PackedScene" uid="uid://bdshc1dc07b1q" path="res://Materials/harp.tscn" id="11_mvje0"]
-[ext_resource type="PackedScene" path="res://Furneture/armorstand.tscn" id="12_gipgq"]
+[ext_resource type="PackedScene" uid="uid://cfctpib0d64v4" path="res://Furneture/armorstand.tscn" id="12_gipgq"]
 [ext_resource type="PackedScene" uid="uid://c48l3uj4lw56x" path="res://Materials/fire_place.tscn" id="13_ubmck"]
+[ext_resource type="PackedScene" path="res://Materials/itemcrystalball.tscn" id="15_h5s2s"]
+[ext_resource type="PackedScene" uid="uid://tj2pxiw4sr2d" path="res://Cabinet.tscn" id="19_foql3"]
 [ext_resource type="PackedScene" uid="uid://4irkirx8txps" path="res://Tscn's/monster.tscn" id="19_ydcpm"]
-[ext_resource type="PackedScene" uid="uid://dppwf02bla51n" path="res://Tscn's/InsideDoor.tscn" id="20_fq1er"]
+[ext_resource type="PackedScene" path="res://Tscn's/InsideDoor.tscn" id="20_fq1er"]
+[ext_resource type="PackedScene" uid="uid://dsy33ijcvmh7f" path="res://Tscn's/item.tscn" id="20_r1kxd"]
+[ext_resource type="PackedScene" uid="uid://bd1t276kgho5w" path="res://Grill.tscn" id="20_x44yw"]
+[ext_resource type="PackedScene" uid="uid://euejeuih06nl" path="res://Sink.tscn" id="21_3jqlj"]
+[ext_resource type="PackedScene" uid="uid://dcc8hskcvfi36" path="res://Cauldron.tscn" id="22_3jqlj"]
+[ext_resource type="PackedScene" uid="uid://cn2akw4kn3wl1" path="res://PotionHolder.tscn" id="23_2ohi5"]
+[ext_resource type="PackedScene" path="res://Materials/itempotion.tscn" id="27_a5bku"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lyjjt"]
 sky_top_color = Color(0.297738, 0.000589698, 0.7863699, 1)
@@ -208,7 +218,7 @@ operation = 2
 size = Vector3(1, 2.426085, 1.5374908)
 
 [node name="Floors(2ndFloor)" type="CSGCombiner3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3512411, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.622576, 0)
 use_collision = true
 
 [node name="2ndFloorL" type="CSGBox3D" parent="Floors(2ndFloor)"]
@@ -243,6 +253,9 @@ material = ExtResource("2_myyj8")
 
 [node name="Library Furneture" type="CSGCombiner3D" parent="."]
 use_collision = true
+
+[node name="itemSpellbook2" parent="Library Furneture" instance=ExtResource("8_cygmn")]
+transform = Transform3D(-1.5298985e-08, 0.1685549, -0.3067397, 0, 0.3067397, 0.1685549, 0.35, 7.3677686e-09, -1.3408018e-08, -19.111614, 0.6546551, -4.9991384)
 
 [node name="Node3D2" parent="Library Furneture" instance=ExtResource("5_sty18")]
 transform = Transform3D(0.18, 0, 0, 0, 0.18, 0, 0, 0, 0.18, -8.2258215, -0.33375764, -0.2692666)
@@ -282,6 +295,9 @@ transform = Transform3D(-0.18, 0, 1.57361e-08, 0, 0.18, 0, -1.57361e-08, 0, -0.1
 
 [node name="Bear" parent="Library Furneture" instance=ExtResource("6_yuus1")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -13.717539, -0.26465517, 7.185955)
+
+[node name="Node3D" parent="Library Furneture" instance=ExtResource("10_2ohi5")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -19.013739, -0.20131338, -5.003837)
 
 [node name="Dining Rm" type="CSGCombiner3D" parent="."]
 transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -1.9205914, 0, 0)
@@ -340,6 +356,9 @@ transform = Transform3D(-0.21988122, 0, -0.5582583, 0, 0.5999999, 0, 0.5582583, 
 
 [node name="Node3D11" parent="Dining Rm" instance=ExtResource("9_4kv3g")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 14.736711, -0.40360704, 0)
+
+[node name="itemcrystalball" parent="Dining Rm" instance=ExtResource("15_h5s2s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.598445, 0.47385263, 1.0715652)
 
 [node name="LivinRm" type="CSGCombiner3D" parent="."]
 
@@ -431,6 +450,72 @@ transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -17.843334, -0.5345988,
 
 [node name="Node3D16" parent="Storage" instance=ExtResource("5_sty18")]
 transform = Transform3D(2.3604152e-08, 0, 0.18, 0, 0.18, 0, -0.18, 0, 2.3604152e-08, 11.553939, -0.3008623, -17.247171)
+
+[node name="Staff" parent="Storage" instance=ExtResource("20_r1kxd")]
+transform = Transform3D(1, 0, 0, 0, 0.87639916, 0.48158544, 0, -0.48158544, 0.87639916, -19.361841, 4.7683716e-07, -16.579927)
+
+[node name="Kitchen" type="CSGCombiner3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, -7.5258474)
+
+[node name="Node3D15" parent="Kitchen" instance=ExtResource("8_rdvwe")]
+transform = Transform3D(-0.05885222, 0, 0.011679743, 0, 0.059999984, 0, -0.011679743, 0, -0.05885222, 0.5607508, -0.037099928, -0.8593995)
+
+[node name="Node3D16" parent="Kitchen" instance=ExtResource("8_rdvwe")]
+transform = Transform3D(-0.026513843, 0, -0.053823944, 0, 0.059999984, 0, 0.053823944, 0, -0.026513843, -0.34220985, -0.037099976, -0.863918)
+
+[node name="Node3D17" parent="Kitchen" instance=ExtResource("8_rdvwe")]
+transform = Transform3D(-0.05184878, 0.029999986, -0.0034210663, -0.0039503085, -2.6226827e-09, 0.059869826, 0.029934907, 0.051961508, 0.0019751564, 0.25481793, 0.04036352, -0.15496016)
+
+[node name="Node3D" parent="Kitchen" instance=ExtResource("19_foql3")]
+transform = Transform3D(-2.6226834e-09, 0, -0.06, 0, 0.06, 0, 0.06, 0, -2.6226834e-09, 0, 0, -0.28892905)
+
+[node name="Node3D11" parent="Kitchen" instance=ExtResource("19_foql3")]
+transform = Transform3D(-2.6226834e-09, 0, -0.06, 0, 0.06, 0, 0.06, 0, -2.6226834e-09, -0.008996225, 0, -0.9776427)
+
+[node name="Node3D12" parent="Kitchen" instance=ExtResource("19_foql3")]
+transform = Transform3D(-2.6226834e-09, 0, -0.06, 0, 0.06, 0, 0.06, 0, -2.6226834e-09, -0.2492281, 0, -0.9776427)
+
+[node name="Node3D13" parent="Kitchen" instance=ExtResource("19_foql3")]
+transform = Transform3D(-2.6226834e-09, 0, -0.06, 0, 0.06, 0, 0.06, 0, -2.6226834e-09, 0.22496133, 0, -0.9776427)
+
+[node name="Node3D2" parent="Kitchen" instance=ExtResource("19_foql3")]
+transform = Transform3D(7.868052e-09, 0, 0.06, 0, 0.06, 0, -0.06, 0, 7.868052e-09, 0, 0, -0.34585065)
+
+[node name="Node3D7" parent="Kitchen" instance=ExtResource("19_foql3")]
+transform = Transform3D(7.868052e-09, 0, 0.06, 0, 0.06, 0, -0.06, 0, 7.868052e-09, -0.24024199, 0, -0.34585065)
+
+[node name="Node3D3" parent="Kitchen" instance=ExtResource("20_x44yw")]
+transform = Transform3D(-2.6226834e-09, 0, -0.06, 0, 0.06, 0, 0.06, 0, -2.6226834e-09, 0.24264084, 0, -0.29113787)
+
+[node name="Node3D4" parent="Kitchen" instance=ExtResource("21_3jqlj")]
+transform = Transform3D(7.868052e-09, 0, -0.06, 0, 0.06, 0, 0.06, 0, 7.868052e-09, 0.48989603, -0.0038587213, -0.28839356)
+
+[node name="Node3D5" parent="Kitchen" instance=ExtResource("22_3jqlj")]
+transform = Transform3D(0.07, 0, 0, 0, 0.07, 0, 0, 0, 0.07, 0.19995661, 0.013629461, -0.40554982)
+
+[node name="Node3D8" parent="Kitchen" instance=ExtResource("22_3jqlj")]
+transform = Transform3D(0.07, 0, 0, 0, 0.07, 0, 0, 0, 0.07, 0.37303743, 0.013629461, -0.40554982)
+
+[node name="Node3D9" parent="Kitchen" instance=ExtResource("22_3jqlj")]
+transform = Transform3D(0.07, 0, 0, 0, 0.07, 0, 0, 0, 0.07, -0.22813205, 0.013629461, -0.2192629)
+
+[node name="Node3D14" parent="Kitchen" instance=ExtResource("22_3jqlj")]
+transform = Transform3D(0.07, 0, 0, 0, 0.07, 0, 0, 0, 0.07, -0.47208115, 0.013629461, -0.95097286)
+
+[node name="Node3D6" parent="Kitchen" instance=ExtResource("23_2ohi5")]
+transform = Transform3D(7.4505807e-10, 0, -0.029999996, 0, 0.029999996, 0, 0.029999996, 0, 7.4505807e-10, 0, 0.09233681, -0.25845724)
+
+[node name="Node3D10" parent="Kitchen" instance=ExtResource("10_w48sl")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0.5373451, 0.020944, -0.3808425)
+
+[node name="Table6" parent="Kitchen" instance=ExtResource("7_hxbci")]
+transform = Transform3D(-4.72083e-09, 0, -0.108, 0, 0.108, 0, 0.108, 0, -4.72083e-09, 0.5768675, -0.026778731, -0.92435926)
+
+[node name="Node3D18" parent="Kitchen" instance=ExtResource("10_2ohi5")]
+transform = Transform3D(-0.030000001, 0, -2.6226834e-09, 0, 0.030000001, 0, 2.6226834e-09, 0, -0.030000001, -0.40856776, -0.020131314, -0.3614381)
+
+[node name="itempotion" parent="Kitchen" instance=ExtResource("27_a5bku")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.1206476, 0.07993083, -0.37501007)
 
 [node name="Monster" parent="." instance=ExtResource("19_ydcpm")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, -7.5258474)

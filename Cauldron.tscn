@@ -1,12 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://dcc8hskcvfi36"]
 
 [ext_resource type="Material" uid="uid://d1ld8uwkmwiys" path="res://Materials/BlueBook.tres" id="1_a46rn"]
-[ext_resource type="Material" uid="uid://clmbtacv10wx2" path="res://Materials/armor.tres" id="1_mpwjd"]
+[ext_resource type="Material" uid="uid://bd2fc4sbnrj0b" path="res://Materials/armor.tres" id="1_mpwjd"]
 [ext_resource type="Material" uid="uid://3u6t3pi16bch" path="res://Materials/bearskin.tres" id="3_xxamw"]
 
 [node name="Node3D" type="Node3D"]
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+use_collision = true
 radius = 1.0
 material = ExtResource("1_mpwjd")
 

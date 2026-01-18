@@ -2,37 +2,43 @@
 
 [ext_resource type="Material" uid="uid://comqlssjfo67t" path="res://Materials/brick.tres" id="1_8hpl2"]
 [ext_resource type="Material" uid="uid://cre6jy455chi" path="res://Materials/leg.tres" id="2_mr8lh"]
-[ext_resource type="Material" path="res://Materials/Fence.tres" id="3_2xqx0"]
+[ext_resource type="Material" uid="uid://fa07068w0p2y" path="res://Materials/Fence.tres" id="3_2xqx0"]
 [ext_resource type="Material" uid="uid://3u6t3pi16bch" path="res://Materials/bearskin.tres" id="4_0iyc5"]
 
 [node name="Node3D" type="Node3D"]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25170898, 0.45629883, 0)
+use_collision = true
 size = Vector3(1.503418, 1.9125977, 4)
 material = ExtResource("1_8hpl2")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.340271, 1.3967559, 0)
+use_collision = true
 size = Vector3(1.668335, 0.14550781, 4)
 material = ExtResource("2_mr8lh")
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1352234, 1.0890455, 0.2801226)
+use_collision = true
 size = Vector3(0.078430176, 0.052368164, 0.3330078)
 material = ExtResource("3_2xqx0")
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1352234, 1.0890455, -0.39880487)
+use_collision = true
 size = Vector3(0.078430176, 0.052368164, 0.3330078)
 material = ExtResource("3_2xqx0")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.880883, 0.45629883, 0.93414307)
+use_collision = true
 size = Vector3(0.46411133, 1.5263672, 1.7923584)
 material = ExtResource("4_0iyc5")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.880883, 0.45629883, -1.0288223)
+use_collision = true
 size = Vector3(0.46411133, 1.5263672, 1.7923584)
 material = ExtResource("4_0iyc5")
