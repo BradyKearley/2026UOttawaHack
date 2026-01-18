@@ -21,6 +21,9 @@ func _on_restart_pressed():
 	get_tree().paused = false
 	get_tree().change_scene_to_file(\"res://Materials/jacob_porch.tscn\")
 	hide()
+	$AudioStreamPlayer3D.stop()
+	$AudioStreamPlayer3D2.stop()
+	$AudioStreamPlayer3D3.stop()
 
 func _on_quit_pressed():
 	get_tree().quit()
