@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://dhnoewhvae02g"]
 
-[ext_resource type="Script" path="res://Tscn's/item.gd" id="1_b138v"]
+[ext_resource type="Script" uid="uid://bmcswe8a4n23h" path="res://Tscn's/item.gd" id="1_b138v"]
 [ext_resource type="Material" path="res://Materials/CrystalBall.tres" id="2_248fi"]
-[ext_resource type="Material" path="res://Materials/GreenBook.tres" id="3_862jn"]
+[ext_resource type="Material" uid="uid://crqyidktuli15" path="res://Materials/GreenBook.tres" id="3_862jn"]
 [ext_resource type="Material" uid="uid://co3k587s4ewym" path="res://Materials/blac.tres" id="4_c2p1h"]
 [ext_resource type="AudioStream" uid="uid://du2ib43gpg4fk" path="res://soundEffects/item sounds/potion sound.mp3" id="5_827sv"]
 
@@ -19,28 +19,27 @@ albedo_color = Color(0.286275, 0.376471, 0.407843, 1)
 script = ExtResource("1_b138v")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.11868, 0.135084, -0.0222205)
 shape = SubResource("CylinderShape3D_vwywe")
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.11667, 0.085384, 0)
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0020099878, -0.049700007, 0.0222205)
 material_override = SubResource("StandardMaterial3D_1ejnr")
 radius = 0.0615234
 height = 0.0310678
 material = SubResource("StandardMaterial3D_fpu7i")
 
-[node name="CrystalSphere" type="CSGSphere3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.11875, 0.161813, 0)
+[node name="CrystalSphere" type="CSGSphere3D" parent="CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.997585e-05, 0.026729003, 0.0222205)
 radius = 0.0912585
 material = ExtResource("2_248fi")
 
-[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.12117, 0.165574, 0.000954598)
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0024900436, 0.030489996, 0.023175098)
 radius = 0.071451
 material = ExtResource("3_862jn")
 
-[node name="CSGSphere3D2" type="CSGSphere3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.12082, 0.272423, 0.00288913)
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0021400452, 0.137339, 0.02510963)
 radius = 0.0338968
 material = ExtResource("4_c2p1h")
 

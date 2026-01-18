@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://b8548mubthjw3"]
+[gd_scene load_steps=6 format=3 uid="uid://dsy33ijcvmh7f"]
 
-[ext_resource type="Script" path="res://Tscn's/item.gd" id="1_j6dnx"]
+[ext_resource type="Script" uid="uid://bmcswe8a4n23h" path="res://Tscn's/item.gd" id="1_j6dnx"]
 [ext_resource type="AudioStream" uid="uid://dw2c1ljwg1glx" path="res://soundEffects/item sounds/staff.mp3" id="2_0hmqd"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_1"]
@@ -17,17 +17,16 @@ albedo_color = Color(1, 0.443137, 1, 1)
 script = ExtResource("1_j6dnx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.552696, 0)
 shape = SubResource("CylinderShape3D_1")
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.477951, 0)
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.074745, 0)
 material_override = SubResource("StandardMaterial3D_1ejnr")
 radius = 0.0419922
 height = 1.55106
 
-[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.33059, 0)
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.777894, 0)
 radius = 0.143708
 material = SubResource("StandardMaterial3D_j6dnx")
 

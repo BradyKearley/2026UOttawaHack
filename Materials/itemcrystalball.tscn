@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bwmviokkygndm"]
+[gd_scene load_steps=7 format=3 uid="uid://drvsffqttfxso"]
 
-[ext_resource type="Script" path="res://Tscn's/item.gd" id="1_ym4c7"]
+[ext_resource type="Script" uid="uid://bmcswe8a4n23h" path="res://Tscn's/item.gd" id="1_ym4c7"]
 [ext_resource type="Material" path="res://Materials/CrystalBall.tres" id="2_1c4mv"]
-[ext_resource type="Material" path="res://Materials/BlueBook.tres" id="3_873wv"]
+[ext_resource type="Material" uid="uid://d1ld8uwkmwiys" path="res://Materials/BlueBook.tres" id="3_873wv"]
 [ext_resource type="AudioStream" uid="uid://dw2c1ljwg1glx" path="res://soundEffects/item sounds/staff.mp3" id="4_fuloc"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_vwywe"]
@@ -16,22 +16,21 @@ albedo_color = Color(0.286275, 0.376471, 0.407843, 1)
 script = ExtResource("1_ym4c7")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.11868, 0.135084, -0.0222205)
 shape = SubResource("CylinderShape3D_vwywe")
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.11667, 0.0761977, 0)
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0020099878, -0.058886304, 0.0222205)
 material_override = SubResource("StandardMaterial3D_1ejnr")
 radius = 0.0869141
 height = 0.0494404
 
-[node name="CrystalSphere" type="CSGSphere3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.11875, 0.161813, 0)
+[node name="CrystalSphere" type="CSGSphere3D" parent="CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.997585e-05, 0.026729003, 0.0222205)
 radius = 0.0912585
 material = ExtResource("2_1c4mv")
 
-[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.12117, 0.165574, 0.000954598)
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0024900436, 0.030489996, 0.023175098)
 radius = 0.0486333
 material = ExtResource("3_873wv")
 
