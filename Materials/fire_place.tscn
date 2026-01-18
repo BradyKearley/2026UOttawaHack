@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c48l3uj4lw56x"]
 
-[ext_resource type="Material" uid="uid://guc7pgtvl7h1" path="res://Materials/brick.tres" id="1_rvbd5"]
+[ext_resource type="Material" uid="uid://comqlssjfo67t" path="res://Materials/brick.tres" id="1_rvbd5"]
 [ext_resource type="PackedScene" path="res://Tscn's/CandleFire.tscn" id="2_7ovyp"]
 [ext_resource type="Material" uid="uid://ddgqk5ag3vvda" path="res://Materials/Ground.tres" id="3_voe2j"]
 [ext_resource type="Material" uid="uid://fa07068w0p2y" path="res://Materials/Fence.tres" id="4_7ovyp"]
