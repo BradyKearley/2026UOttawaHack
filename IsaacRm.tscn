@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cywilqb21k76b"]
+[gd_scene load_steps=24 format=3 uid="uid://cywilqb21k76b"]
 
 [ext_resource type="PackedScene" uid="uid://bxj8y6qvnhm4w" path="res://Tscn's/Player.tscn" id="1_pu4ar"]
 [ext_resource type="Material" uid="uid://cwljo58x5xacl" path="res://Materials/floor.tres" id="2_6mf0j"]
@@ -15,10 +15,11 @@
 [ext_resource type="PackedScene" path="res://Furneture/Crate.tscn" id="10_w48sl"]
 [ext_resource type="PackedScene" path="res://Materials/couch.tscn" id="11_5d5hm"]
 [ext_resource type="PackedScene" path="res://Furneture/Barrel.tscn" id="11_ewpd5"]
-[ext_resource type="PackedScene" path="res://Materials/harp.tscn" id="11_mvje0"]
+[ext_resource type="PackedScene" uid="uid://bdshc1dc07b1q" path="res://Materials/harp.tscn" id="11_mvje0"]
 [ext_resource type="PackedScene" path="res://Furneture/armorstand.tscn" id="12_gipgq"]
 [ext_resource type="PackedScene" uid="uid://c48l3uj4lw56x" path="res://Materials/fire_place.tscn" id="13_ubmck"]
 [ext_resource type="PackedScene" uid="uid://4irkirx8txps" path="res://Tscn's/monster.tscn" id="19_ydcpm"]
+[ext_resource type="PackedScene" uid="uid://dppwf02bla51n" path="res://Tscn's/InsideDoor.tscn" id="20_fq1er"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lyjjt"]
 sky_top_color = Color(0.297738, 0.000589698, 0.7863699, 1)
@@ -41,7 +42,7 @@ tonemap_mode = 4
 environment = SubResource("Environment_sty18")
 
 [node name="Player" parent="." instance=ExtResource("1_pu4ar")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6835778, 5.1642523)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.057545424, 5.1642523)
 
 [node name="FirstFloors" type="CSGCombiner3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.854223, -0.44262695, 1.5639887)
@@ -81,21 +82,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4118433, -0.042495012, -16
 use_collision = true
 size = Vector3(15.950647, 0.2, 13.084426)
 material = ExtResource("3_gipgq")
-
-[node name="Candle" parent="FirstFloors" instance=ExtResource("5_b583f")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 16.086174, 0.67632765, -0.58902526)
-
-[node name="Candle2" parent="FirstFloors" instance=ExtResource("5_b583f")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 11.39942, 0.67632765, -0.58902526)
-
-[node name="Candle3" parent="FirstFloors" instance=ExtResource("5_b583f")]
-transform = Transform3D(1, 0, 0, 0, 0.9659258, -0.25881904, 0, 0.25881904, 0.9659258, 8.911889, 1.4137874, -7.494779)
-
-[node name="Candle4" parent="FirstFloors" instance=ExtResource("5_b583f")]
-transform = Transform3D(1, 0, 0, 0, 0.9659258, -0.25881904, 0, 0.25881904, 0.9659258, 17.899715, 1.4137874, -7.494779)
-
-[node name="Candle5" parent="FirstFloors" instance=ExtResource("5_b583f")]
-transform = Transform3D(-4.371139e-08, -0.258819, 0.9659257, 0, 0.9659257, 0.258819, -1, 1.1313338e-08, -4.2221956e-08, 21.399889, 1.1848154, -0.54839945)
 
 [node name="Candle6" parent="FirstFloors" instance=ExtResource("5_b583f")]
 transform = Transform3D(-4.371139e-08, 0.25881898, 0.96592563, 0, 0.96592563, -0.25881898, -1, -1.1313338e-08, -4.2221952e-08, 5.271289, 1.1848154, 4.6527767)
@@ -448,3 +434,6 @@ transform = Transform3D(2.3604152e-08, 0, 0.18, 0, 0.18, 0, -0.18, 0, 2.3604152e
 
 [node name="Monster" parent="." instance=ExtResource("19_ydcpm")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, -7.5258474)
+
+[node name="StaticBody3D" parent="." instance=ExtResource("20_fq1er")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0.79635465, 11.143233)
