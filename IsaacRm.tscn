@@ -10,14 +10,14 @@
 [ext_resource type="PackedScene" uid="uid://cwf7v5nfsyjok" path="res://Furneture/LargeBookSelf.tscn" id="5_sty18"]
 [ext_resource type="PackedScene" uid="uid://ivamciba4wte" path="res://Furneture/Bear.tscn" id="6_yuus1"]
 [ext_resource type="PackedScene" uid="uid://dr0fqqquud4du" path="res://Furneture/Table.tscn" id="7_hxbci"]
-[ext_resource type="PackedScene" path="res://item_spellbook_2.tscn" id="8_cygmn"]
+[ext_resource type="PackedScene" uid="uid://bbqhrd8xcbrox" path="res://item_spellbook_2.tscn" id="8_cygmn"]
 [ext_resource type="PackedScene" uid="uid://hx4y2vug4jv3" path="res://Furneture/chair.tscn" id="8_rdvwe"]
 [ext_resource type="PackedScene" uid="uid://bji6sp431be62" path="res://Furneture/throneActual.tscn" id="9_4kv3g"]
 [ext_resource type="PackedScene" uid="uid://cyvjv5o6jn61c" path="res://Lecturn.tscn" id="10_2ohi5"]
 [ext_resource type="PackedScene" uid="uid://bitwnyfpl3m1y" path="res://Furneture/Crate.tscn" id="10_w48sl"]
 [ext_resource type="PackedScene" uid="uid://di72fj8c6fmom" path="res://Materials/couch.tscn" id="11_5d5hm"]
 [ext_resource type="PackedScene" uid="uid://d2rdh0xxkj7u0" path="res://Furneture/Barrel.tscn" id="11_ewpd5"]
-[ext_resource type="PackedScene" uid="uid://bdshc1dc07b1q" path="res://Materials/harp.tscn" id="11_mvje0"]
+[ext_resource type="PackedScene" uid="uid://6aaskxxtp0ii" path="res://Materials/harp.tscn" id="11_mvje0"]
 [ext_resource type="PackedScene" uid="uid://cfctpib0d64v4" path="res://Furneture/armorstand.tscn" id="12_gipgq"]
 [ext_resource type="PackedScene" uid="uid://c48l3uj4lw56x" path="res://Materials/fire_place.tscn" id="13_ubmck"]
 [ext_resource type="PackedScene" path="res://Materials/itemcrystalball.tscn" id="15_h5s2s"]
@@ -218,7 +218,7 @@ operation = 2
 size = Vector3(1, 2.426085, 1.5374908)
 
 [node name="Floors(2ndFloor)" type="CSGCombiner3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.622576, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.20523262, 0)
 use_collision = true
 
 [node name="2ndFloorL" type="CSGBox3D" parent="Floors(2ndFloor)"]
@@ -358,7 +358,7 @@ transform = Transform3D(-0.21988122, 0, -0.5582583, 0, 0.5999999, 0, 0.5582583, 
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 14.736711, -0.40360704, 0)
 
 [node name="itemcrystalball" parent="Dining Rm" instance=ExtResource("15_h5s2s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.598445, 0.47385263, 1.0715652)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.130614, 0.4738527, 0.66962975)
 
 [node name="LivinRm" type="CSGCombiner3D" parent="."]
 
