@@ -103,14 +103,20 @@ func _ready():
 	else:
 		print("Warning: Sentry node not found")
 
-	# Initialize item counter label
-	if item_counter_label:
-		item_counter_label.text = "Items: 0"
+	# Initialize backpack icon and counter
+	if backpack_icon:
+		backpack_icon.scale = Vector2(MIN_BACKPACK_SCALE, MIN_BACKPACK_SCALE)
+	if item_counter:
+		item_counter.text = "0/5"
 
 
 # Item pickup counter
 var items_picked_up: int = 0
-@onready var item_counter_label = $CanvasLayer/ItemCounterLabel
+@onready var backpack_icon = $CanvasLayer/BackpackIcon
+@onready var item_counter = $CanvasLayer/ItemCounter
+const MIN_BACKPACK_SCALE = 0.6
+const MAX_BACKPACK_SCALE = 1.5
+const ITEMS_FOR_MAX_SCALE = 5
 
 # Door interaction
 var door_in_view: Node3D = null
@@ -141,8 +147,13 @@ func _input(event):
 			print("Picking up item: ", current_item)
 			current_item.pick_up()
 			items_picked_up += 1
-			if item_counter_label:
-				item_counter_label.text = "Items: " + str(items_picked_up)
+			if backpack_icon:
+				# Scale backpack based on items collected
+				var scale_progress = min(float(items_picked_up) / ITEMS_FOR_MAX_SCALE, 1.0)
+				var new_scale = lerp(MIN_BACKPACK_SCALE, MAX_BACKPACK_SCALE, scale_progress)
+				backpack_icon.scale = Vector2(new_scale, new_scale)
+			if item_counter:
+				item_counter.text = str(items_picked_up) + "/5"
 			current_item = null
 
 	# Release mouse with ESC (for testing)
