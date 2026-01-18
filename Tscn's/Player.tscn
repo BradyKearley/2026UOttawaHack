@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bxj8y6qvnhm4w"]
+[gd_scene load_steps=11 format=3 uid="uid://bxj8y6qvnhm4w"]
 
 [ext_resource type="Script" path="res://Tscn's/Player.gd" id="1_v5k2m"]
 [ext_resource type="PackedScene" uid="uid://bgiytxfnbyhxc" path="res://soundEffects/heartBeatSound.tscn" id="2_qnqe6"]
@@ -35,12 +35,6 @@ shader_parameter/intensity = 0.0
 shader_parameter/vignette_color = Color(1, 0, 0, 1)
 shader_parameter/vignette_radius = 0.7
 shader_parameter/vignette_softness = 0.5
-
-[sub_resource type="LabelSettings" id="LabelSettings_bpm"]
-font_size = 24
-font_color = Color(1, 0.2, 0.2, 1)
-outline_size = 4
-outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_stamina"]
 font_size = 24
