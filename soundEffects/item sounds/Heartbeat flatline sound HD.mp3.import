@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b5w4uj0eievns"
+path="res://.godot/imported/Heartbeat flatline sound HD.mp3-9aefe2170eaf3ae818a1e3ae7a72539a.mp3str"
+
+[deps]
+
+source_file="res://soundEffects/item sounds/Heartbeat flatline sound HD.mp3"
+dest_files=["res://.godot/imported/Heartbeat flatline sound HD.mp3-9aefe2170eaf3ae818a1e3ae7a72539a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
