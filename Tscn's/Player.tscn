@@ -1,10 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://bxj8y6qvnhm4w"]
+[gd_scene load_steps=12 format=3 uid="uid://bxj8y6qvnhm4w"]
 
-[ext_resource type="Script" uid="uid://gbtbdhb7e83w" path="res://Tscn's/Player.gd" id="1_v5k2m"]
+[ext_resource type="Script" path="res://Tscn's/Player.gd" id="1_v5k2m"]
 [ext_resource type="PackedScene" uid="uid://bgiytxfnbyhxc" path="res://soundEffects/heartBeatSound.tscn" id="2_qnqe6"]
 [ext_resource type="PackedScene" uid="uid://c4gtbfrdvtpnp" path="res://soundEffects/wooden_floor.tscn" id="3_f0db6"]
 [ext_resource type="AudioStream" uid="uid://mp1bth6xfco4" path="res://soundEffects/ambient background music.mp3" id="4_72xvq"]
-[ext_resource type="PackedScene" uid="uid://cmyxgovglys2p" path="res://hands_candle.tscn" id="4_gr6dl"]
+[ext_resource type="PackedScene" path="res://hands_candle.tscn" id="4_gr6dl"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7yc8k"]
 radius = 0.4
@@ -32,7 +32,7 @@ void fragment() {
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vignette"]
 shader = SubResource("Shader_vignette")
 shader_parameter/intensity = 0.0
-shader_parameter/vignette_color = Vector3(1, 0, 0)
+shader_parameter/vignette_color = Color(1, 0, 0, 1)
 shader_parameter/vignette_radius = 0.7
 shader_parameter/vignette_softness = 0.5
 
@@ -70,11 +70,10 @@ fov = 85.0
 [node name="woodenFloor" parent="Camera3D" instance=ExtResource("3_f0db6")]
 
 [node name="AudioListener3D" type="AudioListener3D" parent="Camera3D"]
-doppler_tracking = 2
 current = true
 
 [node name="HandsCandle" parent="Camera3D" instance=ExtResource("4_gr6dl")]
-transform = Transform3D(1, 0, 0, 0, 0.90630776, 0.42261827, 0, -0.42261827, 0.90630776, 0.18787384, -1.1378419, -0.86062783)
+transform = Transform3D(1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, 0.187874, -1.13784, -0.860628)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -86,7 +85,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(1, 1, 1, 1)
 
 [node name="BPMLabel" type="Label" parent="CanvasLayer"]
 offset_left = 10.0

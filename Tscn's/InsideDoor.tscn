@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://tax6dbchbquy"]
+[gd_scene load_steps=5 format=3 uid="uid://cmo357m2fuhas"]
 
 [ext_resource type="Script" path="res://Tscn's/inside_door.gd" id="1_jo70s"]
 [ext_resource type="AudioStream" uid="uid://ca8vjrc5gbtli" path="res://soundEffects/ElevenLabs_2026-01-17T20_48_46_Tessa - Wise leader_pvc_sp99_s40_sb54_se53_b_m2.mp3" id="1_ohptt"]
@@ -7,21 +7,21 @@
 albedo_color = Color(1, 0, 0, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ohptt"]
-size = Vector3(1.9433594, 2.668457, 0.58251953)
+size = Vector3(1.94336, 2.66846, 0.58252)
 
 [node name="StaticBody3D" type="StaticBody3D" groups=["insideDoor"]]
 script = ExtResource("1_jo70s")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." groups=["insideDoor"]]
-size = Vector3(1.9558105, 2.770584, 0.115234375)
+size = Vector3(1.95581, 2.77058, 0.115234)
 material = SubResource("StandardMaterial3D_xdsbt")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["insideDoor"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.009765625, 0.018310547, 0.20874023)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00976563, 0.0183105, 0.20874)
 shape = SubResource("BoxShape3D_ohptt")
 
 [node name="CSGSphere3D2" type="CSGSphere3D" parent="." groups=["insideDoor"]]
-transform = Transform3D(0.18304949, 0, 0, 0, 0.15970154, 0, 0, 0, 0.13503908, -0.71430254, -0.104744196, -0.1217587)
+transform = Transform3D(0.183049, 0, 0, 0, 0.159702, 0, 0, 0, 0.135039, -0.714303, -0.104744, -0.121759)
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("1_ohptt")

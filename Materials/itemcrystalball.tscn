@@ -1,35 +1,39 @@
-[gd_scene load_steps=6 format=3 uid="uid://bclxs2u84lfxr"]
+[gd_scene load_steps=7 format=3 uid="uid://bwmviokkygndm"]
 
 [ext_resource type="Script" path="res://Tscn's/item.gd" id="1_ym4c7"]
 [ext_resource type="Material" path="res://Materials/CrystalBall.tres" id="2_1c4mv"]
 [ext_resource type="Material" path="res://Materials/BlueBook.tres" id="3_873wv"]
+[ext_resource type="AudioStream" uid="uid://dw2c1ljwg1glx" path="res://soundEffects/item sounds/staff.mp3" id="4_fuloc"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_vwywe"]
-height = 0.17677736
-radius = 0.11621094
+height = 0.176777
+radius = 0.116211
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ejnr"]
-albedo_color = Color(0.28627452, 0.3764706, 0.40784314, 1)
+albedo_color = Color(0.286275, 0.376471, 0.407843, 1)
 
 [node name="itemcrystalball" type="StaticBody3D" groups=["item"]]
 script = ExtResource("1_ym4c7")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1186786, 0.13508391, -0.022220522)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.11868, 0.135084, -0.0222205)
 shape = SubResource("CylinderShape3D_vwywe")
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1166701, 0.07619774, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.11667, 0.0761977, 0)
 material_override = SubResource("StandardMaterial3D_1ejnr")
-radius = 0.08691406
-height = 0.049440384
+radius = 0.0869141
+height = 0.0494404
 
 [node name="CrystalSphere" type="CSGSphere3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1187465, 0.16181281, 0)
-radius = 0.09125849
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.11875, 0.161813, 0)
+radius = 0.0912585
 material = ExtResource("2_1c4mv")
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1211655, 0.16557404, 0.0009545982)
-radius = 0.048633277
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.12117, 0.165574, 0.000954598)
+radius = 0.0486333
 material = ExtResource("3_873wv")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_fuloc")

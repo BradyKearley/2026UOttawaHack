@@ -195,9 +195,12 @@ func _check_for_items():
 			return
 		# Check if we're looking at an item
 		if collider and collider.is_in_group("item"):
+			
 			# New item detected
 			if current_item != collider:
 				print("Looking at item: ", collider)
+				collider.play_sfx()
+				soundMade(60,1)
 				# Clear previous item
 				if current_item and current_item.has_method("look_away"):
 					current_item.look_away()

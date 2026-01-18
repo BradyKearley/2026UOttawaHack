@@ -8,6 +8,8 @@ extends Node3D
 var is_being_looked_at: bool = false
 var original_scale: Vector3
 
+func play_sfx():
+	$AudioStreamPlayer3D.play()
 func _ready():
 	original_scale = scale
 	# Add to "item" group so player can identify it
