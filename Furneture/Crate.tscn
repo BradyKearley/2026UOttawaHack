@@ -29,3 +29,9 @@ _surfaces = [{
 [node name="CSGBakedMeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.9999538, 0.0092504695, -0.0026106585, -0.009244904, 0.999955, 0.002135287, 0.0026302973, -0.002111048, 0.9999943, 0.00019196532, 0.02075102, -4.380837e-05)
 mesh = SubResource("ArrayMesh_f03hm")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.019874573, -0.0101623535, -0.029754639)
+visible = false
+use_collision = true
+size = Vector3(2.1550446, 2.0733032, 2.1012573)
