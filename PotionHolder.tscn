@@ -1,0 +1,160 @@
+[gd_scene load_steps=5 format=3 uid="uid://cn2akw4kn3wl1"]
+
+[ext_resource type="Material" uid="uid://bd2fc4sbnrj0b" path="res://Materials/armor.tres" id="1_7v1nk"]
+[ext_resource type="PackedScene" uid="uid://cpvtygr83o8to" path="res://Furneture/FlaskB.tscn" id="2_cp0yr"]
+[ext_resource type="PackedScene" uid="uid://duj66xqra4xcl" path="res://Furneture/FlaskG.tscn" id="3_tqa86"]
+[ext_resource type="PackedScene" uid="uid://bac00bx1cm5a0" path="res://Furneture/FlaskR.tscn" id="4_06knd"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 1.7351193, -1.6102147)
+radius = 0.06738281
+height = 3.3535156
+material = ExtResource("1_7v1nk")
+
+[node name="CSGCylinder3D10" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.45720768, 0.053105474, -1.6102147)
+radius = 0.06738281
+height = 3.3535156
+material = ExtResource("1_7v1nk")
+
+[node name="CSGCylinder3D11" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.4635743, 0.053105474, -1.6102147)
+radius = 0.06738281
+height = 3.3535156
+material = ExtResource("1_7v1nk")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(0.9659258, 0.25881904, 0, -0.25881904, 0.9659258, 0, 0, 0, 1, -0.26090205, 0.742908, 0)
+radius = 0.06738281
+material = ExtResource("1_7v1nk")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.88695097, 0)
+radius = 0.06738281
+height = 1.7119141
+material = ExtResource("1_7v1nk")
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="."]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0.0066211224, 0)
+radius = 0.06738281
+height = 1.3300781
+material = ExtResource("1_7v1nk")
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="."]
+transform = Transform3D(0.9659258, -0.25881904, 0, 0.25881904, 0.9659258, 0, 0, 0, 1, 0.26021785, 0.742908, 0)
+radius = 0.06738281
+material = ExtResource("1_7v1nk")
+
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="."]
+transform = Transform3D(0.9659258, 0.25881904, 0, -0.25881904, 0.9659258, 0, 0, 0, 1, -0.26090205, 0.742908, -3.2278044)
+radius = 0.06738281
+material = ExtResource("1_7v1nk")
+
+[node name="CSGCylinder3D7" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.88695097, -3.2278044)
+radius = 0.06738281
+height = 1.7119141
+material = ExtResource("1_7v1nk")
+
+[node name="CSGCylinder3D8" type="CSGCylinder3D" parent="."]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0.0066211224, -3.2278044)
+radius = 0.06738281
+height = 1.3300781
+material = ExtResource("1_7v1nk")
+
+[node name="CSGCylinder3D9" type="CSGCylinder3D" parent="."]
+transform = Transform3D(0.9659258, -0.25881904, 0, 0.25881904, 0.9659258, 0, 0, 0, 1, 0.26021785, 0.742908, -3.2278044)
+radius = 0.06738281
+material = ExtResource("1_7v1nk")
+
+[node name="CSGCylinder3D13" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1345762, -0.7032218)
+radius = 0.25146484
+height = 0.10498047
+material = ExtResource("1_7v1nk")
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="CSGCylinder3D13"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.00945437, 0.45660353)
+radius = 0.05859375
+height = 0.4694519
+material = ExtResource("1_7v1nk")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCylinder3D13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.012282968, 0)
+operation = 2
+radius = 0.18652344
+height = 0.28753662
+material = ExtResource("1_7v1nk")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCylinder3D13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.091434225, -0.026306152, 0.0020532608)
+operation = 2
+size = Vector3(0.37060547, 0.9473877, 0.25850868)
+material = ExtResource("1_7v1nk")
+
+[node name="CSGCylinder3D12" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 1.1251218, -2.9567122)
+radius = 0.05859375
+height = 0.4694519
+material = ExtResource("1_7v1nk")
+
+[node name="CSGCylinder3D14" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1345762, -1.6167965)
+radius = 0.25146484
+height = 0.10498047
+material = ExtResource("1_7v1nk")
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="CSGCylinder3D14"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.00945437, 0.45660353)
+radius = 0.05859375
+height = 0.4694519
+material = ExtResource("1_7v1nk")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCylinder3D14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.012282968, 0)
+operation = 2
+radius = 0.18652344
+height = 0.28753662
+material = ExtResource("1_7v1nk")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCylinder3D14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.091434225, -0.026306152, 0.0020532608)
+operation = 2
+size = Vector3(0.37060547, 0.9473877, 0.25850868)
+material = ExtResource("1_7v1nk")
+
+[node name="CSGCylinder3D15" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1345762, -2.4973981)
+radius = 0.25146484
+height = 0.10498047
+material = ExtResource("1_7v1nk")
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="CSGCylinder3D15"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.00945437, 0.45660353)
+radius = 0.05859375
+height = 0.4694519
+material = ExtResource("1_7v1nk")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCylinder3D15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.012282968, 0)
+operation = 2
+radius = 0.18652344
+height = 0.28753662
+material = ExtResource("1_7v1nk")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCylinder3D15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.091434225, -0.026306152, 0.0020532608)
+operation = 2
+size = Vector3(0.37060547, 0.9473877, 0.25850868)
+material = ExtResource("1_7v1nk")
+
+[node name="Node3D" parent="." instance=ExtResource("2_cp0yr")]
+transform = Transform3D(0.33, 0, 0, 0, 0.33, 0, 0, 0, 0.33, -5.9604645e-08, 0.9297542, -0.70077443)
+
+[node name="Node3D2" parent="." instance=ExtResource("3_tqa86")]
+transform = Transform3D(0.33, 0, 0, 0, 0.33, 0, 0, 0, 0.33, 0, 0.89480937, -1.6174233)
+
+[node name="Node3D3" parent="." instance=ExtResource("4_06knd")]
+transform = Transform3D(0.33, 0, 0, 0, 0.33, 0, 0, 0, 0.33, 0, 0.8890296, -2.5145583)

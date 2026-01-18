@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://bac00bx1cm5a0"]
+
+[ext_resource type="Material" uid="uid://0sfm8voa3ion" path="res://Materials/redBook.tres" id="1_nla21"]
+[ext_resource type="Material" uid="uid://3u6t3pi16bch" path="res://Materials/bearskin.tres" id="2_t6f06"]
+[ext_resource type="Material" uid="uid://clmbtacv10wx2" path="res://Materials/armor.tres" id="3_tyduy"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+transform = Transform3D(0.55016017, 0, 0.83505917, 0, 1, 0, -0.83505917, 0, 0.55016017, 0, -1.3361849, 0)
+radius = 0.48120034
+material = ExtResource("1_nla21")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1862793, 0)
+height = 2.3725586
+material = ExtResource("1_nla21")
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13490355, 0)
+radius = 0.5185547
+height = 1.6816406
+material = ExtResource("1_nla21")
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1503454, 0)
+radius = 0.5185547
+height = 0.27844238
+material = ExtResource("2_t6f06")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0078495, 0)
+radius = 0.60253906
+height = 0.16601563
+material = ExtResource("3_tyduy")

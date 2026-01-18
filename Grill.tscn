@@ -1,0 +1,76 @@
+[gd_scene load_steps=5 format=3 uid="uid://bd1t276kgho5w"]
+
+[ext_resource type="Material" uid="uid://comqlssjfo67t" path="res://Materials/brick.tres" id="1_hw3qi"]
+[ext_resource type="Material" uid="uid://dgfmrlor71dtb" path="res://Materials/Cobble.tres" id="2_cy513"]
+[ext_resource type="PackedScene" path="res://candle.tscn" id="3_hw3qi"]
+[ext_resource type="Material" uid="uid://bd2fc4sbnrj0b" path="res://Materials/armor.tres" id="4_e1djl"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25170898, 0.45629883, 0)
+size = Vector3(1.503418, 1.9125977, 4)
+material = ExtResource("1_hw3qi")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0047634244, 0.97227633, 0.63810754)
+operation = 2
+size = Vector3(1, 0.48791504, 1.765625)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.340271, 1.3967559, 0)
+size = Vector3(1.668335, 0.14550781, 4)
+material = ExtResource("2_cy513")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.046506107, -0.14448166, 0.63810754)
+operation = 2
+size = Vector3(0.89746094, 0.48791504, 1.765625)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.340271, 1.2780646, 0.03768921)
+size = Vector3(1.668335, 0.14550781, 3.1524048)
+material = ExtResource("2_cy513")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 1.4438275, 0.62834805)
+radius = 0.024902344
+height = 1.8132324
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.14478338, 1.4438275, 0.62834805)
+radius = 0.024902344
+height = 1.8132324
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.30706584, 1.4438275, 0.62834805)
+radius = 0.024902344
+height = 1.8132324
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.45196348, 1.4438275, 0.62834805)
+radius = 0.024902344
+height = 1.8132324
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.6023848, 1.4438275, 0.62834805)
+radius = 0.024902344
+height = 1.8132324
+
+[node name="Candle" parent="." instance=ExtResource("3_hw3qi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6429608, 0.4872278)
+
+[node name="Candle2" parent="." instance=ExtResource("3_hw3qi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6429608, -0.49151373)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39279342, 2.9305835, 0.63810754)
+operation = 2
+size = Vector3(1.0947266, 0.33917236, 1.9941406)
+material = ExtResource("4_e1djl")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39279342, 3.8865104, 0.63810754)
+operation = 2
+size = Vector3(0.34570313, 1.6590118, 0.9626465)
+material = ExtResource("4_e1djl")

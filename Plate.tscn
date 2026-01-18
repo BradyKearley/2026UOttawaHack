@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bshma2unkguc"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9790039, 0)
+height = 0.041992188
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.025175, 0)
+radius = 0.61816406
+height = 0.041992188
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="CSGCylinder3D2"]
+operation = 2
+radius = 0.4453125
+height = 0.041992188
