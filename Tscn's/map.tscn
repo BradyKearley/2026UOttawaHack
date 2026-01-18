@@ -4,12 +4,12 @@
 [ext_resource type="Material" uid="uid://b0p18gxn3nfln" path="res://Materials/Wall.tres" id="2_x8ts6"]
 [ext_resource type="PackedScene" uid="uid://bxj8y6qvnhm4w" path="res://Tscn's/Player.tscn" id="3_player"]
 [ext_resource type="PackedScene" uid="uid://4irkirx8txps" path="res://Tscn's/monster.tscn" id="4_d3e62"]
-[ext_resource type="PackedScene" uid="uid://b6qcq1jubnj16" path="res://soundEffects/rain_sound.tscn" id="5_ncn5i"]
-[ext_resource type="PackedScene" uid="uid://b8548mubthjw3" path="res://Tscn's/item.tscn" id="6_q8p32"]
-[ext_resource type="PackedScene" uid="uid://cmo357m2fuhas" path="res://Tscn's/InsideDoor.tscn" id="7_p7hc3"]
+[ext_resource type="PackedScene" path="res://soundEffects/rain_sound.tscn" id="5_ncn5i"]
+[ext_resource type="PackedScene" uid="uid://dsy33ijcvmh7f" path="res://Tscn's/item.tscn" id="6_q8p32"]
+[ext_resource type="PackedScene" path="res://Tscn's/InsideDoor.tscn" id="7_p7hc3"]
 [ext_resource type="PackedScene" uid="uid://6aaskxxtp0ii" path="res://Materials/harp.tscn" id="8_lld0t"]
 [ext_resource type="PackedScene" uid="uid://dhnoewhvae02g" path="res://Materials/itempotion.tscn" id="9_ndu7l"]
-[ext_resource type="PackedScene" uid="uid://bwmviokkygndm" path="res://Materials/itemcrystalball.tscn" id="10_it6gl"]
+[ext_resource type="PackedScene" uid="uid://drvsffqttfxso" path="res://Materials/itemcrystalball.tscn" id="10_it6gl"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_owsnt"]
 sky_top_color = Color(0.297738, 0.000589698, 0.78637, 1)

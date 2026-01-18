@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dacjexb1e3eyq"]
+
+[ext_resource type="Script" uid="uid://bmcswe8a4n23h" path="res://Tscn's/item.gd" id="1_22mun"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ejnr"]
+albedo_color = Color(0.286275, 0.376471, 0.407843, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j6dnx"]
+albedo_color = Color(1, 0.443137, 1, 1)
+
+[node name="Staff" type="StaticBody3D" groups=["item"]]
+script = ExtResource("1_22mun")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.477951, 0)
+material_override = SubResource("StandardMaterial3D_1ejnr")
+radius = 0.2578125
+height = 1.55106
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.33059, 0)
+radius = 0.30652317
+material = SubResource("StandardMaterial3D_j6dnx")
