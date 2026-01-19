@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://csdb4l4o4ty0m"]
+[gd_scene load_steps=14 format=3 uid="uid://csdb4l4o4ty0m"]
 
 [ext_resource type="PackedScene" uid="uid://bxj8y6qvnhm4w" path="res://Tscn's/Player.tscn" id="1_4rbgn"]
+[ext_resource type="Script" uid="uid://b2kd0noc7h8cs" path="res://jacob_porch_win.gd" id="1_s3gg8"]
 [ext_resource type="Material" uid="uid://fa07068w0p2y" path="res://Materials/Fence.tres" id="2_gywsx"]
 [ext_resource type="Material" uid="uid://ddgqk5ag3vvda" path="res://Materials/Ground.tres" id="3_s3gg8"]
 [ext_resource type="Material" uid="uid://b0p18gxn3nfln" path="res://Materials/Wall.tres" id="4_adde3"]
@@ -35,6 +36,7 @@ albedo_color = Color(1, 0, 0, 1)
 size = Vector3(1.9433594, 2.668457, 0.58251953)
 
 [node name="jacobPorch" type="Node3D"]
+script = ExtResource("1_s3gg8")
 
 [node name="Player" parent="." instance=ExtResource("1_4rbgn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.001535, 0.9150374, -4.982037)

@@ -15,6 +15,10 @@ run/main_scene="uid://b7h7ccuobuso3"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Global="*res://global.gd"
+
 [debug]
 
 settings/gdscript/always_track_call_stacks=true

@@ -1,10 +1,11 @@
 [gd_scene load_steps=11 format=3 uid="uid://bxj8y6qvnhm4w"]
 
-[ext_resource type="Script" path="res://Tscn's/Player.gd" id="1_v5k2m"]
+[ext_resource type="Script" uid="uid://gbtbdhb7e83w" path="res://Tscn's/Player.gd" id="1_v5k2m"]
 [ext_resource type="PackedScene" uid="uid://bgiytxfnbyhxc" path="res://soundEffects/heartBeatSound.tscn" id="2_qnqe6"]
 [ext_resource type="PackedScene" uid="uid://c4gtbfrdvtpnp" path="res://soundEffects/wooden_floor.tscn" id="3_f0db6"]
 [ext_resource type="AudioStream" uid="uid://mp1bth6xfco4" path="res://soundEffects/ambient background music.mp3" id="4_72xvq"]
-[ext_resource type="PackedScene" path="res://hands_candle.tscn" id="4_gr6dl"]
+[ext_resource type="PackedScene" uid="uid://cmyxgovglys2p" path="res://hands_candle.tscn" id="4_gr6dl"]
+[ext_resource type="Script" uid="uid://b7m2dh64uker8" path="res://Tscn's/label.gd" id="5_epdho"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7yc8k"]
 radius = 0.4
@@ -35,12 +36,6 @@ shader_parameter/intensity = 0.0
 shader_parameter/vignette_color = Color(1, 0, 0, 1)
 shader_parameter/vignette_radius = 0.7
 shader_parameter/vignette_softness = 0.5
-
-[sub_resource type="LabelSettings" id="LabelSettings_stamina"]
-font_size = 24
-font_color = Color(0.2, 1, 0.2, 1)
-outline_size = 4
-outline_color = Color(0, 0, 0, 1)
 
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_v5k2m")
@@ -136,9 +131,28 @@ text = "♥"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -87.5
+offset_right = 87.5
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 25
+text = "Time:"
+horizontal_alignment = 1
+script = ExtResource("5_epdho")
+
+[node name="Timer" type="Timer" parent="CanvasLayer/Label"]
+wait_time = 0.1
+autostart = true
+
 [node name="woodenFloor" parent="." instance=ExtResource("3_f0db6")]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_72xvq")
 volume_db = -7.748
 autoplay = true
+
+[connection signal="timeout" from="CanvasLayer/Label/Timer" to="CanvasLayer/Label" method="_on_timer_timeout"]
